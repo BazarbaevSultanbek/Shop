@@ -1,0 +1,107 @@
+@mixin flex($fDir,$jCon,$fWrap,$aItm) {
+    display: flex;
+    @if $fDir != null {
+        flex-direction: $fDir;
+    }  
+    @if $jCon != null {
+        justify-content: $jCon;
+    }
+    @if $fWrap != null {
+        flex-wrap: $fWrap;
+    }  
+    @if $aItm != null {
+        align-items: $aItm;
+    }
+}
+
+@mixin  text($fFamily,$fSize,$transform,$decoration,$color,$fWeight,$lHeigth){
+    font-family: $fFamily;
+    font-size: $fSize;
+    text-transform: $transform;
+    text-decoration: $decoration;
+    color: $color;
+    font-weight: $fWeight;
+    line-height: $lHeigth;
+}
+
+@mixin  position($pos,$top,$right,$bottom,$left,$zIndex) {
+    position: $pos;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    z-index: $zIndex;
+}
+
+@mixin img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+@mixin  bg {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+@mixin mediaQuery($par,$val){
+	@media only screen and ($par:#{$val}){
+		@content;
+	}
+}
+
+
+@mixin center($position) {
+    position: absolute;
+    
+    @if $position == 'vertical' {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    @else if $position == 'horizontal' {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @else if $position == 'both' {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+}
+
+// fontFace begin
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
+    @font-face {
+      font-family: "#{$font-name}";
+      src: url($file-name + '.eot');
+      src: url($file-name + '.eot?#iefix')  format('embedded-opentype'),
+      url($file-name + '.woff') format('woff'),
+      url($file-name + '.woff2') format('woff2'),
+      url($file-name + '.ttf')  format('truetype');
+      font-weight: $weight;
+      font-style: $style;
+    }
+}
+// fontFace end
+
+
+// long shadow begin
+@function makelongshadow($color) {
+    $val: 0px 0px $color;
+    @for $i from 1 through 200 {
+      $val: #{$val}, #{$i}px #{$i}px #{$color};
+    }
+    @return $val;
+}
+  
+@mixin longshadow($color) {
+    text-shadow: makelongshadow($color);
+}
+// long shadow end
+
+
+@mixin truncateText($overflow: ellipsis){
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: $overflow;
+}
