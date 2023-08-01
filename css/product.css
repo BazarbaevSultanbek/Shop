@@ -409,7 +409,7 @@
   background: url(../img/bannerBg.png) 100% 100%;
   top: -360px;
   text-align: center;
-  padding: 150px 0;
+  padding: 70px 0;
   z-index: 0;
 }
 .header-menu-display::before {
@@ -423,182 +423,201 @@
   left: 0;
   z-index: -1;
 }
-.header-menu-display p {
+.header-menu-display p:nth-child(1) {
   z-index: 2;
   font-family: "Montserrat";
-  font-size: 25px;
+  font-size: 22px;
   text-transform: uppercase;
   text-decoration: none;
   color: white;
   font-weight: 400;
   line-height: 40px;
 }
-.header-menu-display span {
+.header-menu-display p:nth-child(1) span {
   font-weight: 700 !important;
 }
-
-.roll-inner-logo,
-.roll-inner-logo-register {
+.header-menu-display p:nth-child(2) {
+  z-index: 2;
   font-family: "Montserrat";
-  font-size: 25px;
-  text-transform: capitalize;
-  text-decoration: none;
-  color: #737373;
-  font-weight: 400;
-  line-height: inherit;
-  text-align: center;
-}
-
-.roll .container {
-  padding: 0 15px;
-}
-
-.roll-inner-form input {
-  border: 1px solid #e7e7e7;
-  width: 90%;
-  height: 35px;
-  padding: 5px 0 5px 5px;
-  margin: 15px 0px;
-  font-family: "Montserrat";
-  font-size: 14px;
-  text-transform: capitalize;
-  text-decoration: none;
-  color: #737373;
-  font-weight: 400;
-  line-height: inherit;
-}
-.roll-inner-form .roll-inner-div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: column-reverse;
-          flex-direction: column-reverse;
-}
-.roll-inner-form a {
-  margin: 15px 0 20px 0;
-  font-family: "Open Sans";
-  font-size: 14px;
-  text-transform: capitalize;
-  text-decoration: none;
-  color: #00c8c8;
-  font-weight: 400;
-  line-height: inherit;
-}
-.roll-inner-form button {
-  border: 2px solid #737373;
-  background-color: inherit;
-  padding: 15px 25px;
-  width: 40%;
-  -webkit-transition: 0.5s all linear;
-  transition: 0.5s all linear;
-  font-family: "Montserrat";
-  font-size: 14px;
+  font-size: 23px;
   text-transform: uppercase;
   text-decoration: none;
-  color: #737373;
-  font-weight: 400;
-  line-height: inherit;
-}
-.roll-inner-form button:hover {
-  background-color: #00c8c8;
   color: white;
-  border: none;
-}
-
-.roll-inner:nth-child(2) {
-  margin-top: 45px;
-}
-
-.roll-inner-register input {
-  border: 1px solid #e7e7e7;
-  width: 90%;
-  height: 35px;
-  padding: 5px 0 5px 5px;
-  margin: 15px 0px;
-  font-family: "Montserrat";
-  font-size: 14px;
-  text-transform: none;
-  text-decoration: none;
-  color: #737373;
   font-weight: 400;
-  line-height: inherit;
+  line-height: 40px;
+}
+.header-menu-display p:nth-child(2) span {
+  color: #00c8c8;
 }
 
-.roll-inner-register-check {
+.main .container {
+  padding: 0 15px;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.main-block-items-photos img {
+  max-width: 100%;
+}
+.main-block-items-photos:nth-child(2) {
+  display: none;
+}
+
+.main-block-nav-deco div {
+  margin: 5px 0 15px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 10px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+.main-block-nav-deco div p {
+  font-family: "Montserrat";
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #625d5e;
+  font-weight: 600;
+  line-height: inherit;
+}
+.main-block-nav-deco div select,
+.main-block-nav-deco div input {
+  width: 150px;
+  height: 30px;
+  font-family: "Montserrat";
+  font-size: 12px;
+  text-transform: capitalize;
+  text-decoration: none;
+  color: #625d5e;
+  font-weight: 400;
+  line-height: inherit;
+}
+.main-block-nav-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  gap: 15px;
 }
-.roll-inner-register-check input {
-  width: 5%;
-}
-.roll-inner-register-check p {
-  margin: 25px 0;
-  font-family: "Montserrat";
-  font-size: 15px;
-  text-transform: none;
-  text-decoration: none;
-  color: #8e8c8c;
-  font-weight: 400;
-  line-height: inherit;
-}
-
-.roll-inner-register-flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 20px;
-}
-.roll-inner-register-flex button {
+.main-block-nav-buttons button {
+  background: inherit;
+  height: 70px;
   border: 2px solid #737373;
-  background-color: inherit;
-  padding: 15px 25px;
-  width: 66%;
   -webkit-transition: 0.5s all linear;
   transition: 0.5s all linear;
   font-family: "Montserrat";
-  font-size: 14px;
+  font-size: 18px;
   text-transform: uppercase;
   text-decoration: none;
-  color: #737373;
+  color: #625d5e;
   font-weight: 400;
   line-height: inherit;
 }
-.roll-inner-register-flex button:hover {
-  background-color: #00c8c8;
+.main-block-nav-buttons button:hover {
+  background: #333333;
+  border-color: #333333;
   color: white;
-  border-color: #00c8c8;
 }
-.roll-inner-register-flex p {
+.main-block-nav a {
+  display: block;
+  margin: 25px 0;
   font-family: "Montserrat";
+  font-size: 17px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #625d5e;
+  font-weight: 600;
+  line-height: inherit;
+}
+.main-block-nav a i {
+  background: #625d5e;
+  color: white;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.product {
+  margin: 40px 0;
+}
+.product .container {
+  padding: 0 15px;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.product-block-input {
+  display: none;
+}
+.product-block-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.product-block-label label {
+  height: 50px;
+  text-align: center;
+  font-family: "Montserrat";
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #575153;
+  font-weight: 600;
+  line-height: inherit;
+}
+.product-block-info-inner {
+  display: none;
+}
+.product-block-info-inner h3 {
+  font-family: "Montserrat";
+  font-size: 15px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #575153;
+  font-weight: 600;
+  line-height: inherit;
+}
+.product-block-info-inner p {
+  margin: 25px 0;
+  font-family: "Roboto";
   font-size: 15px;
   text-transform: none;
   text-decoration: none;
-  color: #8e8c8c;
+  color: #625d5e;
   font-weight: 400;
-  line-height: inherit;
-}
-.roll-inner-register-flex span {
-  font-family: "Open Sans";
-  font-size: 14px;
-  text-transform: capitalize;
-  text-decoration: none;
-  color: #00c8c8;
-  font-weight: 400;
-  line-height: inherit;
+  line-height: 25px;
 }
 
 .footer {
@@ -822,10 +841,10 @@
   .header-menu-list {
     width: 40%;
   }
-  .roll .container {
-    padding: 0 15px;
+  .header-menu-display {
+    padding: 100px 0;
   }
-  .roll-block {
+  .main-block {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -838,24 +857,16 @@
             justify-content: center;
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
-    -webkit-box-align: inherit;
-        -ms-flex-align: inherit;
-            align-items: inherit;
-    gap: 20px;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+    gap: 15px;
   }
-  .roll-block::before {
-    content: "";
-    position: absolute;
-    height: 450px;
-    width: 0.5px;
-    background: #acacac;
-    left: 47%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+  .main-block-photos img {
+    width: 400px;
   }
-  .roll-inner {
-    width: 47%;
-    margin: 0 !important;
+  .main-block-nav-buttons {
+    margin-top: 30px;
   }
   .footer-acc-items label {
     left: 4%;
@@ -916,6 +927,9 @@
   }
 }
 @media only screen and (min-width: 1500px) {
+  .header {
+    height: 1000px;
+  }
   .header-top {
     height: 70px;
     -ms-flex-pack: distribute;
@@ -1352,6 +1366,7 @@
     top: 7%;
     height: 700px;
     background-repeat: no-repeat;
+    padding: 130px 0;
   }
   .header-menu-display p:nth-child(1) {
     line-height: 200px;
@@ -1377,101 +1392,51 @@
   .header-menu-item-mybooks {
     background-color: inherit !important;
   }
-  .roll {
-    margin-top: 20%;
+  .main-block {
+    gap: 30px;
   }
-  .roll-block {
-    gap: 0;
-    margin-left: -3.3%;
+  .main-block-items-photos img {
+    width: 570px;
+    height: 710px;
   }
-  .roll-block::before {
-    left: 48%;
-  }
-  .roll-inner input {
-    padding: 10px;
-    font-size: 23px;
-    height: 60px;
-    width: 98%;
-  }
-  .roll-inner:nth-child(1) {
-    width: 46%;
-    margin-left: 153px !important;
-  }
-  .roll-inner:nth-child(2) {
-    margin-left: 25px !important;
-  }
-  .roll-inner-logo {
-    margin-left: 9%;
-    font-size: 35px;
-    text-transform: uppercase;
-    text-align: start;
-  }
-  .roll-inner-form {
-    margin: 50px 0 0 0px;
-    width: 85%;
-  }
-  .roll-inner-div {
-    -webkit-box-orient: horizontal !important;
-    -webkit-box-direction: normal !important;
-        -ms-flex-direction: row !important;
-            flex-direction: row !important;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    width: 98%;
-    margin-top: 45px;
-  }
-  .roll-inner-div button {
-    font-size: 20px;
-    border: 3px solid #737373;
-    font-weight: 500;
-  }
-  .roll-inner-div a {
-    font-size: 20px;
-  }
-  .roll-inner-logo-register {
-    font-size: 35px;
-    text-transform: uppercase;
-    text-align: start;
-  }
-  .roll-inner-register {
-    margin-top: 50px;
-    width: 80%;
-  }
-  .roll-inner-register-check {
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: start;
-    gap: 20px;
-  }
-  .roll-inner-register-check p {
-    font-size: 21px;
-    font-family: "Roboto", sans-serif;
-  }
-  .roll-inner-register input[type=checkbox] {
-    width: 3%;
-  }
-  .roll-inner-register-flex {
+  .main-block-nav-deco {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    gap: 60px;
-    margin-top: 30px;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+    gap: 30px;
   }
-  .roll-inner-register-flex button {
-    border: 3px solid #737373;
-    width: 350px;
-    font-size: 20px;
-    font-weight: 500;
+  .main-block-nav-deco div {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 20px;
   }
-  .roll-inner-register-flex p {
-    font-size: 23px;
-    font-family: "Roboto", sans-serif;
+  .main-block-nav-deco div select {
+    font-size: 17px;
+    height: 40px;
   }
-  .roll-inner-register-flex p span {
-    font-size: 23px;
-    font-family: "Roboto", sans-serif;
+  .main-block-nav-deco div input {
+    width: 70px;
+    height: 40px;
+  }
+  .main-block-nav-buttons button {
+    width: 250px;
+  }
+  .main-block-nav a {
+    margin: 25px 0;
   }
   .footer-acc {
     background: inherit;

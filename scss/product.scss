@@ -1,4 +1,13 @@
+@import "mixin";
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;500;600;800&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;800;900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;800;900&display=swap);
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 .header-top {
     background-color: #333333;
@@ -321,7 +330,7 @@
     background: url(../img/bannerBg.png) 100% 100%;
     top: -360px;
     text-align: center;
-    padding: 150px 0;
+    padding: 70px 0;
     z-index: 0;
 
     &::before {
@@ -336,121 +345,134 @@
         z-index: -1;
     }
 
-    p {
+    p:nth-child(1) {
         z-index: 2;
-        @include text('Montserrat', 25px, uppercase, none, white, 400, 40px);
+        @include text('Montserrat', 22px, uppercase, none, white, 400, 40px);
+
+        span {
+            font-weight: 700 !important;
+        }
     }
 
-    span {
-        font-weight: 700 !important;
+    p:nth-child(2) {
+        z-index: 2;
+        @include text('Montserrat', 23px, uppercase, none, white, 400, 40px);
+
+        span {
+            color: #00c8c8;
+        }
     }
+
 }
 
-.roll-inner-logo,
-.roll-inner-logo-register {
-    @include text('Montserrat', 25px, capitalize, none, #737373, 400, inherit);
-    text-align: center;
-}
-
-.roll {
+.main {
     .container {
         padding: 0 15px;
+        margin: 0 auto;
+        max-width: 1100px;
     }
 }
 
-.roll-inner-form {
-    input {
-        border: 1px solid #e7e7e7;
-        width: 90%;
-        height: 35px;
-        padding: 5px 0 5px 5px;
-        margin: 15px 0px;
-        @include text('Montserrat', 14px, capitalize, none, #737373, 400, inherit);
+.main-block {
+    &-items-photos {
+        img {
+            max-width: 100%;
+        }
+        &:nth-child(2){
+            display: none;
+        }
+    }
+}
+
+.main-block-nav {
+    &-deco {
+        div {
+            margin: 5px 0 15px 0;
+            @include flex(row, space-between, nowrap, start);
+
+            p {
+                @include text('Montserrat', 16px, uppercase, none, #625d5e, 600, inherit);
+            }
+
+            select,
+            input {
+                width: 150px;
+                height: 30px;
+                @include text('Montserrat', 12px, capitalize, none, #625d5e, 400, inherit);
+            }
+        }
     }
 
-    .roll-inner-div {
-        display: flex;
-        flex-direction: column-reverse;
+    &-buttons {
+        @include flex(row, center, nowrap, start);
+        gap: 15px;
+
+        button {
+            background: inherit;
+            height: 70px;
+            border: 2px solid #737373;
+            transition: 0.5s all linear;
+            @include text('Montserrat', 18px, uppercase, none, #625d5e, 400, inherit);
+            &:hover{
+                background: #333333;
+                border-color: #333333;
+                color: white;
+            }
+        }
     }
 
     a {
-        margin: 15px 0 20px 0;
-        @include text('Open Sans', 14px, capitalize, none, #00c8c8, 400, inherit);
-    }
-
-    button {
-        border: 2px solid #737373;
-        background-color: inherit;
-        padding: 15px 25px;
-        width: 40%;
-        transition: 0.5s all linear;
-        @include text('Montserrat', 14px, uppercase, none, #737373, 400, inherit);
-
-        &:hover {
-            background-color: #00c8c8;
-            color: white;
-            border: none;
-        }
-    }
-}
-
-.roll-inner:nth-child(2) {
-    margin-top: 45px;
-}
-
-.roll-inner-register {
-    input {
-        border: 1px solid #e7e7e7;
-        width: 90%;
-        height: 35px;
-        padding: 5px 0 5px 5px;
-        margin: 15px 0px;
-        @include text('Montserrat', 14px, none, none, #737373, 400, inherit);
-    }
-}
-
-.roll-inner-register-check {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-
-    input {
-        width: 5%;
-    }
-
-    p {
+        display: block;
         margin: 25px 0;
-        @include text('Montserrat', 15px, none, none, #8e8c8c, 400, inherit);
+        @include text('Montserrat', 17px, uppercase, none, #625d5e, 600, inherit);
+
+        i {
+            background: #625d5e;
+            color: white;
+            border-radius: 50%;
+            padding: 5px;
+        }
     }
 }
 
-.roll-inner-register-flex {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.product {
+    margin: 40px 0;
 
-    button {
-        border: 2px solid #737373;
-        background-color: inherit;
-        padding: 15px 25px;
-        width: 66%;
-        transition: 0.5s all linear;
-        @include text('Montserrat', 14px, uppercase, none, #737373, 400, inherit);
+    .container {
+        padding: 0 15px;
+        margin: 0 auto;
+        max-width: 1100px;
+    }
+}
 
-        &:hover {
-            background-color: #00c8c8;
-            color: white;
-            border-color: #00c8c8;
+.product-block {
+    &-input {
+        display: none;
+    }
+
+    &-label {
+        @include flex(row, start, wrap, center);
+
+        label {
+            height: 50px;
+            text-align: center;
+            @include text('Montserrat', 16px, uppercase, none, #575153, 600, inherit);
         }
     }
 
-    p {
-        @include text('Montserrat', 15px, none, none, #8e8c8c, 400, inherit);
-    }
+    &-info {
+        &-inner {
+            display: none;
 
-    span {
-        @include text('Open Sans', 14px, capitalize, none, #00c8c8, 400, inherit);
+            h3 {
+                @include text('Montserrat', 15px, uppercase, none, #575153, 600, inherit);
+            }
+
+            p {
+                margin: 25px 0;
+                @include text('Roboto', 15px, none, none, #625d5e, 400, 25px);
+            }
+        }
     }
 }
 
@@ -604,6 +626,7 @@
     }
 }
 
+
 @media only screen and (min-width:768px) {
     .header-top {
         align-items: center;
@@ -658,32 +681,21 @@
         width: 40%;
     }
 
-    .roll {
-        .container {
-            padding: 0 15px;
+    .header-menu-display {
+        padding: 100px 0;
+    }
+    .main-block{
+        @include flex(row,center,nowrap,start);
+        gap: 15px;
+        &-photos{
+            img{
+                width: 400px;
+            }
+        }
+        &-nav-buttons{
+            margin-top: 30px;
         }
     }
-
-    .roll-block {
-        @include flex(row, center, nowrap, inherit);
-        gap: 20px;
-
-        &::before {
-            content: "";
-            position: absolute;
-            height: 450px;
-            width: 0.5px;
-            background: #acacac;
-            left: 47%;
-            transform: translateX(-50%);
-        }
-    }
-
-    .roll-inner {
-        width: 47%;
-        margin: 0 !important;
-    }
-
     .footer-acc-items label {
         left: 4%;
     }
@@ -719,8 +731,11 @@
     }
 }
 
-
 @media only screen and (min-width:1500px) {
+    .header {
+        height: 1000px;
+    }
+
     .header-top {
         height: 70px;
         justify-content: space-around;
@@ -763,7 +778,7 @@
     }
 
     .header-top-korzinka-hover {
-       
+
         height: 140px;
         width: 500px;
         padding-top: 23px;
@@ -1167,6 +1182,7 @@
         top: 7%;
         height: 700px;
         background-repeat: no-repeat;
+        padding: 130px 0;
 
         p:nth-child(1) {
             line-height: 200px;
@@ -1200,115 +1216,42 @@
     .header-menu-item-mybooks {
         background-color: inherit !important;
     }
-
-    .roll {
-        margin-top: 20%;
-    }
-
-    .roll-block {
-        gap: 0;
-        margin-left: -3.3%;
-        &::before{
-            left: 48%;
-        }
-    }
-
-    .roll-inner {
-        input {
-            padding: 10px;
-            font-size: 23px;
-            height: 60px;
-            width: 98%;
-        }
-
-        &:nth-child(1) {
-            width: 46%;
-            margin-left: 153px !important;
-        }
-
-        &:nth-child(2) {
-            margin-left: 25px !important;
-        }
-    }
-
-    .roll-inner-logo {
-        margin-left: 9%;
-        font-size: 35px;
-        text-transform: uppercase;
-        text-align: start;
-    }
-
-    .roll-inner-form {
-        margin: 50px 0 0 0px;
-        width: 85%;
-    }
-
-    .roll-inner-div {
-        flex-direction: row !important;
-        justify-content: space-between;
-        width: 98%;
-        margin-top: 45px;
-
-        button {
-            font-size: 20px;
-            border: 3px solid #737373;
-            font-weight: 500;
-        }
-
-        a {
-            font-size: 20px;
-        }
-
-    }
-
-    .roll-inner-logo-register {
-        font-size: 35px;
-        text-transform: uppercase;
-        text-align: start;
-    }
-
-    .roll-inner-register {
-        margin-top: 50px;
-        width: 80%;
-
-        &-check {
-            justify-content: start;
-            gap: 20px;
-
-            p {
-                font-size: 21px;
-                font-family: 'Roboto', sans-serif;
+    .main-block{
+        gap: 30px;
+        &-items-photos{
+            img{
+                width: 570px;
+                height: 710px;
             }
         }
-
-        input[type="checkbox"] {
-            width: 3%;
-        }
-
-        &-flex {
-            flex-direction: row;
-            gap: 60px;
-            margin-top: 30px;
-
-            button {
-                border: 3px solid #737373;
-                width: 350px;
-                font-size: 20px;
-                font-weight: 500;
-            }
-
-            p {
-                font-size: 23px;
-                font-family: 'Roboto', sans-serif;
-
-                span {
-                    font-size: 23px;
-                    font-family: 'Roboto', sans-serif;
+    }
+    .main-block-nav{        
+        &-deco{
+            @include flex(row,start,nowrap,start);
+            gap: 30px;
+            div{
+                flex-direction: column;
+                gap: 20px;
+                select{
+                    font-size: 17px;
+                    height: 40px;
+                }
+                input{
+                    width: 70px;
+                    height: 40px;
                 }
             }
         }
-    }
+        &-buttons{
+            button{
+                width: 250px;
+            }
+        }
+        a{
+            margin: 25px 0;
+        }
 
+    }
     .footer-acc {
         background: inherit;
 
@@ -1361,6 +1304,7 @@
         p {
             font-size: 50px;
             line-height: 70px;
+
             &:nth-child(2) {
                 font-weight: 300;
             }

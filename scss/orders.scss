@@ -1,0 +1,351 @@
+@import "mixin";
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;500;600;800&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;800;900&display=swap);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 1100px;
+}
+
+.header {
+    position: relative;
+    height: 360px;
+
+    &-logo {
+        text-align: center;
+        overflow: hidden;
+        margin: 15px auto;
+        width: 10em;
+
+        span {
+            @include text('Raleway', 22px, uppercase, none, black, 400, inherit);
+            display: inline-block;
+            position: relative;
+            animation: letterReplacement 5s infinite;
+            animation-direction: alternate;
+
+            &:nth-child(1) {
+                animation-delay: 0s;
+            }
+
+            &:nth-child(2) {
+                animation-delay: 0.5s;
+            }
+
+            &:nth-child(3) {
+                animation-delay: 1s;
+            }
+
+            &:nth-child(4) {
+                animation-delay: 1.5s;
+            }
+
+            &:nth-child(5) {
+                animation-delay: 2s;
+            }
+
+            &:nth-child(6) {
+                animation-delay: 2.5s;
+            }
+
+            &:nth-child(7) {
+                animation-delay: 3s;
+            }
+
+            &:nth-child(8) {
+                animation-delay: 3.5s;
+            }
+        }
+
+        @keyframes letterReplacement {
+            0% {
+                opacity: 1;
+            }
+
+            12.5% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            25% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            37.5% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            50% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            62.5% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            75% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            87.5% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+    }
+
+    &-block-menu {
+        width: 100%;
+
+        label {
+            span {
+                position: absolute;
+                right: 15px;
+                width: 20px;
+                height: 2px;
+                top: 14px;
+                background-color: black;
+                transition: 0.5s all linear;
+
+                &:nth-child(2) {
+                    margin-top: 7px;
+                }
+
+                &:nth-child(3) {
+                    margin-top: 14px;
+                }
+            }
+        }
+
+        input {
+            display: none;
+
+            &:checked~ul {
+                bottom: 19%;
+                opacity: 1;
+            }
+
+            &:checked~label span:nth-child(1) {
+                transform: rotate(675deg);
+                margin-top: 10px;
+            }
+
+            &:checked~label span:nth-child(2) {
+                display: none;
+            }
+
+            &:checked~label span:nth-child(3) {
+                margin-top: 10px;
+                transform: rotate(-675deg);
+            }
+        }
+
+        ul {
+            position: absolute;
+            width: 100%;
+            height: 250px;
+            left: 0%;
+            bottom: 115%;
+            opacity: 0;
+            background-color: #343a40;
+            list-style: none;
+            text-align: center;
+            padding: 60px 0 40px 0;
+            transition: 0.5s all linear;
+            z-index: 2;
+
+            a {
+                @include text('Raleway', 20px, none, none, white, 400, 40px);
+            }
+
+            i {
+                color: white;
+            }
+        }
+    }
+
+    &-block-display {
+        position: absolute;
+        background: url(../img/brand3.png) no-repeat;
+        height: 250px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background-size: 100% 100%;
+        z-index: 1;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 250px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    }
+}
+
+.main {
+    table {
+        thead {
+            tr {
+                @include flex(column, inherit, nowrap, start);
+                flex-basis: 101px;
+
+                th {
+                    @include text('Roboto', 16px, none, none, black, 600, 35px);
+
+                    &::after {
+                        content: ':';
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width:768px) {
+    .header {
+        height: 80px;
+    }
+
+    .header-block {
+        &-menu {
+            input:checked~ul {
+                bottom: 33%;
+                z-index: 1;
+            }
+
+            input:checked~label span {
+                margin-top: -4px !important;
+                z-index: 2;
+                background: white;
+            }
+
+            label {
+                span {
+                    top: 5px;
+                }
+            }
+
+            ul {
+                height: 100px;
+                padding-top: 45px;
+
+                li {
+                    display: inline-block;
+                    margin-right: 15px;
+
+                    &:nth-child(2) {
+                        margin-top: -15px;
+                    }
+                }
+            }
+        }
+    }
+
+    .header-block-display {
+        display: none;
+    }
+
+    .main {
+        table {
+            margin-left: 11%;
+            thead {
+                tr {
+                    flex-direction: row;
+                    gap: 80px;
+
+                    th {
+                        &::after {
+                            content: '';
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width:1440px) {
+    body {
+        background: #f5f5fa;
+    }
+
+    .header-logo {
+        display: none;
+    }
+
+    .header-block {
+        &-menu {
+            label {
+                display: none;
+            }
+
+            ul {
+                position: fixed;
+                height: 100%;
+                width: 18%;
+                top: 0;
+                bottom: 0;
+                padding: 15% 0 0 45px;
+                opacity: 1;
+
+                li {
+                    display: block;
+                    text-align: start;
+                    line-height: 55px;
+
+                    a {
+                        font-size: 25px;
+                    }
+
+                    &:nth-child(2) {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+    .main{
+        table{
+            border-top: 3px solid #dee2e6;
+            border-bottom: 3px solid #dee2e6;
+            margin: 15% 0 0 0;
+            width: 1300px;
+            thead{
+                display: block;
+                width: 100%;
+                margin-left: 5%;
+                tr{
+                    padding: 20px 0;
+                    gap: 200px;
+                    th{
+                        font-size: 25px;
+                    }
+                }
+            }
+        }
+    }
+}

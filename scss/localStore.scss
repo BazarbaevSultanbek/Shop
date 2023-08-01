@@ -1,4 +1,13 @@
+@import "mixin";
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;500;600;800&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;800;900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;800;900&display=swap);
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 .header-top {
     background-color: #333333;
@@ -346,111 +355,120 @@
     }
 }
 
-.roll-inner-logo,
-.roll-inner-logo-register {
-    @include text('Montserrat', 25px, capitalize, none, #737373, 400, inherit);
-    text-align: center;
-}
 
-.roll {
+.main {
     .container {
         padding: 0 15px;
     }
-}
 
-.roll-inner-form {
-    input {
-        border: 1px solid #e7e7e7;
-        width: 90%;
-        height: 35px;
-        padding: 5px 0 5px 5px;
-        margin: 15px 0px;
-        @include text('Montserrat', 14px, capitalize, none, #737373, 400, inherit);
-    }
+    &-block {
+        @include flex(column, center, nowrap, center);
 
-    .roll-inner-div {
-        display: flex;
-        flex-direction: column-reverse;
-    }
+        &-items {
+            &-logo {
+                @include text('Montserrat', 18px, uppercase, none, #575153, 600, inherit);
+            }
 
-    a {
-        margin: 15px 0 20px 0;
-        @include text('Open Sans', 14px, capitalize, none, #00c8c8, 400, inherit);
-    }
+            &-street {
+                @include text('Montserrat', 12px, uppercase, none, #727272, 600, 50px);
+            }
 
-    button {
-        border: 2px solid #737373;
-        background-color: inherit;
-        padding: 15px 25px;
-        width: 40%;
-        transition: 0.5s all linear;
-        @include text('Montserrat', 14px, uppercase, none, #737373, 400, inherit);
+            &-text {
+                @include text('Roboto', 12px, uppercase, none, #8e8c8c, 400, 20px);
+            }
 
-        &:hover {
-            background-color: #00c8c8;
-            color: white;
-            border: none;
+            &-detail {
+                border: 2px solid #575153;
+                width: 150px;
+                text-align: center;
+                padding: 15px 0;
+                margin: 15px 0 25px 0;
+                @include text('Roboto', 12px, uppercase, none, #575153, 600, inherit);
+                transition: 0.5s all linear;
+                cursor: pointer;
+                &:hover{
+                    background: #00c8c8;
+                    border-color: #00c8c8;
+                    color: white;
+                }
+            }
         }
     }
 }
 
-.roll-inner:nth-child(2) {
-    margin-top: 45px;
-}
-
-.roll-inner-register {
-    input {
-        border: 1px solid #e7e7e7;
-        width: 90%;
-        height: 35px;
-        padding: 5px 0 5px 5px;
-        margin: 15px 0px;
-        @include text('Montserrat', 14px, none, none, #737373, 400, inherit);
-    }
-}
-
-.roll-inner-register-check {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-
-    input {
-        width: 5%;
+.map {
+    .container {
+        margin: 0 auto;
     }
 
-    p {
-        margin: 25px 0;
-        @include text('Montserrat', 15px, none, none, #8e8c8c, 400, inherit);
-    }
-}
-
-.roll-inner-register-flex {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
-    button {
-        border: 2px solid #737373;
-        background-color: inherit;
-        padding: 15px 25px;
-        width: 66%;
-        transition: 0.5s all linear;
-        @include text('Montserrat', 14px, uppercase, none, #737373, 400, inherit);
-
-        &:hover {
-            background-color: #00c8c8;
-            color: white;
-            border-color: #00c8c8;
+    &-block {
+        &-google {
+            iframe {
+                width: 320px;
+                height: 300px;
+            }
         }
-    }
 
-    p {
-        @include text('Montserrat', 15px, none, none, #8e8c8c, 400, inherit);
-    }
+        &-items {
+            margin-top: 20px;
+            padding: 0 15px;
 
-    span {
-        @include text('Open Sans', 14px, capitalize, none, #00c8c8, 400, inherit);
+            &-logo {
+                @include text('Montserrat', 18px, uppercase, none, #575153, 600, inherit);
+            }
+
+            &-street {
+                @include text('Montserrat', 12px, uppercase, none, #575153, 600, 50px);
+            }
+
+            &-text {
+                @include text('Roboto', 12px, uppercase, none, #8e8c8c, 400, 20px);
+            }
+
+            &-inner {
+                margin: 25px 0;
+
+                li {
+                    line-height: 30px;
+                    list-style: none;
+                }
+
+                i {
+                    color: #8e8c8c;
+                }
+
+                span {
+                    @include text('Montserrat', 12px, uppercase, none, #575153, 400, inherit);
+                }
+
+                a {
+                    @include text('Montserrat', 12px, uppercase, none, #575153, 400, inherit);
+                }
+            }
+
+            &-nav {
+                text-align: center;
+                li {
+                    display: inline-block;
+                    margin-right: 10px;
+                    list-style: none;
+                    
+                    a {
+                        background: #8e8c8c;
+                        padding: 7px 10px;
+                        border-radius: 50%;
+                        color: white;
+                        font-size: 17px;
+                        transition: 0.5s all linear;
+                        cursor: pointer;
+                        &:hover{
+                            background: #00c8c8;
+                        }
+                    }
+              
+                }
+            }
+        }
     }
 }
 
@@ -604,6 +622,7 @@
     }
 }
 
+
 @media only screen and (min-width:768px) {
     .header-top {
         align-items: center;
@@ -658,30 +677,40 @@
         width: 40%;
     }
 
-    .roll {
-        .container {
-            padding: 0 15px;
+    .main-block {
+        flex-direction: row;
+        align-items: start;
+        gap: 25px;
+
+        &-items {
+            flex-basis: 39%;
+
+            &-street {
+                line-height: 15px;
+                margin: 20px 0;
+            }
         }
     }
 
-    .roll-block {
-        @include flex(row, center, nowrap, inherit);
-        gap: 20px;
+    .map-block {
+        @include flex(row, center, nowrap, start);
+        margin-top: 25px;
 
-        &::before {
-            content: "";
-            position: absolute;
-            height: 450px;
-            width: 0.5px;
-            background: #acacac;
-            left: 47%;
-            transform: translateX(-50%);
+        &-google {
+            iframe {
+                width: 400px;
+                height: 450px;
+            }
         }
-    }
 
-    .roll-inner {
-        width: 47%;
-        margin: 0 !important;
+        &-items {
+            background: #f8f8f8;
+            margin: 0;
+            padding: 12px 15px;
+            &-nav{
+                text-align: start;
+            }
+        }
     }
 
     .footer-acc-items label {
@@ -718,7 +747,6 @@
         @include flex(row, space-around, nowrap, center);
     }
 }
-
 
 @media only screen and (min-width:1500px) {
     .header-top {
@@ -763,7 +791,7 @@
     }
 
     .header-top-korzinka-hover {
-       
+
         height: 140px;
         width: 500px;
         padding-top: 23px;
@@ -1201,116 +1229,109 @@
         background-color: inherit !important;
     }
 
-    .roll {
+    .main {
         margin-top: 20%;
     }
 
-    .roll-block {
-        gap: 0;
-        margin-left: -3.3%;
-        &::before{
-            left: 48%;
-        }
-    }
+    .main-block {
+        gap: 130px;
 
-    .roll-inner {
-        input {
-            padding: 10px;
-            font-size: 23px;
-            height: 60px;
-            width: 98%;
-        }
+        &-items {
+            flex-basis: 28%;
 
-        &:nth-child(1) {
-            width: 46%;
-            margin-left: 153px !important;
-        }
-
-        &:nth-child(2) {
-            margin-left: 25px !important;
-        }
-    }
-
-    .roll-inner-logo {
-        margin-left: 9%;
-        font-size: 35px;
-        text-transform: uppercase;
-        text-align: start;
-    }
-
-    .roll-inner-form {
-        margin: 50px 0 0 0px;
-        width: 85%;
-    }
-
-    .roll-inner-div {
-        flex-direction: row !important;
-        justify-content: space-between;
-        width: 98%;
-        margin-top: 45px;
-
-        button {
-            font-size: 20px;
-            border: 3px solid #737373;
-            font-weight: 500;
-        }
-
-        a {
-            font-size: 20px;
-        }
-
-    }
-
-    .roll-inner-logo-register {
-        font-size: 35px;
-        text-transform: uppercase;
-        text-align: start;
-    }
-
-    .roll-inner-register {
-        margin-top: 50px;
-        width: 80%;
-
-        &-check {
-            justify-content: start;
-            gap: 20px;
-
-            p {
-                font-size: 21px;
-                font-family: 'Roboto', sans-serif;
+            &-logo {
+                font-size: 30px;
             }
-        }
 
-        input[type="checkbox"] {
-            width: 3%;
-        }
+            &-street {
+                font-size: 22px;
+                line-height: 50px;
+            }
 
-        &-flex {
-            flex-direction: row;
-            gap: 60px;
-            margin-top: 30px;
+            &-text {
+                font-size: 18px;
+                line-height: 35px;
+            }
 
-            button {
-                border: 3px solid #737373;
-                width: 350px;
+            &-detail {
                 font-size: 20px;
-                font-weight: 500;
+                width: 210px;
+                margin: 23px 0;
+            }
+        }
+    }
+
+    .map {
+        margin-top: 5%;
+    }
+
+    .map-block {
+        &-google {
+            iframe {
+                width: 1250px;
+                height: 800px;
+            }
+        }
+
+        &-items {
+            height: 800px;
+            padding-left: 25px;
+            &-logo {
+                font-size: 35px;
             }
 
-            p {
-                font-size: 23px;
-                font-family: 'Roboto', sans-serif;
+            &-street {
+                font-size: 26px;
+                line-height: 50px;
+                margin: 25px 0;
+            }
 
-                span {
-                    font-size: 23px;
-                    font-family: 'Roboto', sans-serif;
+            &-text {
+                font-size: 20px;
+                line-height: 35px;
+            }
+
+            &-inner {
+                li {
+                    line-height: 45px;
+
+                    i {
+                        font-size: 20px;
+                    }
+
+                    span {
+                        padding-left: 5px;
+                        font-size: 20px;
+                    }
+
+                    a {
+                        padding-left: 5px;
+                        font-size: 20px;
+                    }
+                }
+            }
+
+            &-detail {
+                font-size: 20px;
+                width: 210px;
+                margin: 23px 0;
+            }
+
+            &-nav {
+                margin-top: 100px;
+                li {
+                    a {
+                        font-size: 25px;
+                    }
                 }
             }
         }
     }
-
+    .footer{
+        margin-top: 10%;
+    }
     .footer-acc {
-        background: inherit;
+        background: #f8f8f8;
 
         &-flex {
             display: flex;
@@ -1320,7 +1341,7 @@
 
     .footer-acc-items {
         margin-left: -35px;
-
+        border: none;
         label {
             color: #333333;
             font-size: 20px;
@@ -1348,6 +1369,7 @@
     }
 
     .footer-main {
+        background: #f8f8f8;
         justify-content: center;
         gap: 0;
     }
@@ -1361,6 +1383,7 @@
         p {
             font-size: 50px;
             line-height: 70px;
+
             &:nth-child(2) {
                 font-weight: 300;
             }

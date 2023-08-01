@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/products.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container">
+                <div class="header-logo">
+                    <span>P</span>
+                    <span>r</span>
+                    <span>o</span>
+                    <span>d</span>
+                    <span>u</span>
+                    <span>c</span>
+                    <span>t</span>
+                    <span>s</span>
+                </div>
+                <div class="header-block">
+                    <div class="header-block-menu">
+                        <input type="checkbox" id="menu">
+                        <label for="menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </label>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-users"></i>
+                                <a href="users.html">
+                                    Users
+                                </a>
+
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-bag-shopping"></i>
+                                <a href="products.html">
+                                    Products
+                                </a>
+                            </li>
+                            <li>
+                                <i class="fa-brands fa-first-order"></i>
+                                <a href="orders.html">Orders</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="header-block-display"></div>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <div class="container">
+                <div class="main-nav">
+                    <div class="main-nav-each">
+                        <label for="type">Type</label>
+                        <input type="text" id="type" placeholder="Type..">
+                    </div>
+                    <div class="main-nav-each">
+                        <label for="price">Price</label>
+                        <input type="number" id="price" placeholder="Price..">
+                    </div>
+                    <div class="main-nav-each">
+                        <label for="discount">Discount</label>
+                        <input type="number" id="discount" placeholder="Discount..">
+                    </div>                    
+                </div>
+                <div class="main-nav-items">
+                    <label for="desc">Description</label>
+                    <textarea  id="desc cols="40" rows="10" placeholder="Add comment.."></textarea>
+                </div>
+                <button id="add">Add Products</button>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-inner">
+                    <table class="footer-inner-table">
+                       <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Type</th>
+                            <th>Price</th>
+                            <th>Product code</th>
+                            <th>Discount</th>
+                            <th>Change</th>
+                            <th>Delete</th>
+                        </tr>
+                       </thead>
+                       <tbody>
+                        <tr>
+                            <td>
+                                <img src="../img/shirt2.png" alt="product photo">
+                            </td>
+                            
+                            <td>Type</td>
+                            <td>Price</td>
+                            <td>Product code</td>
+                            <td>Discount</td>
+                            <td>
+                                <button id="edit">Change</button>                                    
+                            </td>
+                            <td>
+                                <button id="delete">delete</button>                                
+                            </td>
+                        </tr>
+                       </tbody>
+                    </table>
+                   
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

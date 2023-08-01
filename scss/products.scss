@@ -1,0 +1,641 @@
+@import "mixin";
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;500;600;800&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;800;900&display=swap);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 1100px;
+    overflow: hidden;
+}
+
+.header {
+    position: relative;
+    height: 360px;
+
+    &-logo {
+        text-align: center;
+        overflow: hidden;
+        margin: 15px auto;
+        width: 10em;
+
+        span {
+            @include text('Raleway', 22px, uppercase, none, black, 400, inherit);
+            display: inline-block;
+            position: relative;
+            animation: letterReplacement 5s infinite;
+            animation-direction: alternate;
+
+            &:nth-child(1) {
+                animation-delay: 0s;
+            }
+
+            &:nth-child(2) {
+                animation-delay: 0.5s;
+            }
+
+            &:nth-child(3) {
+                animation-delay: 1s;
+            }
+
+            &:nth-child(4) {
+                animation-delay: 1.5s;
+            }
+
+            &:nth-child(5) {
+                animation-delay: 2s;
+            }
+
+            &:nth-child(6) {
+                animation-delay: 2.5s;
+            }
+
+            &:nth-child(7) {
+                animation-delay: 3s;
+            }
+
+            &:nth-child(8) {
+                animation-delay: 3.5s;
+            }
+        }
+
+        @keyframes letterReplacement {
+            0% {
+                opacity: 1;
+            }
+
+            12.5% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            25% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            37.5% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            50% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            62.5% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            75% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            87.5% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+    }
+
+    &-block-menu {
+        width: 100%;
+
+        label {
+            span {
+                position: absolute;
+                right: 15px;
+                width: 20px;
+                height: 2px;
+                top: 21px;
+                background-color: black;
+                transition: 0.5s all linear;
+
+                &:nth-child(2) {
+                    margin-top: 7px;
+                }
+
+                &:nth-child(3) {
+                    margin-top: 14px;
+                }
+            }
+        }
+
+        input {
+            display: none;
+
+            &:checked~ul {
+                bottom: 15%;
+                opacity: 1;
+            }
+
+            &:checked~label span:nth-child(1) {
+                transform: rotate(675deg);
+                margin-top: 10px;
+            }
+
+            &:checked~label span:nth-child(2) {
+                display: none;
+            }
+
+            &:checked~label span:nth-child(3) {
+                margin-top: 10px;
+                transform: rotate(-675deg);
+            }
+        }
+
+        ul {
+            position: absolute;
+            width: 100%;
+            height: 250px;
+            left: 0%;
+            bottom: 115%;
+            opacity: 0;
+            background-color: #343a40;
+            list-style: none;
+            text-align: center;
+            padding: 60px 0 40px 0;
+            transition: 0.5s all linear;
+            z-index: 2;
+
+            a {
+                @include text('Raleway', 20px, none, none, white, 400, 40px);
+            }
+
+            i {
+                color: white;
+            }
+        }
+    }
+
+    &-block-display {
+        position: absolute;
+        background: url(../img/brand2.png) no-repeat;
+        height: 250px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background-size: 100% 100%;
+        z-index: 1;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 250px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    }
+}
+
+.main {
+    position: relative;
+
+    &-nav {
+        @include flex(column, unset, nowrap, start);
+
+        &-each {
+            @include flex(row, space-around, nowrap, center);
+            margin: 15px 0;
+
+            label {
+                @include text('Raleway', 15px, none, none, black, 400, inherit);
+
+                &::after {
+                    content: ':';
+                }
+            }
+
+            input {
+                position: absolute;
+                right: 15px;
+                padding: 5px 15px 5px 5px;
+                font-size: 15px;
+                font-family: 'Raleway';
+            }
+        }
+
+        &-items {
+            margin-top: 20px;
+
+            label {
+                @include text('Raleway', 15px, none, none, black, 400, inherit);
+
+                &::after {
+                    content: ':';
+                }
+            }
+
+            textarea {
+                margin-top: 6px;
+                padding: 5px 15px;
+                width: 100%;
+                height: 150px;
+                font-size: 15px;
+                font-family: 'Raleway';
+            }
+        }
+    }
+
+    button {
+        @include text('Raleway', 14px, capitalize, none, white, 400, inherit);
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 10px;
+        border-radius: 5px;
+        letter-spacing: 0.5px;
+        margin: 20px 0;
+    }
+}
+
+.footer {
+    &-inner-table {
+        display: table;
+        gap: 15px;
+
+        @include flex(row, inherit, nowrap, start);
+
+        thead {
+
+            tr {
+                @include flex(column, inherit, nowrap, start);
+                flex-basis: 101px;
+
+                th {
+                    @include text('Roboto', 16px, none, none, black, 600, 35px);
+
+                    &::after {
+                        content: ':';
+                    }
+
+                    &:nth-child(1) {
+                        line-height: 110px;
+                    }
+
+                    &:nth-child(6) {
+                        line-height: 50px;
+                    }
+                }
+            }
+        }
+
+        tbody {
+            margin-top: 33px;
+
+            tr {
+                border: none;
+                flex-basis: 120px;
+                @include flex(column, center, nowrap, start);
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    border: 1px solid #7e7c7c;
+                }
+
+                td {
+                    text-align: start;
+                    @include text('Open Sans', 15px, none, none, rgb(136, 136, 136), 400, 35px);
+
+                    &:nth-child(1) {
+                        line-height: 66px;
+                    }
+
+                    &:nth-child(6) {
+                        line-height: 20px;
+                        margin: 15px 0 5px 0;
+                    }
+
+                    &:nth-child(7) {
+                        line-height: 25px;
+                        margin: 15px 0 10px 0;
+                    }
+
+                    button[id="edit"] {
+                        @include text('Open Sans', 15px, capitalize, none, white, 400, inherit);
+                        background-color: #007bff;
+                        border: none;
+                        height: 25px;
+                        width: 90px;
+                        border-radius: 5px;
+                        letter-spacing: 0.5px;
+                    }
+
+                    button[id="delete"] {
+                        @include text('Open Sans', 15px, capitalize, none, white, 400, inherit);
+                        background-color: #ee4155;
+                        border: none;
+                        height: 25px;
+                        width: 90px;
+                        border-radius: 5px;
+                        letter-spacing: 0.5px;
+                    }
+                }
+            }
+        }
+
+
+
+
+    }
+}
+
+
+@media only screen and (min-width:768px) {
+    .header {
+        height: 80px;
+    }
+
+    .header-block {
+        &-menu {
+            input:checked~ul {
+                bottom: 5%;
+                z-index: 1;
+            }
+
+            input:checked~label span {
+                top: 10px;
+                z-index: 2;
+                background: white;
+            }
+
+            ul {
+                height: 100px;
+                padding-top: 45px;
+
+                li {
+                    display: inline-block;
+                    margin-right: 15px;
+
+                    &:nth-child(2) {
+                        margin-top: -15px;
+                    }
+                }
+            }
+        }
+    }
+
+    .header-block-display {
+        display: none;
+    }
+
+    .main {
+        background: #f5f5fa;
+
+        &-nav {
+            flex-direction: row;
+            justify-content: inherit;
+            justify-content: center;
+            gap: 25px;
+
+            &-each {
+                width: 210px;
+                flex-direction: column;
+                justify-content: start;
+                gap: 10px;
+
+                label {
+                    margin-left: -150px;
+
+                    &::after {
+                        content: '';
+                    }
+                }
+
+                input {
+                    position: static;
+                    border: 1px solid #ced4da;
+                }
+            }
+
+            &-items {
+                margin: 15px auto 0 auto;
+                width: 90%;
+
+                textarea {
+                    border: 1px solid #ced4da;
+                }
+            }
+        }
+
+        button[id="add"] {
+            margin-left: 35px;
+        }
+    }
+
+    .footer {
+        background: #f5f5fa;
+    }
+
+    .footer-inner-table {
+        max-width: 900px;
+        margin: 50px auto;
+        text-align: center;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+
+        thead {
+            border-top: 2px solid#dee2e6;
+
+            tr {
+                width: 737px;
+                gap: 30px;
+                padding: 0 15px;
+                flex-direction: row;
+
+                th {
+                    padding: 0.55rem;
+                    @include text('Open Sans', 16px, none, none, black, 400, 1.5);
+                    line-height: 20px !important;
+
+                    &::after {
+                        content: '';
+                    }
+
+                    &:nth-child(7) {
+                        padding-left: 19px;
+                    }
+                }
+            }
+        }
+
+        tbody {
+            margin-top: 0;
+            border-top: 2px solid#dee2e6;
+
+            tr {
+                width: 760px;
+                gap: 25px;
+                margin-left: -10px;
+                align-items: center;
+                justify-content: center;
+                flex-direction: row;
+
+                td {
+                    padding: 0.55rem;
+                    line-height: 20px !important;
+
+                    &:nth-child(2) {
+                        margin-left: 10px;
+                    }
+
+                    &:nth-child(3) {
+                        padding-left: 1.15rem;
+                    }
+
+                    &:nth-child(4) {
+                        padding-left: 1.25rem;
+                    }
+
+                    &:nth-child(n+6) {
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width:1440px) {
+    .header-logo{
+        width: 11em;
+        span{
+            font-size: 25px;
+        }
+    }
+    .header-block {
+        &-menu {
+            label {
+                display: none;
+            }
+
+            ul {
+                position: fixed;
+                height: 100%;
+                width: 18%;
+                top: 0;
+                bottom: 0;
+                padding: 10% 0 0 45px;
+                opacity: 1;
+
+                li {
+                    display: block;
+                    text-align: start;
+                    line-height: 55px;
+                    a {
+                        font-size: 25px;
+                    }
+
+                    &:nth-child(2) {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .main {
+        left: 10%;
+        width: 90%;
+        padding-top: 5%;
+        &-nav {
+            &-each {
+                width: 270px;
+
+                &:nth-child(3) {
+                    label {
+                        margin-left: -168px;
+                    }
+                }
+
+                label {
+                    font-size: 25px;
+                    margin-left: -198px;
+                }
+
+                input {
+                    width: 270px;
+                    font-size: 20px;
+                }
+            }
+
+            &-items {
+                width: 80%;
+
+                label {
+                    font-size: 25px;
+                }
+
+                textarea {
+                    font-size: 20px;
+                }
+            }
+
+        }
+
+        button[id="add"] {
+            margin-left: 10%;
+            font-size: 20px;
+        }
+    }
+
+    .footer {
+        padding:2% 0 5% 13%;
+
+        &-inner-table {
+            thead {
+                tr{
+                    width: 860px;
+                    th {
+                        font-size: 21px;
+                    }
+                }
+            }
+            tbody{
+                tr{
+                    width: 850px;
+                    margin-left: 0;
+                    td{                        
+                        font-size: 20px;
+                        &:nth-child(1){
+                            margin-left: 20px;
+                        }
+                        button[id="edit"]{
+                            margin-left: 10px;
+                            font-size: 20px;
+                            height: 40px;
+                            width: 95px;
+                        }
+
+                        button[id="delete"]{                            
+                            font-size: 20px;
+                            height: 40px;
+                            width: 95px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

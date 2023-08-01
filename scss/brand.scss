@@ -1,4 +1,13 @@
+@import "mixin";
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;500;600;800&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;800;900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;800;900&display=swap);
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 .header-top {
     background-color: #333333;
@@ -346,114 +355,6 @@
     }
 }
 
-.roll-inner-logo,
-.roll-inner-logo-register {
-    @include text('Montserrat', 25px, capitalize, none, #737373, 400, inherit);
-    text-align: center;
-}
-
-.roll {
-    .container {
-        padding: 0 15px;
-    }
-}
-
-.roll-inner-form {
-    input {
-        border: 1px solid #e7e7e7;
-        width: 90%;
-        height: 35px;
-        padding: 5px 0 5px 5px;
-        margin: 15px 0px;
-        @include text('Montserrat', 14px, capitalize, none, #737373, 400, inherit);
-    }
-
-    .roll-inner-div {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
-    a {
-        margin: 15px 0 20px 0;
-        @include text('Open Sans', 14px, capitalize, none, #00c8c8, 400, inherit);
-    }
-
-    button {
-        border: 2px solid #737373;
-        background-color: inherit;
-        padding: 15px 25px;
-        width: 40%;
-        transition: 0.5s all linear;
-        @include text('Montserrat', 14px, uppercase, none, #737373, 400, inherit);
-
-        &:hover {
-            background-color: #00c8c8;
-            color: white;
-            border: none;
-        }
-    }
-}
-
-.roll-inner:nth-child(2) {
-    margin-top: 45px;
-}
-
-.roll-inner-register {
-    input {
-        border: 1px solid #e7e7e7;
-        width: 90%;
-        height: 35px;
-        padding: 5px 0 5px 5px;
-        margin: 15px 0px;
-        @include text('Montserrat', 14px, none, none, #737373, 400, inherit);
-    }
-}
-
-.roll-inner-register-check {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-
-    input {
-        width: 5%;
-    }
-
-    p {
-        margin: 25px 0;
-        @include text('Montserrat', 15px, none, none, #8e8c8c, 400, inherit);
-    }
-}
-
-.roll-inner-register-flex {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
-    button {
-        border: 2px solid #737373;
-        background-color: inherit;
-        padding: 15px 25px;
-        width: 66%;
-        transition: 0.5s all linear;
-        @include text('Montserrat', 14px, uppercase, none, #737373, 400, inherit);
-
-        &:hover {
-            background-color: #00c8c8;
-            color: white;
-            border-color: #00c8c8;
-        }
-    }
-
-    p {
-        @include text('Montserrat', 15px, none, none, #8e8c8c, 400, inherit);
-    }
-
-    span {
-        @include text('Open Sans', 14px, capitalize, none, #00c8c8, 400, inherit);
-    }
-}
-
 .footer {
     margin-top: 50px;
 
@@ -604,6 +505,7 @@
     }
 }
 
+
 @media only screen and (min-width:768px) {
     .header-top {
         align-items: center;
@@ -658,32 +560,6 @@
         width: 40%;
     }
 
-    .roll {
-        .container {
-            padding: 0 15px;
-        }
-    }
-
-    .roll-block {
-        @include flex(row, center, nowrap, inherit);
-        gap: 20px;
-
-        &::before {
-            content: "";
-            position: absolute;
-            height: 450px;
-            width: 0.5px;
-            background: #acacac;
-            left: 47%;
-            transform: translateX(-50%);
-        }
-    }
-
-    .roll-inner {
-        width: 47%;
-        margin: 0 !important;
-    }
-
     .footer-acc-items label {
         left: 4%;
     }
@@ -718,7 +594,6 @@
         @include flex(row, space-around, nowrap, center);
     }
 }
-
 
 @media only screen and (min-width:1500px) {
     .header-top {
@@ -1200,115 +1075,6 @@
     .header-menu-item-mybooks {
         background-color: inherit !important;
     }
-
-    .roll {
-        margin-top: 20%;
-    }
-
-    .roll-block {
-        gap: 0;
-        margin-left: -3.3%;
-        &::before{
-            left: 48%;
-        }
-    }
-
-    .roll-inner {
-        input {
-            padding: 10px;
-            font-size: 23px;
-            height: 60px;
-            width: 98%;
-        }
-
-        &:nth-child(1) {
-            width: 46%;
-            margin-left: 153px !important;
-        }
-
-        &:nth-child(2) {
-            margin-left: 25px !important;
-        }
-    }
-
-    .roll-inner-logo {
-        margin-left: 9%;
-        font-size: 35px;
-        text-transform: uppercase;
-        text-align: start;
-    }
-
-    .roll-inner-form {
-        margin: 50px 0 0 0px;
-        width: 85%;
-    }
-
-    .roll-inner-div {
-        flex-direction: row !important;
-        justify-content: space-between;
-        width: 98%;
-        margin-top: 45px;
-
-        button {
-            font-size: 20px;
-            border: 3px solid #737373;
-            font-weight: 500;
-        }
-
-        a {
-            font-size: 20px;
-        }
-
-    }
-
-    .roll-inner-logo-register {
-        font-size: 35px;
-        text-transform: uppercase;
-        text-align: start;
-    }
-
-    .roll-inner-register {
-        margin-top: 50px;
-        width: 80%;
-
-        &-check {
-            justify-content: start;
-            gap: 20px;
-
-            p {
-                font-size: 21px;
-                font-family: 'Roboto', sans-serif;
-            }
-        }
-
-        input[type="checkbox"] {
-            width: 3%;
-        }
-
-        &-flex {
-            flex-direction: row;
-            gap: 60px;
-            margin-top: 30px;
-
-            button {
-                border: 3px solid #737373;
-                width: 350px;
-                font-size: 20px;
-                font-weight: 500;
-            }
-
-            p {
-                font-size: 23px;
-                font-family: 'Roboto', sans-serif;
-
-                span {
-                    font-size: 23px;
-                    font-family: 'Roboto', sans-serif;
-                }
-            }
-        }
-    }
-
     .footer-acc {
         background: inherit;
 
