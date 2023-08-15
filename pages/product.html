@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
     <link rel="stylesheet" href="../css/product.css">
 </head>
 
@@ -228,30 +229,49 @@
             <div class="container">
                 <div class="main-block">
                     <div class="main-block-items">
-                        <div class="main-block-items-photos">
+                        <div class="main-block-items-photos" id="product1">
+                            <img src="../img/shirt1.png" alt="shirt">
+                        </div>
+                        <div class="main-block-items-photos" id="product2">
                             <img src="../img/shirt2.png" alt="shirt">
                         </div>
-                        <div class="main-block-items-photos">
-                            <img src="../img/shirt2.png" alt="shirt">
+                        <div class="main-block-items-photos" id="product3">
+                            <img src="../img/shirt3.png" alt="shirt">
+                        </div>
+                        <div class="main-block-items-photos" id="product4">
+                            <img src="../img/shirt4.png" alt="shirt">
+                        </div>
+                        <div class="main-block-items-photos" id="product5">
+                            <img src="../img/shirt5.png" alt="shirt">
+                        </div>
+                        <div class="main-block-items-photos" id="product6">
+                            <img src="../img/shirt6.png" alt="shirt">
                         </div>
                     </div>
                     <div class="main-block-nav">
                         <div class="main-block-nav-deco">
                             <div>
-                                <p>colour</p>
-                                <select>
-                                    <option value="red">Red</option>
+                                <p>Type</p>
+                                <select id="typeProduct">
+                                    <option value="T-shirt">T-shirt</option>
+                                    <option value="Dresses">Dresses</option>
                                 </select>
                             </div>
                             <div>
-                                <p>size</p>
-                                <select id="productSize">
-                                    <option value="xl">XL</option>
+                                <p>price</p>
+                                <select id="priceProduct">
+                                    <option value="$360">$360</option>
+                                    <option value="$30">$30</option>
+                                    <option value="$60">$60</option>
                                 </select>
                             </div>
                             <div>
-                                <p>qty</p>
-                                <input type="number">
+                                <p>discount</p>
+                                <select id="discProduct">
+                                    <option value="-$30">-$30</option>
+                                    <option value="-$60">-$60</option>
+                                    <option value="-$20">-$20</option>
+                                </select>
                             </div>
                         </div>
                         <div class="main-block-nav-buttons">
@@ -496,6 +516,7 @@
             </div>
         </footer>
     </div>
+    <script type="module" src="../js/addProduct.js"></script>
 </body>
 
 </html>

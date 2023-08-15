@@ -1,44 +1,41 @@
-import { addAdmin, Admins, admin } from "./Utils.js"
-// import 
-class Register {
-    constructor() {
-        this.regEmail = document.querySelector('.roll-inner-register-email')
-        this.regPass = document.querySelector('.roll-inner-register-pass')
-        this.regConf = document.querySelector('.roll-inner-register-confirm')
-        this.regAccept = document.querySelector('.roll-inner-register-input')
-        this.regist = document.querySelector('.roll-register-flex-btn')
-    }
-    registForm() {
-        this.regist.addEventListener('click', () => {
-            if (this.regEmail.value != "" && this.regPass != "" && this.regConf != "" && this.regAccept.checked == true) {
-                addAdmin(this.regEmail.value, this.regPass.value)
-                new Admins().saveAdminsToLocalStorage(admin);
-                new Admins().adminsFromLocalStorage();
-            } else if (admin.find(admin => admin.login === this.regEmail.value)) {
-                alert('You have already registered!');
-            } else if (this.regEmail.value == '' || this.regPass.value == '' || this.regConf == '' || this.regAccept.checked == false) {
-                alert(`You did not write password or email or you don't accept sign Up! Please check again`)
-            }
+import { Users } from "./users.js";
+import { Admins, admin } from "./Utils.js";
+
+let regEmail = document.querySelector('.roll-inner-register-email')
+let regPass = document.querySelector('.roll-inner-register-pass')
+let regConf = document.querySelector('.roll-inner-register-confirm')
+let regAccept = document.querySelector('.roll-inner-register-input')
+let regist = document.querySelector('.roll-register-flex-btn')
+
+regist.addEventListener('click', () => {
+    if (regEmail.value.length !== 0 && regPass.value.length !== 0 && regConf.value.length !== 0 && regPass.value === regConf.value && regAccept.checked === true) {
+        new Users().addAdmin({
+            login: regEmail.value,
+            password: regPass.value,
+            id: Math.floor(Math.random() * 1000000)
         })
+    } else if (admin.find(admin => admin.login === regEmail.value)) {
+        alert('You have already registered!');
+    } else if (regEmail.value.length === 0 || regPass.value.length === 0 || regConf.value.length === 0 || regAccept.checked === false) {
+        alert(`You did not write a password or email or you don't accept sign Up! Please check again`);
+    } else if (regPass.value !== regConf.value) {
+        alert(`Confirm your password`);
     }
+});
 
-}
-new Register().registForm()
 
-class Sign {
-    constructor() {
-        this.signEmail = document.querySelector('.roll-inner-form-email')
-        this.signPass = document.querySelector('.roll-inner-form-pass')
-        this.signIn = document.querySelector('.roll-inner-form-btn')
+
+let signEmail = document.querySelector('.roll-inner-form-email')
+let signPass = document.querySelector('.roll-inner-form-pass')
+let signIn = document.querySelector('.roll-inner-form-btn')
+
+signIn.addEventListener('click', () => {
+    console.log(admin.login);
+    if (admin.find(admin => admin.login === signEmail.value) && admin.find(admin => admin.password === signPass.value)) {
+        alert(`Welcome ${signEmail.value}`)
+        window.location.href = "../pages/index.html"
     }
-    signForm() {
-        this.signIn.addEventListener('click', () => {
-            if (this.signEmail.value === admin.login && this.signPass === admin.password){
+})
 
-            }
-        })
-    }
-}
 
-new Sign().signForm()
 

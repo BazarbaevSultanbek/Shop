@@ -459,7 +459,7 @@
 .main-block-items-photos img {
   max-width: 100%;
 }
-.main-block-items-photos:nth-child(2) {
+.main-block-items-photos:nth-child(n+2) {
   display: none;
 }
 
@@ -490,8 +490,7 @@
   font-weight: 600;
   line-height: inherit;
 }
-.main-block-nav-deco div select,
-.main-block-nav-deco div input {
+.main-block-nav-deco div select {
   width: 150px;
   height: 30px;
   font-family: "Montserrat";
@@ -501,6 +500,11 @@
   color: #625d5e;
   font-weight: 400;
   line-height: inherit;
+}
+.main-block-nav-deco div input {
+  color: #625d5e;
+  font-size: 19px;
+  padding-left: 20px;
 }
 .main-block-nav-buttons {
   display: -webkit-box;

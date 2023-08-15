@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,8 +14,10 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/index.css">
 </head>
+
 <body>
     <div class="wrapper">
+        <div class="modul"></div>
         <header class="header">
             <div class="container">
                 <div class="header-top">
@@ -28,19 +31,19 @@
                     </div>
                     <div class="header-top-inner">
                         <div class="header-top-inner-flex">
-                            <a href="#">Register</a>
-                            <a href="#">Sign In</a>
+                            <a href="./signUp.html">Register</a>
+                            <a href="./signUp.html">Sign In</a>
                         </div>
                         <div class="header-top-inner-korzinka">
                             <div class="header-top-korzinka-flex">
                                 <i class="fa-solid fa-dolly" style="color: #ffffff;"></i>
-                                <p>0 items</p>
+                                <p class="count-first">0 items</p>
                             </div>
                             <div class="header-top-korzinka-hover">
-                                <p>Total: 0</p>
+                                <p class="count">Total:0</p>
                                 <div class="header-korzinka-hover-btn">
-                                    <button>Clear cart</button>
-                                    <button>Buy items</button>
+                                    <button id="clear">Clear cart</button>
+                                    <button id="buyItems">Buy items</button>
                                 </div>
                             </div>
                         </div>
@@ -164,11 +167,11 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li><a href="#" class="header-menu-list-word">the brand</a></li>
-                                <li><a href="#" class="header-menu-list-word">local stores</a></li>
+                                <li><a href="./brand.html" class="header-menu-list-word">the brand</a></li>
+                                <li><a href="./localStore.html" class="header-menu-list-word">local stores</a></li>
                                 <li>
                                     <label for="book" class="book-hover">
-                                        <p class="header-menu-list-word">look book</p>
+                                        <a href="./lookBook.html" class="header-menu-list-word">look book</a>
                                     </label>
                                     <input type="checkbox" id="book" class="book-input">
                                     <div class="header-menu-item" id="book-list">
@@ -218,7 +221,91 @@
                     </div>
                 </div>
             </div>
-        </header>   
+        </header>
+        <section class="navigate">
+            <div class="container">
+                <div class="navigate-block">
+                    <div class="navigate-block-inner">
+                        <p class="price" id="$150">$150</p>
+                        <img src="../img/clothes7.png" alt="" class="img">
+                        <div class="navigate-block-hover">
+                            <p>ave classic sweatshirt</p>
+                            <p>classic casual-shirt</p>
+                            <div class="navigate-block-inner-focus" id="clothes7.png">
+                                <i class="fa-solid fa-cart-shopping" id="order"></i>
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-solid fa-down-left-and-up-right-to-center" id="booking"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigate-block-inner">
+                        <p class="price" id="$70">$70</p>
+                        <img src="../img/clothes2.png" alt="" class="img">
+                        <div class="navigate-block-hover">
+                            <p>ave classic sweatshirt</p>
+                            <p>classic casual-shirt for women</p>
+                            <div class="navigate-block-inner-focus" id="clothes2.png">
+                                <i class="fa-solid fa-cart-shopping" id="order"></i>
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-solid fa-down-left-and-up-right-to-center" id="booking"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigate-block-inner">
+                        <p class="price" id="$89">$89</p>
+                        <img src="../img/clothes6.png" alt="" class="img">
+                        <div class="navigate-block-hover">
+                            <p>ave classic sweatshirt</p>
+                            <p>classic casual-shirt for women on the move 100% cotton</p>
+                            <div class="navigate-block-inner-focus" id="clothes6.png">
+                                <i class="fa-solid fa-cart-shopping" id="order"></i>
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-solid fa-down-left-and-up-right-to-center" id="booking"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigate-block-inner">
+                        <p class="price" id="$196">$196</p>
+                        <img src="../img/clothes5.png" alt="" class="img">
+                        <div class="navigate-block-hover">
+                            <p>ave classic sweatshirt</p>
+                            <p>classic casual-shirt for women on the move 100% cotton</p>
+                            <div class="navigate-block-inner-focus" id="clothes5.png">
+                                <i class="fa-solid fa-cart-shopping" id="order"></i>
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-solid fa-down-left-and-up-right-to-center" id="booking"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigate-block-inner">
+                        <p class="price" id="$142">$142</p>
+                        <img src="../img/clothes4.png" alt="" class="img">
+                        <div class="navigate-block-hover">
+                            <p>ave classic sweatshirt</p>
+                            <p>100% cotton</p>
+                            <div class="navigate-block-inner-focus" id="clothes4.png">
+                                    <i class="fa-solid fa-cart-shopping" id="order"></i>
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-solid fa-down-left-and-up-right-to-center" id="booking"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigate-block-inner">
+                        <p class="price" id="$300">$300</p>
+                        <img src="../img/clothes2.png" alt="" class="img">
+                        <div class="navigate-block-hover">
+                            <p>ave classic sweatshirt</p>
+                            <p>classic casual-shirt for women</p>
+                            <div class="navigate-block-inner-focus" id="clothes2.png">
+                                    <i class="fa-solid fa-cart-shopping" id="order"></i>
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-solid fa-down-left-and-up-right-to-center" id="booking"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section class="look">
             <div class="container">
                 <div class="look-block">
@@ -366,7 +453,11 @@
                     <p>Dev by Loremipsum.com</p>
                 </div>
             </div>
-        </footer> 
+        </footer>
     </div>
+
+    <script type="module" src="../js/index.js"></script>
+    <script type="module" src="../js/order.js"></script>
 </body>
+
 </html>

@@ -13,7 +13,85 @@
     margin: 0 auto;
     padding: 0 15px;
     max-width: 1100px;
-    overflow: hidden;
+}
+
+.modul {
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-middle {
+        background-color: white;
+        width: 80%;
+        border-radius: 18px;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 15px;
+
+        p {
+            text-align: center;
+            padding: 10px 0;
+            border-top-left-radius: 18px;
+            border-top-right-radius: 18px;
+            background-color: #111111;
+            color: white;
+            width: 100%;
+            font-family: "Raleway", sans-serif;
+        }
+
+        input:nth-child(2) {
+            width: 70%;
+            margin: 20px auto 10px auto;
+            height: 25px;
+            border-radius: 5px;
+            border: 1px solid #b0b0b0;
+            font-family: "Open Sans", sans-serif;
+            padding: 0 5px;
+        }
+
+        input:nth-child(3) {
+            width: 70%;
+            margin: 5px auto 10px auto;
+            height: 25px;
+            font-family: "Open Sans", sans-serif;
+            padding: 0 5px;
+            border-radius: 5px;
+            border: 1px solid #b0b0b0;
+        }
+
+        input:nth-child(4) {
+            width: 70%;
+            margin: 5px auto 10px auto;
+            height: 25px;
+            font-family: "Open Sans", sans-serif;
+            padding: 0 5px;
+            border-radius: 5px;
+            border: 1px solid #b0b0b0;
+        }
+    }
+
+    &-middle-btn {
+        display: flex;
+        justify-content: space-around;
+
+        button {
+            background-color: #111111;
+            color: white;
+            border: 1px solid #111111;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+
+            &:hover {
+                background-color: white;
+                color: #111111;
+            }
+        }
+    }
 }
 
 .header {
@@ -141,7 +219,7 @@
             display: none;
 
             &:checked~ul {
-                bottom: 15%;
+                bottom: 19%;
                 opacity: 1;
             }
 
@@ -267,95 +345,68 @@
 }
 
 .footer {
+    &-inner {
+        @include flex(row, inherit, nowrap, inherit);
+        gap: 30px;
+    }
+
     &-inner-table {
-        display: table;
-        gap: 15px;
+        @include flex(column, inherit, nowrap, inherit);
 
-        @include flex(row, inherit, nowrap, start);
+        p {
+            @include text('Open Sans', 20px, none, none, #111111, 400, 45px);
 
-        thead {
-
-            tr {
-                @include flex(column, inherit, nowrap, start);
-                flex-basis: 101px;
-
-                th {
-                    @include text('Roboto', 16px, none, none, black, 600, 35px);
-
-                    &::after {
-                        content: ':';
-                    }
-
-                    &:nth-child(1) {
-                        line-height: 110px;
-                    }
-
-                    &:nth-child(6) {
-                        line-height: 50px;
-                    }
-                }
+            &::after {
+                content: ':';
             }
         }
+    }
 
-        tbody {
-            margin-top: 33px;
+    &-inner-local {
+        margin-top: 0px;
 
-            tr {
-                border: none;
-                flex-basis: 120px;
-                @include flex(column, center, nowrap, start);
+        li {
+            gap: 5px;
+            display: flex;
+            flex-direction: column;
 
-                img {
-                    width: 50px;
-                    height: 50px;
-                    border-radius: 50%;
-                    border: 1px solid #7e7c7c;
-                }
+            img {
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+            }
 
-                td {
-                    text-align: start;
-                    @include text('Open Sans', 15px, none, none, rgb(136, 136, 136), 400, 35px);
+            p {
+                @include text('Open Sans', 20px, none, none, #6c6c6c, 400, 35px);
 
-                    &:nth-child(1) {
-                        line-height: 66px;
-                    }
-
-                    &:nth-child(6) {
-                        line-height: 20px;
-                        margin: 15px 0 5px 0;
-                    }
-
-                    &:nth-child(7) {
-                        line-height: 25px;
-                        margin: 15px 0 10px 0;
-                    }
-
-                    button[id="edit"] {
-                        @include text('Open Sans', 15px, capitalize, none, white, 400, inherit);
-                        background-color: #007bff;
-                        border: none;
-                        height: 25px;
-                        width: 90px;
-                        border-radius: 5px;
-                        letter-spacing: 0.5px;
-                    }
-
-                    button[id="delete"] {
-                        @include text('Open Sans', 15px, capitalize, none, white, 400, inherit);
-                        background-color: #ee4155;
-                        border: none;
-                        height: 25px;
-                        width: 90px;
-                        border-radius: 5px;
-                        letter-spacing: 0.5px;
-                    }
+                &:nth-child(4) {
+                    margin-top: 5px;
                 }
             }
+
+            div {
+                @include flex(column, inherit, nowrap, inherit);
+            }
+
+            .edit {
+                @include text('Open Sans', 16px, capitalize, none, white, 400, inherit);
+                background-color: #007bff;
+                border-color: #007bff;
+                padding: 3px 10px;
+                border-radius: 5px;
+                letter-spacing: 0.5px;
+                margin: 10px 0;
+            }
+
+            .delete {
+                @include text('Open Sans', 16px, capitalize, none, white, 400, inherit);
+                background-color: #dc3545;
+                border-color: #dc3545;
+                padding: 3px 13px;
+                border-radius: 5px;
+                letter-spacing: 0.5px;
+            }
         }
-
-
-
-
     }
 }
 
@@ -444,86 +495,80 @@
 
     .footer {
         background: #f5f5fa;
-    }
 
-    .footer-inner-table {
-        max-width: 900px;
-        margin: 50px auto;
-        text-align: center;
-        width: 100%;
-        flex-direction: column;
-        gap: 0;
-
-        thead {
-            border-top: 2px solid#dee2e6;
-
-            tr {
-                width: 737px;
-                gap: 30px;
-                padding: 0 15px;
-                flex-direction: row;
-
-                th {
-                    padding: 0.55rem;
-                    @include text('Open Sans', 16px, none, none, black, 400, 1.5);
-                    line-height: 20px !important;
-
-                    &::after {
-                        content: '';
-                    }
-
-                    &:nth-child(7) {
-                        padding-left: 19px;
-                    }
+        &-inner{
+            display: block;            
+        }
+        &-inner-table{
+            border-top: 1px solid #b0b0b0;
+            border-bottom: 1px solid #b0b0b0;
+            flex-direction: row;
+            justify-content: center;
+            gap: 70px;
+            p{
+                &::after{
+                    content: '';
                 }
             }
         }
-
-        tbody {
-            margin-top: 0;
-            border-top: 2px solid#dee2e6;
-
-            tr {
-                width: 760px;
-                gap: 25px;
-                margin-left: -10px;
-                align-items: center;
+        &-inner-local{
+            li{
+                margin-top: 15px;
+                flex-direction: row;
                 justify-content: center;
-                flex-direction: row;
-
-                td {
-                    padding: 0.55rem;
-                    line-height: 20px !important;
-
-                    &:nth-child(2) {
-                        margin-left: 10px;
-                    }
-
-                    &:nth-child(3) {
-                        padding-left: 1.15rem;
-                    }
-
-                    &:nth-child(4) {
-                        padding-left: 1.25rem;
-                    }
-
-                    &:nth-child(n+6) {
-                        margin: 0;
-                        padding: 0;
-                    }
+                gap: 70px;
+                div{
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 55px;
+                    margin-left: 20px;
                 }
             }
+
         }
     }
+
+
 }
 
 @media only screen and (min-width:1440px) {
-    .header-logo{
+    .modul {
+        &-middle {
+            width: 20%;
+            height: 310px;
+
+            p {
+                font-size: 25px;
+            }
+
+            input:nth-child(2),
+            input:nth-child(3),
+            input:nth-child(4) {
+                width: 80%;
+                font-size: 20px;
+                padding: 8px 5px;
+                height: 45px;
+            }
+
+            &-btn {
+                padding: 10px 0 0 0;
+
+                button {
+                    font-size: 22px;
+                    padding: 5px 7px 3px 7px;
+                }
+            }
+        }
+    }
+
+    .header-logo {
         width: 11em;
-        span{
+
+        span {
             font-size: 25px;
         }
     }
+
     .header-block {
         &-menu {
             label {
@@ -543,6 +588,7 @@
                     display: block;
                     text-align: start;
                     line-height: 55px;
+
                     a {
                         font-size: 25px;
                     }
@@ -559,6 +605,7 @@
         left: 10%;
         width: 90%;
         padding-top: 5%;
+
         &-nav {
             &-each {
                 width: 270px;
@@ -586,10 +633,6 @@
                 label {
                     font-size: 25px;
                 }
-
-                textarea {
-                    font-size: 20px;
-                }
             }
 
         }
@@ -601,39 +644,54 @@
     }
 
     .footer {
-        padding:2% 0 5% 13%;
+        background: #f5f5fa;
+        padding: 70px 0 107px 0;
+        margin-left: 15%;
+        border: none;
 
-        &-inner-table {
-            thead {
-                tr{
-                    width: 860px;
-                    th {
-                        font-size: 21px;
-                    }
+        &-inner-table {        
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            gap: 70px;
+            p {
+                font-size: 25px;
+
+                &:after {
+                    content: ''
                 }
-            }
-            tbody{
-                tr{
-                    width: 850px;
-                    margin-left: 0;
-                    td{                        
-                        font-size: 20px;
-                        &:nth-child(1){
-                            margin-left: 20px;
-                        }
-                        button[id="edit"]{
-                            margin-left: 10px;
-                            font-size: 20px;
-                            height: 40px;
-                            width: 95px;
-                        }
 
-                        button[id="delete"]{                            
-                            font-size: 20px;
-                            height: 40px;
-                            width: 95px;
-                        }
-                    }
+            }
+        }
+
+        .footer-inner-local {
+            margin-left: 2%;
+
+            li {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 15px;
+
+                img {
+                    width: 70px !important;
+                    height: 70px !important;
+                }
+
+                p {
+                    font-size: 23px !important;
+                }
+                div{
+                    margin: 0;
+                }
+                .edit {
+                    padding: 5px 35px;
+                    font-size: 23px;                    
+                }
+
+                .delete {
+                    padding: 5px 35px;
+                    font-size: 23px;
                 }
             }
         }

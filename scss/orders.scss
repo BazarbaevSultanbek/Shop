@@ -206,20 +206,35 @@
 }
 
 .main {
-    table {
-        thead {
-            tr {
-                @include flex(column, inherit, nowrap, start);
-                flex-basis: 101px;
+    &-inner{
+        @include flex(row,inherit,nowrap,start);
+        gap: 10px;
+    }
+    &-inner-table {
+        @include flex(column, inherit, nowrap, inherit);
 
-                th {
-                    @include text('Roboto', 16px, none, none, black, 600, 35px);
+        p {
+            @include text('Open Sans', 20px, none, none, #111111, 800, 45px);
+            &::after {
+                content: ':';
+            }
+        }
+    }
 
-                    &::after {
-                        content: ':';
-                    }
+    &-inner-local {
 
-                }
+        li {
+            display: flex;
+            flex-direction: column;
+            margin-top: 5px;
+            gap: 10px;
+            &:nth-child(1) {
+                margin-bottom: 30px;
+            }
+
+            p {
+                @include text('Open Sans', 20px, none, none, #6c6c6c, 400, 35px);
+
             }
         }
     }
@@ -268,24 +283,33 @@
     .header-block-display {
         display: none;
     }
-
-    .main {
-        table {
-            margin-left: 11%;
-            thead {
-                tr {
-                    flex-direction: row;
-                    gap: 80px;
-
-                    th {
-                        &::after {
-                            content: '';
-                        }
-                    }
+    .main{
+        &-inner{
+            display: block;
+        }
+        &-inner-table{
+            flex-direction: row;
+            justify-content: center;
+            gap: 70px;
+            p{
+                &::after{
+                    content: '';
+                }
+            }
+        }
+        &-inner-local{
+            margin-left: 7%;
+            li{
+                flex-direction: row;
+                justify-content: start;
+                gap: 85px;
+                p:nth-child(3){
+                    padding-left: 5%;
                 }
             }
         }
     }
+
 }
 
 @media only screen and (min-width:1440px) {
@@ -328,22 +352,49 @@
             }
         }
     }
-    .main{
-        table{
-            border-top: 3px solid #dee2e6;
-            border-bottom: 3px solid #dee2e6;
-            margin: 15% 0 0 0;
-            width: 1300px;
-            thead{
-                display: block;
-                width: 100%;
-                margin-left: 5%;
-                tr{
-                    padding: 20px 0;
-                    gap: 200px;
-                    th{
-                        font-size: 25px;
-                    }
+
+    .main {
+        background: #f5f5fa;
+        padding: 70px 0 107px 0;
+        margin-left: 15%;
+        border: none;
+
+        &-inner-table {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            border-bottom: 1px solid #b0b0b0;
+            gap: 70px;
+
+            p {
+                font-size: 25px;
+
+                &:after {
+                    content: ''
+                }
+
+            }
+        }
+
+        .main-inner-local {
+            margin-left: 3%;
+
+            li {
+                margin-left: 2%;
+                flex-direction: row;
+                align-items: center;
+                margin-top: 15px;
+                gap: 210px;
+
+                p {
+                    font-size: 23px !important;
+                }
+
+                p:nth-child(2) {
+                    margin: 0 25px 0 -25px;
+                }
+                p:nth-child(3){
+                    padding: 0;
                 }
             }
         }

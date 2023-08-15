@@ -17,6 +17,7 @@
 
 <body>
     <div class="wrapper">
+        <div class="modul"></div>
         <header class="header">
             <div class="container">
                 <div class="header-logo">
@@ -80,7 +81,7 @@
                 </div>
                 <div class="main-nav-items">
                     <label for="desc">Description</label>
-                    <textarea  id="desc cols="40" rows="10" placeholder="Add comment.."></textarea>
+                    <textarea  id="desc" cols="40" rows="10" placeholder="Add comment.."></textarea>
                 </div>
                 <button id="add">Add Products</button>
             </div>
@@ -88,42 +89,21 @@
         <footer class="footer">
             <div class="container">
                 <div class="footer-inner">
-                    <table class="footer-inner-table">
-                       <thead>
-                        <tr>
-                            <th>Image</th>
-                            <th>Type</th>
-                            <th>Price</th>
-                            <th>Product code</th>
-                            <th>Discount</th>
-                            <th>Change</th>
-                            <th>Delete</th>
-                        </tr>
-                       </thead>
-                       <tbody>
-                        <tr>
-                            <td>
-                                <img src="../img/shirt2.png" alt="product photo">
-                            </td>
-                            
-                            <td>Type</td>
-                            <td>Price</td>
-                            <td>Product code</td>
-                            <td>Discount</td>
-                            <td>
-                                <button id="edit">Change</button>                                    
-                            </td>
-                            <td>
-                                <button id="delete">delete</button>                                
-                            </td>
-                        </tr>
-                       </tbody>
-                    </table>
-                   
+                    <div class="footer-inner-table">
+                            <p>Image</p>
+                            <p>Type</p>
+                            <p>Price</p>
+                            <p>Discount</p>
+                            <p>Change</p>
+                            <p>Delete</p>
+                    </div>
+                    <ul class="footer-inner-local"></ul>
                 </div>
             </div>
         </footer>
     </div>
+    <script type="module" src="../js/product.js"></script>
+    <script type="module" src="../js/product2.js"></script>
 </body>
 
 </html>

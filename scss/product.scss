@@ -378,7 +378,8 @@
         img {
             max-width: 100%;
         }
-        &:nth-child(2){
+
+        &:nth-child(n+2) {
             display: none;
         }
     }
@@ -394,11 +395,16 @@
                 @include text('Montserrat', 16px, uppercase, none, #625d5e, 600, inherit);
             }
 
-            select,
-            input {
+            select {
                 width: 150px;
                 height: 30px;
                 @include text('Montserrat', 12px, capitalize, none, #625d5e, 400, inherit);
+            }
+
+            input {
+                color: #625d5e;
+                font-size: 19px;
+                padding-left: 20px;
             }
         }
     }
@@ -413,7 +419,8 @@
             border: 2px solid #737373;
             transition: 0.5s all linear;
             @include text('Montserrat', 18px, uppercase, none, #625d5e, 400, inherit);
-            &:hover{
+
+            &:hover {
                 background: #333333;
                 border-color: #333333;
                 color: white;
@@ -684,18 +691,22 @@
     .header-menu-display {
         padding: 100px 0;
     }
-    .main-block{
-        @include flex(row,center,nowrap,start);
+
+    .main-block {
+        @include flex(row, center, nowrap, start);
         gap: 15px;
-        &-photos{
-            img{
+
+        &-photos {
+            img {
                 width: 400px;
             }
         }
-        &-nav-buttons{
+
+        &-nav-buttons {
             margin-top: 30px;
         }
     }
+
     .footer-acc-items label {
         left: 4%;
     }
@@ -1216,42 +1227,51 @@
     .header-menu-item-mybooks {
         background-color: inherit !important;
     }
-    .main-block{
+
+    .main-block {
         gap: 30px;
-        &-items-photos{
-            img{
+
+        &-items-photos {
+            img {
                 width: 570px;
                 height: 710px;
             }
         }
     }
-    .main-block-nav{        
-        &-deco{
-            @include flex(row,start,nowrap,start);
+
+    .main-block-nav {
+        &-deco {
+            @include flex(row, start, nowrap, start);
             gap: 30px;
-            div{
+
+            div {
                 flex-direction: column;
                 gap: 20px;
-                select{
+
+                select {
                     font-size: 17px;
                     height: 40px;
                 }
-                input{
+
+                input {
                     width: 70px;
                     height: 40px;
                 }
             }
         }
-        &-buttons{
-            button{
+
+        &-buttons {
+            button {
                 width: 250px;
             }
         }
-        a{
+
+        a {
             margin: 25px 0;
         }
 
     }
+
     .footer-acc {
         background: inherit;
 
@@ -1336,4 +1356,6 @@
             gap: 20px;
         }
     }
+
+
 }

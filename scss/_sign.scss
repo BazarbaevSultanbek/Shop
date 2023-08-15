@@ -365,7 +365,7 @@
         height: 35px;
         padding: 5px 0 5px 5px;
         margin: 15px 0px;
-        @include text('Montserrat', 14px, capitalize, none, #737373, 400, inherit);
+        @include text('Montserrat', 14px, none, none, #737373, 400, inherit);
     }
 
     .roll-inner-div {
