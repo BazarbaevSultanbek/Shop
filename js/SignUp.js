@@ -14,6 +14,10 @@ regist.addEventListener('click', () => {
             password: regPass.value,
             id: Math.floor(Math.random() * 1000000)
         })
+        localStorage.setItem('currentUser',JSON.stringify({
+            login: regEmail.value,
+            password: regPass.value,
+        }))
     } else if (admin.find(admin => admin.login === regEmail.value)) {
         alert('You have already registered!');
     } else if (regEmail.value.length === 0 || regPass.value.length === 0 || regConf.value.length === 0 || regAccept.checked === false) {
@@ -32,6 +36,10 @@ let signIn = document.querySelector('.roll-inner-form-btn')
 signIn.addEventListener('click', () => {
     console.log(admin.login);
     if (admin.find(admin => admin.login === signEmail.value) && admin.find(admin => admin.password === signPass.value)) {
+        localStorage.setItem('currentUser', JSON.stringify({
+            login: signEmail.value,
+            password: signPass.value,
+        }))
         alert(`Welcome ${signEmail.value}`)
         window.location.href = "../pages/index.html"
     }

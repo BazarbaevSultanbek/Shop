@@ -23,6 +23,16 @@ if (admin.length === 0) {
 }
 export { admin };
 
+export class CurrentUser {
+    saveCurrentUser(currentUser) {
+        localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    }
+    getCurrentUser() {
+        let currentUser = JSON.parse(localStorage.getItem("currentUser") || "[]");
+        return currentUser;
+    }
+}
+let currentUsers = new CurrentUser().getCurrentUser();
 
 
 export class Product {
@@ -34,7 +44,7 @@ export class Product {
         let products = JSON.parse(localStorage.getItem('products') || '[]');
         return products;
     }
-    addProduct(pro){
+    addProduct(pro) {
         products = JSON.parse(localStorage.getItem('products') || '[]')
         products.push(pro)
         localStorage.setItem("products", JSON.stringify(products))
@@ -42,23 +52,6 @@ export class Product {
 }
 
 let products = new Product().productsFromLocalStorage();
-
-if (products.length === 0) {
-    products = [
-        {
-            image:'shirt2.png',
-            type: 'T-shirt',
-            price: '$368',
-            discount: '-$2%',
-            desc: "Lorem ipsum",
-            id: 745972
-        }
-    ];
-    new Product().saveProductToLocalStorage(products);
-}
-
-export { products };
-
 
 
 export class Order {
@@ -70,6 +63,11 @@ export class Order {
         let orders = JSON.parse(localStorage.getItem('orders') || '[]');
         return orders;
     }
+    addProduct(order) {
+        orders = JSON.parse(localStorage.getItem('orders') || '[]')
+        orders.push(order)
+        localStorage.setItem("orders", JSON.stringify(orders))
+    }
 }
 
 let orders = new Order().ordersFromLocalStorage();
@@ -77,9 +75,9 @@ let orders = new Order().ordersFromLocalStorage();
 if (orders.length === 0) {
     orders = [
         {
-            name:'John Cena',
-            number:'+1 25678945',
-            orderNumber:5,
+            name: 'John Cena',
+            number: '+1 25678945',
+            orderNumber:15,
             id: 745972
         }
     ];

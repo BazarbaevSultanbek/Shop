@@ -1,10 +1,12 @@
-import { Order } from "./Utils.js";
+import { ProductInIndex } from "./index.js";
+import { Order, Product } from "./Utils.js";
 
 
 export class Orders {
     constructor() {
         this.order = new Order().ordersFromLocalStorage()
         this.main = document.querySelector('.main-inner-local')
+        this.product = new Product().productsFromLocalStorage()
     }
     render(order) {
         order.forEach((item) => {
@@ -13,8 +15,8 @@ export class Orders {
                 `
              <li id="${item.id}" class="main-inner-table-li">
              <p>${item.name}</p>
-             <p>${item.number}</p>
-             <p>${item.orderNumber}</p>
+             <a href="tel:${item.number}">${item.number}</a>
+             <p>${new ProductInIndex().totalCount(this.product)}</p>
             </li>      
              `
             )

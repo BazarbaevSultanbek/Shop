@@ -213,8 +213,9 @@
     &-inner-table {
         @include flex(column, inherit, nowrap, inherit);
 
-        p {
+        li{
             @include text('Open Sans', 20px, none, none, #111111, 800, 45px);
+            list-style: none;
             &::after {
                 content: ':';
             }
@@ -235,6 +236,9 @@
             p {
                 @include text('Open Sans', 20px, none, none, #6c6c6c, 400, 35px);
 
+            }
+            a{
+                @include text('Open Sans', 17px, none, none, #6c6c6c, 400, 35px);
             }
         }
     }
@@ -312,7 +316,7 @@
 
 }
 
-@media only screen and (min-width:1440px) {
+@media only screen and (min-width:1024px) {
     body {
         background: #f5f5fa;
     }
@@ -330,7 +334,7 @@
             ul {
                 position: fixed;
                 height: 100%;
-                width: 18%;
+                width: 25%;
                 top: 0;
                 bottom: 0;
                 padding: 15% 0 0 45px;
@@ -342,7 +346,7 @@
                     line-height: 55px;
 
                     a {
-                        font-size: 25px;
+                        font-size: 23px;
                     }
 
                     &:nth-child(2) {
@@ -362,12 +366,17 @@
         &-inner-table {
             flex-direction: row;
             align-items: center;
-            justify-content: space-around;
+            justify-content: start;
             border-bottom: 1px solid #b0b0b0;
-            gap: 70px;
+            width: 850px;
+            margin: auto;
+            gap: 60px;
 
-            p {
-                font-size: 25px;
+            li {
+                &:nth-child(1){
+                    margin-left: 15%;
+                }
+                font-size: 20px;
 
                 &:after {
                     content: ''
@@ -377,21 +386,23 @@
         }
 
         .main-inner-local {
-            margin-left: 3%;
-
+            margin: auto;
             li {
-                margin-left: 2%;
+                justify-content: start;
                 flex-direction: row;
                 align-items: center;
                 margin-top: 15px;
-                gap: 210px;
-
+                gap: 85px;                
+                margin-left: 25%;                
                 p {
-                    font-size: 23px !important;
+                    font-size: 20px !important;
+                    &:nth-child(1){
+                        width: 100px;
+                    }
                 }
 
-                p:nth-child(2) {
-                    margin: 0 25px 0 -25px;
+                a:nth-child(2) {
+                    margin: 0 70px 0 -25px;
                 }
                 p:nth-child(3){
                     padding: 0;

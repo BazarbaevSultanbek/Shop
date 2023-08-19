@@ -30,13 +30,13 @@ addProduct.addEventListener('click', () => {
 footer.addEventListener('click', (e) => {
     if (e.target.classList.contains("edit")) {
         let id = e.target.closest(".footer-inner-table-li").id;
-        let [type, price, discount] = new Products().getProducts(id)
+        let [name, price, discount] = new Products().getProducts(id)
         modul.style.backgroundColor = 'rgba(51, 49, 49, 0.74)'
         modul.style.height = '100vh'
         modul.innerHTML = `
             <div class="modul-middle">
             <p>Edit Product</p>
-            <input type="text" id="typeModul" placeholder="type" value="${type}">
+            <input type="text" id="typeModul" placeholder="type" value="${name}">
             <input type="text" id="priceModul" placeholder="Price" value="${price}">
             <input type="text" id="discModul" placeholder="Discount" value="${discount}">
             <div class="modul-middle-btn">

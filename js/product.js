@@ -21,8 +21,8 @@ export class Products {
                   'beforeend',
                 `
          <li id="${element.id}" class="footer-inner-table-li">
-         <img src="../img/${element.image}" alt="product photo">
-         <p>${element.type}</p>
+         <img src="../img/${element.img}" alt="product photo">
+         <p>${element.name}</p>
          <p>${element.price}</p>
          <p>${element.discount}</p>
                 <div>
@@ -31,17 +31,16 @@ export class Products {
                 </div>
             </li>      
          `
-
             )
         });
     }
     getProducts(id) {
         let findProduct = this.product.filter((item) => item.id == id);
-        return [findProduct[0].type, findProduct[0].price, findProduct[0].discount];
+        return [findProduct[0].name, findProduct[0].price, findProduct[0].discount];
     }
-    editProducts(id, type, price, discount) {
+    editProducts(id, name, price, discount) {
         let findProduct = this.product.filter((item) => item.id == id)
-        findProduct[0].type = type
+        findProduct[0].name = name
         findProduct[0].price = price
         findProduct[0].discount = discount
         return this.product

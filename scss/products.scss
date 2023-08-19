@@ -496,28 +496,32 @@
     .footer {
         background: #f5f5fa;
 
-        &-inner{
-            display: block;            
+        &-inner {
+            display: block;
         }
-        &-inner-table{
+
+        &-inner-table {
             border-top: 1px solid #b0b0b0;
             border-bottom: 1px solid #b0b0b0;
             flex-direction: row;
             justify-content: center;
             gap: 70px;
-            p{
-                &::after{
+
+            p {
+                &::after {
                     content: '';
                 }
             }
         }
-        &-inner-local{
-            li{
+
+        &-inner-local {
+            li {
                 margin-top: 15px;
                 flex-direction: row;
                 justify-content: center;
                 gap: 70px;
-                div{
+
+                div {
                     flex-direction: row;
                     align-items: center;
                     gap: 55px;
@@ -531,21 +535,21 @@
 
 }
 
-@media only screen and (min-width:1440px) {
+@media only screen and (min-width:1024px) {
     .modul {
         &-middle {
             width: 20%;
             height: 310px;
 
             p {
-                font-size: 25px;
+                font-size: 20px;
             }
 
             input:nth-child(2),
             input:nth-child(3),
             input:nth-child(4) {
                 width: 80%;
-                font-size: 20px;
+                font-size: 16px;
                 padding: 8px 5px;
                 height: 45px;
             }
@@ -617,13 +621,13 @@
                 }
 
                 label {
-                    font-size: 25px;
-                    margin-left: -198px;
+                    font-size: 20px;
+                    margin-left: -210px;
                 }
 
                 input {
                     width: 270px;
-                    font-size: 20px;
+                    font-size: 17px;
                 }
             }
 
@@ -631,7 +635,7 @@
                 width: 80%;
 
                 label {
-                    font-size: 25px;
+                    font-size: 20px;
                 }
             }
 
@@ -649,13 +653,17 @@
         margin-left: 15%;
         border: none;
 
-        &-inner-table {        
+        &-inner-table {
             flex-direction: row;
             align-items: center;
             justify-content: space-around;
-            gap: 70px;
+            // gap: 70px;
             p {
-                font-size: 25px;
+                font-size: 20px;
+
+                &:nth-child(2) {
+                    margin-left: 3%;
+                }
 
                 &:after {
                     content: ''
@@ -679,19 +687,21 @@
                 }
 
                 p {
-                    font-size: 23px !important;
+                    font-size: 18px !important;
                 }
-                div{
+
+                div {
                     margin: 0;
                 }
+
                 .edit {
-                    padding: 5px 35px;
-                    font-size: 23px;                    
+                    padding: 5px 30px;
+                    font-size: 17px;
                 }
 
                 .delete {
-                    padding: 5px 35px;
-                    font-size: 23px;
+                    padding: 5px 30px;
+                    font-size: 17px;
                 }
             }
         }

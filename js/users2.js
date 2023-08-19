@@ -33,6 +33,10 @@ navLocal.addEventListener('click', (e) => {
         let [login, password] = new Users().getAdmins(id);
         modul.style.backgroundColor = 'rgba(51, 49, 49, 0.74)'
         modul.style.height = '100vh'
+        modul.style.top = '0'
+        modul.style.right = '0'
+        modul.style.left = '0'
+        modul.style.bottom = '0'
         modul.innerHTML = `
             <div class="modul-middle">
             <p>Edit Admin</p>

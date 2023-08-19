@@ -36,7 +36,6 @@ export class Users {
         let findAdmin = this.admin.filter((item)=>item.id == id)
         findAdmin[0].login = login
         findAdmin[0].password = password
-        // this.render(this.admin)
         return this.admin
     }
 
