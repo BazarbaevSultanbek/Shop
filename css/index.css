@@ -8,6 +8,10 @@
           box-sizing: border-box;
 }
 
+#permLink {
+  display: none;
+}
+
 .container {
   max-width: 1170px;
   margin: 0px auto;
@@ -186,17 +190,33 @@ i[id=booking] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 40px;
+  width: 320px !important;
 }
 .header-top-inner-flex a {
   font-family: "Montserrat";
-  font-size: 17px;
+  font-size: 12px;
   text-transform: capitalize;
   text-decoration: none;
   color: grey;
   font-weight: 500;
   line-height: inherit;
+}
+.header-top-inner-flex p {
+  display: none;
+  font-family: "Montserrat";
+  font-size: 12px;
+  text-transform: capitalize;
+  text-decoration: none;
+  color: grey;
+  font-weight: 500;
+  line-height: inherit;
+  cursor: pointer;
 }
 
 .header-top-inner-korzinka {
@@ -924,7 +944,11 @@ i[id=booking] {
         justify-content: space-around;
   }
   .header-top-inner-flex {
-    width: 210px;
+    margin-left: -50px;
+    width: 350px !important;
+  }
+  .header-top-inner-flex a, .header-top-inner-flex p {
+    font-size: 14px;
   }
   .header-main-logo {
     position: absolute;

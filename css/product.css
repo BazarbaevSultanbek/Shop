@@ -1685,8 +1685,25 @@ button {
     width: 100%;
     height: 100%;
   }
+  /* Define the size and appearance of the zoomed image container */
+  .img-zoom-result {
+    width: 400px; /* Adjust the width as needed */
+    height: 400px; /* Adjust the height as needed */
+    background-size: cover; /* Ensures the zoomed image covers the container */
+    border: 1px solid #ccc; /* Add a border or other styles */
+    position: absolute; /* Position it as needed */
+  }
+  /* Additional styles for the lens (you may customize as needed) */
+  .img-zoom-lens {
+    width: 100px; /* Adjust the size of the lens */
+    height: 100px; /* Adjust the size of the lens */
+    border: 1px solid #000; /* Lens border */
+    position: absolute;
+    cursor: crosshair; /* Cursor style when hovering over the lens */
+    background: rgba(255, 255, 255, 0.5); /* Lens background color */
+  }
   .main-block-nav-character .main-nav-character-box {
-    width: 536px;
+    width: 575px;
     gap: 20px;
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;

@@ -7,6 +7,11 @@ export class Admins {
         let admins = JSON.parse(localStorage.getItem('admins') || '[]');
         return admins;
     }
+    addAdmin(admin) {
+        let newAdmin = JSON.parse(localStorage.getItem('admins') || '[]')
+        newAdmin.push(admin)
+        localStorage.setItem("admins", JSON.stringify(newAdmin))
+    }
 }
 let admin = new Admins().adminsFromLocalStorage();
 if (admin.length === 0) {
@@ -14,16 +19,19 @@ if (admin.length === 0) {
         {
             login: 'admin',
             password: 'admin',
+            isAdmin:true,
             id: 745972
         },
         {
             login: 'bbbb',
             password: 'bbbb',
+            isAdmin:false,
             id: 263704
         },
         {
             login: 'cccc',
             password: 'cccc',
+            isAdmin:false,
             id: 931290
         }
     ];
@@ -128,56 +136,58 @@ export class ProductList {
         let products = JSON.parse(localStorage.getItem('ProductList') || '[]');
         return products;
     }
-    addCart(pro) {
-        product = JSON.parse(localStorage.getItem('ProductList') || '[]')
+    addProduct(pro) {
+        let product = JSON.parse(localStorage.getItem('ProductList') || '[]')
         product.push(pro)
         localStorage.setItem("ProductList", JSON.stringify(product))
     }
 }
-
-let allProduct = [
-    {
-        img: "../img/shirt1.png",
-        type: "ave classic sweatshirt",
-        price: 107,
-        id: 499570,
-        discount: 10,
-    },
-    {
-        img: "../img/shirt3.png",
-        type: "ave classic sweatshirt",
-        price: 115,
-        id: 499572,
-        discount: 10,
-    },
-    {
-        img: "../img/shirt4.png",
-        type: "ave classic sweatshirt",
-        price: 125,
-        id: 499573,
-        discount: 10,
-    },
-    {
-        img: "../img/shirt5.png",
-        type: "ave classic sweatshirt",
-        price: 107,
-        id: 499574,
-        discount: 10,
-    },
-    {
-        img: "../img/shirt6.png",
-        type: "ave classic sweatshirt",
-        price: 107,
-        id: 499575,
-        discount: 10,
-    },
-    {
-        img: "../img/shirt2.png",
-        type: "ave classic sweatshirt",
-        price: 1123,
-        id: 499576,
-        discount: 20,
-    }
-];
-new ProductList().saveProductListToLocalStorage(allProduct)
+let productsLocal = new ProductList().productListFromLocalStorage()
+if(productsLocal.length == 0){
+    productsLocal = [
+        {
+            img: "../img/shirt1.png",
+            type: "ave classic sweatshirt",
+            price: 107,
+            id: 499570,
+            discount: 10,
+        },
+        {
+            img: "../img/shirt3.png",
+            type: "ave classic sweatshirt",
+            price: 115,
+            id: 499572,
+            discount: 10,
+        },
+        {
+            img: "../img/shirt4.png",
+            type: "ave classic sweatshirt",
+            price: 125,
+            id: 499573,
+            discount: 10,
+        },
+        {
+            img: "../img/shirt5.png",
+            type: "ave classic sweatshirt",
+            price: 107,
+            id: 499574,
+            discount: 10,
+        },
+        {
+            img: "../img/shirt6.png",
+            type: "ave classic sweatshirt",
+            price: 107,
+            id: 499575,
+            discount: 10,
+        },
+        {
+            img: "../img/shirt2.png",
+            type: "ave classic sweatshirt",
+            price: 1123,
+            id: 499576,
+            discount: 20,
+        }
+    ];
+}
+new ProductList().saveProductListToLocalStorage(productsLocal)
 

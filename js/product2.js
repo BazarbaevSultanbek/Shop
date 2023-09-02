@@ -28,14 +28,16 @@ if (currentUser.login === 'admin' && currentUser.password === 'admin') {
 
 // add Product
 addProduct.addEventListener('click', () => {
-    if (type.value != "" && price != "" && discount != "" && comment.value != "") {
-        new Products().addProduct({
+    if (type.value != "" && price.value != "" && discount.value != "" && comment.value != "") {
+        new ProductList().addProduct({
+            img:'../img/shirt1.png',
             type: type.value,
-            price: price.value,
-            discount: discount.value,
+            price: "£" + price.value,
+            discount:"£" + discount.value,
             id: Math.floor(Math.random() * 1000000)
-        })
+        });
         window.location.reload()
+        new Products().render(products);
     }
     else if (type.value == "" || price.value == "" || discount.value == "" && comment.value == "") {
         alert("Please fill the gaps!");

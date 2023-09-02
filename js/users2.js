@@ -3,10 +3,10 @@ import { Admins, admin, CurrentUser } from "./Utils.js";
 
 const navLocal = document.querySelector('.footer-nav-local')
 const modul = document.querySelector('.modul')
-const regist = document.querySelector("#register")
 const regLogin = document.querySelector("#login")
 const regPass = document.querySelector("#password")
 const regConf = document.querySelector("#confirm")
+const regist = document.querySelector("#register")
 
 let admins = new Admins().adminsFromLocalStorage()
 
@@ -18,7 +18,7 @@ if (currentUser.login === 'admin' && currentUser.password === 'admin'){
 }
 
 regist.addEventListener('click', () => {
-    if (regLogin.value != 0  && regLogin.value.length == 13 && regPass.value != 0 && regConf.value != 0 && regPass.value === regConf.value) {
+    if (regLogin.value != 0  && regPass.value != 0 && regConf.value != 0 && regPass.value === regConf.value) {
         new Users().addAdmin({
             login: regLogin.value,
             password: regPass.value,
@@ -65,15 +65,10 @@ navLocal.addEventListener('click', (e) => {
             modul.style.height = '0'
         })
         saveModul.addEventListener('click', () => {
-           if(loginModul.value.length == 13){
             let edit = new Users().editAdmins(id, loginModul.value, passModul.value)
             new Admins().saveAdminsToLocalStorage(edit)
             modul.style.display = 'none'
-            window.location.reload()
-           }else {
-            alert("Please enter the login more than 13 word")
-           }
-           
+            window.location.reload()               
         })
     }
 })

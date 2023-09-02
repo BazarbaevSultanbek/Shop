@@ -9,7 +9,6 @@ if (imgSrc && imgSrc.length !== 0) {
   productDiv.innerHTML = `<img src="${imgSrc.img}" alt="cloth">`;
 }
 
-
 const addProduct = document.querySelector('#addCart')
 
 
@@ -43,6 +42,7 @@ let totalCount = document.querySelector('.count')
 let buyItems = document.querySelector('#buyItems')
 let clearCart = document.querySelector('#clear')
 let modul = document.querySelector('.modul')
+new ProductInIndex().renderProductInHover(products)
 
 firstCount.innerHTML = `${new ProductInIndex().totalCount(products)} items`
 totalCount.innerHTML = `Total:£${new ProductInIndex().totalPrice(products)}`;

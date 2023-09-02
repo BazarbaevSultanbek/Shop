@@ -49,23 +49,38 @@ export class Orders {
         })
     }
 
-
+    //createCustomer
     createCustomer(info) {
         let customers = JSON.parse(localStorage.getItem('orders')) || [];
         customers.push(info);
         localStorage.setItem('orders', JSON.stringify(customers));
     }
+
+    //deleteCustomer
     deletecustomer(id) {
-        let findCustomer = this.order.filter(item => { item.id != id })
-        this.main.innerHTML = ''
-        localStorage.setItem('orders', findCustomer)
+        let findCustomer = this.order.filter(item =>  item.id != id )
+        this.main.innerHTML = ""
+        localStorage.setItem('orders', JSON.stringify(findCustomer))
         this.render(findCustomer)
     }
 }
 
+
+let currentUser = new CurrentUser().getCurrentUser();
+if (currentUser.login === 'admin' && currentUser.password === 'admin') {
+    document.addEventListener('DOMContentLoaded', () => {
+        new Orders().render(new Orders().order);
+    });
+} else {
+    window.location.href = '../pages/index.html';
+}
+
+
 let main = document.querySelector('.main-inner-local');
 let wrapper = document.querySelector('.wrapper')
 let modul = document.querySelector('.modul')
+
+
 main.addEventListener("click", (event) => {
     if (wrapper.style.minWidth <= 320 || wrapper.style.minWidth >= 1024) {
         if (event.target.id === "show") {
@@ -79,16 +94,14 @@ main.addEventListener("click", (event) => {
         new Orders().deletecustomer(id)
     }
 });
+
+
 modul.addEventListener('click', (event) => {
     if (event.target.classList.contains('exit')) {
         modul.style.display = 'none'
     }
 })
-let currentUser = new CurrentUser().getCurrentUser();
-if (currentUser.login === 'admin' && currentUser.password === 'admin') {
-    document.addEventListener('DOMContentLoaded', () => {
-        new Orders().render(new Orders().order);
-    });
-} else {
-    window.location.href = '../pages/index.html';
-}
+
+
+
+

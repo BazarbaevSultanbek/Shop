@@ -10,6 +10,9 @@
     box-sizing: border-box;
 }
 
+#permLink{
+    display: none;
+}
 .container {
     max-width: 1170px;
     margin: 0px auto;
@@ -144,10 +147,17 @@ i[id='booking'] {
 
 .header-top-inner-flex {
     display: flex;
-    justify-content: space-around;
-
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 320px !important;
     a {
-        @include text('Montserrat', 17px, capitalize, none, grey, 500, inherit);
+        @include text('Montserrat', 12px, capitalize, none, grey, 500, inherit);
+    }
+    p{
+        display: none;
+        @include text('Montserrat', 12px, capitalize, none, grey, 500, inherit);
+        cursor: pointer;
     }
 }
 
@@ -772,7 +782,11 @@ i[id='booking'] {
         }
 
         &-inner-flex {
-            width: 210px;
+            margin-left: -50px;
+            width: 350px !important;
+            a,p{
+                font-size: 14px;
+            }
         }
     }
 

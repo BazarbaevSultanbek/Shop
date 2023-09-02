@@ -1,4 +1,3 @@
-import { Users } from "./users.js";
 import { Admins, admin } from "./Utils.js";
 
 let regEmail = document.querySelector('.roll-inner-register-email')
@@ -9,7 +8,7 @@ let regist = document.querySelector('.roll-register-flex-btn')
 
 regist.addEventListener('click', () => {
     if (regEmail.value.length !== 0 && regPass.value.length !== 0 && regConf.value.length !== 0 && regPass.value === regConf.value && regAccept.checked === true) {
-        new Users().addAdmin({
+        new Admins().addAdmin({
             login: regEmail.value,
             password: regPass.value,
             id: Math.floor(Math.random() * 1000000)
@@ -18,6 +17,8 @@ regist.addEventListener('click', () => {
             login: regEmail.value,
             password: regPass.value,
         }))
+        alert('Welcome new Customer!')
+        window.location.href = '../pages/index.html'
     } else if (admin.find(admin => admin.login === regEmail.value)) {
         alert('You have already registered!');
     } else if (regEmail.value.length === 0 || regPass.value.length === 0 || regConf.value.length === 0 || regAccept.checked === false) {

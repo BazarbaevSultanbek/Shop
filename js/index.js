@@ -16,7 +16,7 @@ export class ProductInIndex {
             this.listItems.insertAdjacentHTML('beforeend', `
             <li id="${item.id}" class="korzinka-hover-ul-li">
             <img src="${item.img}"> 
-           <input type="number" id="hoverDec" value="${item.count}">
+           <input type="number" id="hoverDec" value="${item.count}" min="0">
             <button id="hoverDel">delete</button>   
             </li>
             `)

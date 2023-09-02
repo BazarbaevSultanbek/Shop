@@ -23,7 +23,29 @@ let clearCart = document.querySelector('#clear')
 let modul = document.querySelector('.modul')
 let listItems = document.querySelector('.korzinka-hover-ul')
 let naviBlock = document.querySelector('.navigate-block')
-
+let permLink = document.querySelector('#permLink')
+let permLinkOut = document.querySelector('.header-top-inner-flex')
+let logout = document.querySelector('#logOut')
+// Link for permission to only admin
+if (currentUser.login === 'admin' && currentUser.password == 'admin') {
+    permLink.style.display = 'block'
+    if (window.innerWidth >= 1024) {
+        permLinkOut.style.width = '450px';
+    }
+}
+if(currentUser.length !== 0){
+    logout.style.display = 'block'
+    logout.addEventListener('click',()=>{
+        localStorage.removeItem("currentUser")
+        window.location.href = '../pages.signUp.html'
+        if (window.innerWidth >= 1024) {
+            permLinkOut.style.width = '450px !important';
+        }
+    })
+    if(currentUser.login == 'admin' && currentUser.password == 'admin'){
+        permLinkOut.style.gap = '30px';
+    }
+}
 
 // navigators under photos
 naviBlock.addEventListener('click', (event) => {
@@ -68,6 +90,8 @@ listItems.addEventListener('click', (e) => {
         let id = e.target.closest('.korzinka-hover-ul-li').id
         let closeCount = e.target.closest('.korzinka-hover-ul-li').querySelector('#hoverDec').value
         new ProductInIndex().getAndChangeItem(id, closeCount);
+        firstCount.innerHTML = `${new ProductInIndex().totalCount(products)} items`
+        totalCount.innerHTML = `Total:£${new ProductInIndex().totalPrice(products)}`;
     }
     if (e.target.id == 'hoverDel') {
         let id = e.target.closest('.korzinka-hover-ul-li').id
