@@ -3,7 +3,7 @@
 import { ProductInIndex } from "./index.js";
 import { Cart, CurrentUser, Order } from "./Utils.js";
 
-
+const products = new Cart().cartFromLocalStorage();
 const currentUser = new CurrentUser().getCurrentUser()
 new ProductInIndex().renderProductInHover(products)
 
