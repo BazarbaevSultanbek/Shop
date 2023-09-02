@@ -1,17 +1,21 @@
+
+// import of other classes
 import { ProductInIndex } from "./index.js";
-import { Orders } from "./order.js";
-import { CurrentUser, Product } from "./Utils.js";
+import { Cart, CurrentUser, Order } from "./Utils.js";
+
 
 const currentUser = new CurrentUser().getCurrentUser()
-const products = new Product().productsFromLocalStorage()
 new ProductInIndex().renderProductInHover(products)
 
+
+// properties for take some elements from index.js
 let imgId;
 let price;
 let name;
 let count = 0
 
 
+// connections with HTML classes
 let firstCount = document.querySelector('.count-first')
 let totalCount = document.querySelector('.count')
 let buyItems = document.querySelector('#buyItems')
@@ -21,34 +25,44 @@ let listItems = document.querySelector('.korzinka-hover-ul')
 let naviBlock = document.querySelector('.navigate-block')
 
 
-
-
-
-
+// navigators under photos
 naviBlock.addEventListener('click', (event) => {
-   if(currentUser.length != 0){
-    if (event.target.id == 'order') {
-        price = event.target.closest('.navigate-block-inner').querySelector('.price').textContent
-        imgId = event.target.closest('.navigate-block-inner').querySelector('.img').getAttribute('src');
-        let name = event.target.closest('.navigate-block-inner').querySelector('.name-product').id
-        new ProductInIndex().addItem(name,imgId, price)
-    }
-    if (event.target.id == 'booking') {
-        const imgSrc = event.target.closest('.navigate-block-inner').querySelector('.img').getAttribute('src');
-        localStorage.setItem('selectedImgSrc', imgSrc)
-        window.location.href = '../pages/product.html';
+    if (currentUser.length != 0) {
+        if (event.target.id == 'order') {
+            price = event.target.closest('.navigate-block-inner').querySelector('.price').textContent
+            imgId = event.target.closest('.navigate-block-inner').querySelector('.img').getAttribute('src');
+            name = event.target.closest('.navigate-block-inner').querySelector('.name-product').id
+            if (products.find((item) => item.img === imgId)) {
+                alert('Product already exists in your order.');
+            } else {
+                new ProductInIndex().addItem(name, imgId, price);
+            }
 
+        }
+        if (event.target.id == 'booking') {
+            const imgSrc = event.target.closest('.navigate-block-inner').querySelector('.img').getAttribute('src');
+            name = event.target.closest('.navigate-block-inner').querySelector('.name-product').id
+            price = event.target.closest('.navigate-block-inner').querySelector('.price').textContent
+            localStorage.setItem('selectedImgSrc', JSON.stringify({
+                img: imgSrc,
+                name: name,
+                price: price
+            }))
+            window.location.href = '../pages/product.html';
+        }
+    } else {
+        alert("Without authorization")
+        window.location.href = '../pages/signUp.html'
     }
-   }else{
-    alert("Without authorization")
-    window.location.href = '../pages/signUp.html'
-   }
 })
 
+
+// total counts of all items and prices
 firstCount.innerHTML = `${new ProductInIndex().totalCount(products)} items`
-totalCount.innerHTML = `Total:${new ProductInIndex().totalCount(products)}`
+totalCount.innerHTML = `Total:£${new ProductInIndex().totalPrice(products)}`;
 
 
+// delete and add item in hover
 listItems.addEventListener('click', (e) => {
     if (e.target.id == 'hoverDec') {
         let id = e.target.closest('.korzinka-hover-ul-li').id
@@ -61,13 +75,21 @@ listItems.addEventListener('click', (e) => {
     }
 
 })
+
+
+// delete all items that customer wanted to buy
 clearCart.addEventListener('click', () => {
-    count = 0
-    firstCount.innerHTML = `${count} items`
-    totalCount.innerHTML = `Total:${count}`
-    localStorage.removeItem("products")
-    window.location.reload()
+    if (listItems.innerHTML != '') {
+        count = 0
+        firstCount.innerHTML = `${count} items`
+        totalCount.innerHTML = `Total:${count}`
+        localStorage.removeItem("Cart")
+        window.location.reload()
+    }
 })
+
+
+// buy items in hover
 buyItems.addEventListener('click', () => {
     if (products.length !== 0) {
         modul.style.backgroundColor = 'rgba(51, 49, 49, 0.74)'
@@ -78,12 +100,13 @@ buyItems.addEventListener('click', () => {
         modul.style.bottom = '0'
         modul.innerHTML = `
             <div class="modul-middle">
-            <p>Create Customer</p>
-            <input type="text" id="nameModul" placeholder="name">
+            <label for="nameModul">Name</label>
+            <input type="text" id="nameModul">
+            <label for="numberModul">Phone number</label>
             <input type="tel" id="numberModul" placeholder="+X XXXXXXXX">
             <div class="modul-middle-btn">
                 <button id="cancel">Cancel</button>
-                <button id="save">Save</button>
+                <button id="save">Buy</button>
                 </div>
                 </div>
                 `
@@ -97,14 +120,16 @@ buyItems.addEventListener('click', () => {
             modul.style.height = '0'
         })
         saveModul.addEventListener('click', () => {
-            if (tel.value.length == 11) {
-                new Orders().createCustomer({
+            if (tel.value.length != 0) {
+                new Order().addOrder({
                     name: name.value,
                     number: tel.value,
-                    orderNumber: new ProductInIndex().totalCount(new Product().productsFromLocalStorage()),
+                    orderNumber: new Cart().cartFromLocalStorage(),
                     id: Math.floor(Math.random() * 1000000)
                 })
-                window.location.href = '../pages/orders.html'
+                alert('Thank you for your purchase!')
+                window.location.reload()
+                localStorage.removeItem("Cart")
             } else {
                 alert("Please enter valid phone")
             }

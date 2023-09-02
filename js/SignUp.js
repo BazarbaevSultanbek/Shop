@@ -42,6 +42,8 @@ signIn.addEventListener('click', () => {
         }))
         alert(`Welcome ${signEmail.value}`)
         window.location.href = "../pages/index.html"
+    }else{
+        alert('You are not exist in this website!')
     }
 })
 

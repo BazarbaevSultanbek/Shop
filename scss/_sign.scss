@@ -3,9 +3,52 @@
     padding: 0;
     box-sizing: border-box;
 }
+input,
+button{
+    outline:none;
+}
+
+.container {
+    max-width: 1170px;
+    margin: 0px auto;
+}
+
+.booking {
+    z-index: 3;
+}
+
+.korzinka-hover-ul {
+    padding: 0 15px 15px 15px;
+
+    li {
+        @include flex(row, space-around, nowrap, center);
+        margin-top: 7px;
+
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid black;
+        }
+
+        #hoverDec {
+            font-size: 15px;
+            width: 45px;
+            text-align: center;
+        }
+
+        #hoverDel {
+            background-color: rgb(244, 54, 54);
+        }
+    }
+}
+
+.header-all {
+    background-color: #333333;
+
+}
 
 .header-top {
-    background-color: #333333;
     padding: 15px 0;
     display: flex;
     flex-direction: column;
@@ -42,8 +85,7 @@
 
 .header-top-inner-korzinka {
     position: relative;
-    // width: 50%;
-    // margin: auto;
+
 }
 
 .header-top-korzinka-flex {
@@ -69,16 +111,18 @@
     background-color: white;
     padding: 7px 0;
     width: 250px;
-    top: 50px;
+    top: 40px;
     left: 50%;
+    border-radius: 3px;
     transform: translateX(-50%);
-    box-shadow: 10px 14px 45px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: rgb(100, 99, 99) 0px 0px 5px 0px;
     transition: 0.5s all linear;
-    z-index: 2;
+    z-index: 5;
 
     p {
-        @include text('Montserrat', 14px, capitalize, none, grey, 300, none);
+        @include text('Montserrat', 14px, capitalize, none, #222, 300, 20px);
         text-align: center;
+        padding: 10px 0;
     }
 
     .header-korzinka-hover-btn {
@@ -89,24 +133,14 @@
     }
 
     button {
-        @include text('Montserrat', 14px, capitalize, none, white, 300, none);
+        @include text('Montserrat', 14px, capitalize, none, white, 300, 15px);
         background-color: #00c8c8;
         border: none;
         padding: 5px 7px;
     }
-
-    &::before {
-        content: '';
-        position: absolute;
-        border: 10px solid #fff;
-        border-color: transparent transparent white transparent;
-        left: 50%;
-        transform: translateX(-50%);
-        top: -18px;
-    }
 }
 
-.header-top-korzinka-flex:hover+.header-top-korzinka-hover {
+.header-top-inner-korzinka:hover .header-top-korzinka-hover {
     display: block;
 }
 
@@ -122,11 +156,11 @@
         }
 
         span:nth-child(1) {
-            @include text('Montserrat', 22px, capitalize, none, black, 500, inherit);
+            @include text('Montserrat', 22px, uppercase, none, #222, 500, inherit);
         }
 
         span:nth-child(2) {
-            @include text('Montserrat', 22px, capitalize, none, grey, 300, inherit);
+            @include text('Montserrat', 22px, uppercase, none, #222, 300, inherit);
         }
     }
 }
@@ -158,14 +192,13 @@
         height: 360px;
         text-align: center;
         color: white;
-        padding: 25px 0 50px 0;
+        padding: 25px 0 0px 0;
         background-color: #333333;
         transition: 0.5s all linear;
         z-index: 2;
 
         li {
             list-style: none;
-
             a {
                 @include text('Montserrat', 14px, uppercase, none, white, 400, 40px);
             }
@@ -178,20 +211,23 @@
 }
 
 .header-menu-list-search {
-    position: relative;
     padding-bottom: 20px;
-
+    position: relative;
+    width: 181px;
+    height: 28px;
+    margin: auto;
     input {
         border: 1px solid #e7e7e7;
         padding: 5px 10px;
         font-family: 'Montserrat';
+        outline: none;
     }
 
     label {
         position: absolute;
         font-size: 17px;
-        left: 71%;
-        top: 12%;
+        left: 88%;
+        top: 20%;
     }
 }
 
@@ -215,12 +251,12 @@
         height: 100%;
         top: 0;
         width: 100%;
-        padding-top: 60px;
+        padding-top: 40px;
         transition: 0.5s all linear;
     }
 
     .header-menu-item-formal {
-        padding-top: 70px !important;
+        padding-top: 50px !important;
     }
 
     .header-menu-item-ourbooks,
@@ -325,15 +361,15 @@
 }
 
 .header-menu-display {
-    height: 360px;
+    background: url(../img/bannerBg.png), rgb(248, 248, 248);
+    background-repeat: no-repeat;
+    background-size: cover;
     position: relative;
-    background: url(../img/bannerBg.png) 100% 100%;
-    top: -72%;
     text-align: center;
-    padding: 150px 0;
     z-index: 0;
-
-    &::before {
+    height: 360px;
+    top: -72%;
+    &::before{
         content: "";
         background: #333;
         opacity: 0.7;
@@ -342,18 +378,21 @@
         right: 0;
         bottom: 0;
         left: 0;
-        z-index: -1;
+        z-index: 0;
     }
-
     p {
-        z-index: 2;
-        @include text('Montserrat', 25px, uppercase, none, white, 400, 40px);
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        @include text('Montserrat', 20px, uppercase, none, #fff, 300, 40px);
+        z-index: 1;
+    }
+    span{
+        font-weight: 700;
     }
 
-    span {
-        font-weight: 700 !important;
-    }
 }
+
 
 .roll-inner-logo,
 .roll-inner-logo-register {
@@ -465,15 +504,11 @@
 
 .footer {
     margin-top: 50px;
-
-    .container {
-        padding: 0 15px;
-    }
 }
 
 .footer-acc {
     background-color: #333333;
-    padding: 20px 0 50px 0;
+    padding: 20px 15px 50px 15px;
 
     input {
         display: none;
@@ -619,6 +654,7 @@
         align-items: center;
         justify-content: space-around;
         padding: 0 15px;
+        height: 70px;
 
         &-inner:nth-child(2) {
             display: flex;
@@ -631,12 +667,25 @@
         }
     }
 
+    .header-main-logo {
+        position: absolute;
+        margin: 0;
+        text-align: start;
+        left: 92px;
+        top: 94px;
+    }
+
+    .header-menu .menu-nav-label {
+        top: 30px;
+        left: 92%;
+    }
+
     .header-top-korzinka-flex {
         width: 120px;
     }
 
     .header-top-korzinka-hover {
-        left: -33px;
+        left: -36px;
     }
 
     .header-menu input[type=checkbox]:checked~.header-menu-list {
@@ -645,6 +694,10 @@
 
     .header-menu-list {
         width: 40%;
+        top: 80px;
+    }
+    .header-menu-display{
+        top: -64%;
     }
 
     .roll {
@@ -656,13 +709,13 @@
     .roll-block {
         @include flex(row, center, nowrap, inherit);
         gap: 20px;
-
+        position:relative;
         &::before {
             content: "";
             position: absolute;
-            height: 450px;
-            width: 0.5px;
-            background: #acacac;
+            height: 100%;
+            width: 1px;
+            background: #e7e7e7;
             left: 47%;
             transform: translateX(-50%);
         }
@@ -673,6 +726,9 @@
         margin: 0 !important;
     }
 
+    .footer .container{
+        padding: 0;
+    }
     .footer-acc-items label {
         left: 4%;
     }
@@ -710,32 +766,99 @@
 
 
 @media only screen and (min-width:1024px) {
+
     .header-top {
         height: 50px;
         justify-content: space-between;
     }
 
     .header-top-inner:nth-child(2) {
-        margin-right: 10%;
+        margin-right: 5%;
+        gap: 120px;
     }
 
     .header-top-korzinka-flex {
-        height: 50px;
-        top: -8px;
+        height: 54px;
+        top: -12px;
+        width: 150px;
+        gap: 15px;
+    }
+
+    .header-top-korzinka-hover {
+        width: 450px;
+        padding: 20px;
+        background-color: rgb(248, 248, 248);
+
+        p {
+            font-size: 19px;
+        }
+
+        #clear {
+            font-size: 18px;
+        }
+
+        #buyItems {
+            font-size: 18px;
+        }
+    }
+
+    .korzinka-hover-ul {
+        padding-top: 20px;
+
+        li {
+            img {
+                width: 70px;
+                height: 70px;
+            }
+
+            #hoverDec {
+                text-align: center;
+                font-size: 20px;
+            }
+
+            button {
+                padding: 12px;
+                font-size: 19px;
+            }
+        }
+
+    }
+
+    .header-korzinka-hover-btn {
+        gap: 70px;
+
+        button {
+            padding: 10px 30px;
+        }
     }
 
     .header-main {
-        padding-top: 25px;
+        height: 610px;
     }
 
     .header-main-flex {
-        @include flex(row, space-around, nowrap, inherit);
+        padding-top: 40px;
+        @include flex(row, space-between, nowrap, start);
     }
 
     .header-main-logo {
-        flex-basis: 40%;
-        text-align: start;
-        margin: 0;
+        position: static;
+        margin: 0 0 0 17px;
+        height: 30px;
+
+        span:nth-child(1) {
+            text-transform: uppercase;
+            font-weight: 700;
+            color: rgb(34, 34, 34);
+            font-size: 27px;
+        }
+
+        span:nth-child(2) {
+            text-transform: uppercase;
+            font-weight: 400;
+            color: black;
+            font-size: 27px;
+        }
     }
 
     .menu-nav-label {
@@ -744,28 +867,36 @@
 
     .header-menu {
         overflow: visible;
-        flex-basis: 50%;
     }
 
     .header-menu-list {
         position: static;
-        left: 300px;
         background: inherit;
-        top: -31px;
-        width: 750px;
+        width: 880px;
         padding: 0;
         height: 50px;
         transition: none;
+        margin-left: 6%;
 
         li {
             display: inline-block;
-            margin-right: 15px;
+            margin-right: 35px;
+
+            &:nth-child(1) {
+                margin-right: 85px !important;
+            }
 
             p,
             a {
                 color: black;
                 line-height: 30px;
                 font-weight: 600;
+                cursor: pointer;
+
+                &:hover {
+                    color: #00c8c8;
+                    transition: 0.5s all linear;
+                }
             }
         }
     }
@@ -774,24 +905,92 @@
         left: 87%;
     }
 
+    .men-hover {
+        padding-bottom: 15px;
+
+        label {
+            position: relative;
+
+            p::before {
+                content: "\f078";
+                font-family: "Font Awesome 6 Free";
+                position: absolute;
+                font-weight: 900;
+                font-size: 12px;
+                color: #000000;
+                top: 20px;
+                left: -16px;
+                z-index: 4;
+            }
+        }
+    }
+
+    .women-hover {
+        padding-bottom: 15px;
+
+        label {
+            position: relative;
+
+            p::before {
+                content: "\f078";
+                font-family: "Font Awesome 6 Free";
+                position: absolute;
+                font-weight: 900;
+                font-size: 12px;
+                color: #000000;
+                top: 20px;
+                left: -28px;
+                z-index: 4;
+            }
+        }
+    }
+
+    .book-hover {
+        padding-bottom: 15px;
+
+        label {
+            position: relative;
+
+            a::before {
+                content: "\f078";
+                font-family: "Font Awesome 6 Free";
+                position: absolute;
+                font-weight: 900;
+                font-size: 12px;
+                color: #000000;
+                top: 20px;
+                left: 0px;
+                z-index: 4;
+            }
+        }
+    }
+
     .men-input:checked+.header-menu-item {
-        left: -10%;
+        left: 10%;
     }
 
     .women-input:checked+.header-menu-item#women-list {
-        left: -7%;
+        left: 15%;
     }
 
     .book-input:checked+.header-menu-item#book-list {
-        left: 35%;
+        left: 50%;
     }
 
     .men-hover:hover .header-menu-item#men-list {
         display: block;
+
+        .header-menu-list-word {
+            color: #00c8c8;
+        }
     }
 
     .women-hover:hover .header-menu-item#women-list {
         display: block;
+
+        .header-menu-list-word {
+            color: #00c8c8;
+        }
     }
 
     .book-hover:hover .header-menu-item#book-list {
@@ -800,18 +999,18 @@
 
     .header-menu-item {
         display: none;
-        top: 30px;
-        left: -10%;
+        top: 40px;
+        left: 10%;
         width: 450px;
-        background-color: white;
-        height: 430px;
-        padding: 35px 50px 0 50px;
+        background-color: rgb(248, 248, 248);
+        box-shadow: rgba(0, 0, 0, 0.14) 0px 17px 24px;
+        height: 480px;
+        padding: 30px 15px 0 15px;
         z-index: 2;
         line-height: 0%;
 
         &-in {
             label {
-                padding-right: 8px;
                 color: black;
                 font-weight: 600;
             }
@@ -820,30 +1019,32 @@
     }
 
     .header-menu-item#women-list {
-        left: -7%;
+        left: 15%;
     }
 
     .header-menu-item#book-list {
-        left: 35%;
-        padding: 30px 35px 0 35px;
-        height: 350px;
+        top: 47px;
+        left: 50%;
+        padding: 30px 35px 0 20px;
+        height: 420px;
 
         ul {
             left: 250px;
         }
 
-
-        .header-menu-item-in label {
-            padding-right: 25px;
+        .header-menu-item-flex {
+            margin-left: -1.7pc;
         }
 
         .header-menu-item-discount p {
-            width: 360px;
+            width: 385px;
+            font-size: 34px !important;
+            line-height: 55px !important;
         }
     }
 
     .header-menu-item-casuals {
-        left: 50px !important;
+        left: 35px !important;
         width: 48% !important;
 
         li {
@@ -856,10 +1057,6 @@
                 ;
             }
         }
-    }
-
-    #casual-word {
-        padding-right: 206px !important;
     }
 
     .header-menu-item-formal {
@@ -879,19 +1076,25 @@
         }
     }
 
+    #formal-word {
+        margin-left: -60px;
+    }
+
     .header-menu-item ul {
-        background: inherit
+        background: inherit;
+        top: 30px;
+        left: 260px;
     }
 
     .header-menu-item-discount p {
         background: #333333;
         color: white !important;
-        font-size: 30px !important;
-        line-height: 35px !important;
+        font-size: 35px !important;
+        line-height: 50px !important;
         font-weight: 600 !important;
-        width: 350px;
-        padding: 25px 35px;
-        margin: 40px 0 0 -22px;
+        width: 380px;
+        padding: 35px 35px;
+        margin: 30px 0 0 -22px;
     }
 
     #formal-discount {
@@ -900,6 +1103,8 @@
 
     .header-menu-item-flex {
         @include flex(row, space-around, nowrap, center);
+        margin-left: -5.7pc;
+
     }
 
     .men-cancel,
@@ -913,8 +1118,8 @@
     }
 
     .header-menu-item-ourbooks {
-        padding-top: 70px !important;
-        left: 50px !important;
+        padding-top: 60px !important;
+        left: 35px !important;
         width: 48% !important;
 
         li {
@@ -931,7 +1136,7 @@
 
     .header-menu-item-mybooks {
         width: 40% !important;
-        padding-top: 70px !important;
+        padding-top: 60px !important;
 
         li {
             display: block;
@@ -945,28 +1150,36 @@
             }
         }
     }
-
-    .header-menu-display {
-        height: 420px;
-        top: -345px;
+    .header-menu-display{
+        height: 450px;
+        top: -55%;
+        p:nth-child(1){
+            font-size: 48px;
+            line-height: 35px;
+        }
+        p:nth-child(2){
+            font-size: 30px;
+            margin-top: 35px;
+        }
     }
-
-    .roll {
-        margin-top: 10%;
+    .roll{
+        .container{
+            all:unset;
+        }
     }
-
     .roll-block {
-        gap: 0;
+        gap: 50px;
         &::before{
             left: 50%;
         }
     }
 
     .roll-inner {
+        width: 550px;
         input {
-            padding: 10px 20px;
-            font-size: 17px;
-            height: 50px;
+            padding: 7px 15px;
+            font-size: 16px;
+            height: 45px;
             width: 100%;
         }
         &:nth-child(2) {
@@ -975,7 +1188,7 @@
     }
 
     .roll-inner-logo {
-        font-size: 25px;
+        font-size: 18px;
         text-transform: uppercase;
         text-align: start;
     }
@@ -990,19 +1203,21 @@
         margin-top: 45px;
 
         button {
-            font-size: 17px;
-            border: 3px solid #737373;
+            font-size: 16px;
+            border: 2px solid #737373;
             font-weight: 500;
+            letter-spacing: 2px;
+            width: 25%;
         }
 
         a {
-            font-size: 17px;
+            font-size: 15px;
         }
 
     }
 
     .roll-inner-logo-register {
-        font-size: 25px;
+        font-size: 18px;
         text-transform: uppercase;
         text-align: start;
     }
@@ -1014,7 +1229,7 @@
             gap: 20px;
 
             p {
-                font-size: 17px;
+                font-size: 15px;
                 font-family: 'Roboto', sans-serif;
             }
         }
@@ -1029,16 +1244,16 @@
             margin-top: 30px;
 
             button {
-                border: 3px solid #737373;
+                border: 2px solid #737373;
                 width: 350px;
-                font-size: 14px;
+                font-size: 16px;
                 font-weight: 500;
             }
 
             p {
                 font-size: 17px;
                 font-family: 'Roboto', sans-serif;
-
+                text-align: right;
                 span {
                     font-size: 17px;
                     font-family: 'Roboto', sans-serif;
@@ -1047,19 +1262,23 @@
         }
     }
 
+    .footer {
+        background: #f8f8f8;
+    }
+
     .footer-acc {
         margin-top: 4%;
         background: #f8f8f8;
 
         &-flex {
             display: flex;
-            justify-content: center;
-            // margin-left: 40px;
+            justify-content: space-between;
         }
     }
 
     .footer-acc-items {
-        margin-left: -35px;
+        margin-left: -20px;
+        border: none;
 
         label {
             color: #333333;
@@ -1094,15 +1313,19 @@
 
     .footer-main {
         justify-content: center;
-        gap: 0;
+        gap: 30px;
         margin-top: -80px;
+        background: #f8f8f8;
+        padding-bottom: 40px;
+
     }
 
     .footer-main-award {
         height: 200px;
         padding: 0;
-        width: 40%;
+        width: 100%;
         padding-top: 50px;
+        margin: 0;
 
         p {
             font-size: 30px;
@@ -1115,10 +1338,11 @@
     }
 
     .footer-main-icons {
-        width: 40%;
+        width: 100%;
         height: 200px;
         padding-top: 80px;
         gap: 70px;
+        margin: 0;
 
         a {
             i {
@@ -1128,6 +1352,7 @@
     }
 
     .footer-foot {
+        margin: 0;
         padding: 10px 65px 0 65px;
         justify-content: space-between;
 
@@ -1139,5 +1364,10 @@
             display: flex;
             gap: 20px;
         }
+    }
+
+    .footer-foot-block {
+        @include flex(row, space-between, nowrap, center);
+        gap: 420px;
     }
 }

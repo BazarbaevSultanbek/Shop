@@ -8,20 +8,32 @@ export class Admins {
         return admins;
     }
 }
-
 let admin = new Admins().adminsFromLocalStorage();
-
 if (admin.length === 0) {
     admin = [
         {
             login: 'admin',
             password: 'admin',
             id: 745972
+        },
+        {
+            login: 'bbbb',
+            password: 'bbbb',
+            id: 263704
+        },
+        {
+            login: 'cccc',
+            password: 'cccc',
+            id: 931290
         }
     ];
     new Admins().saveAdminsToLocalStorage(admin);
 }
 export { admin };
+
+
+
+
 
 export class CurrentUser {
     saveCurrentUser(currentUser) {
@@ -35,23 +47,24 @@ export class CurrentUser {
 let currentUsers = new CurrentUser().getCurrentUser();
 
 
-export class Product {
-    saveProductToLocalStorage(product) {
-        localStorage.setItem('products', JSON.stringify(product));
+
+
+export class Cart {
+    saveCartToLocalStorage(cart) {
+        localStorage.setItem('Cart', JSON.stringify(cart));
     }
 
-    productsFromLocalStorage() {
-        let products = JSON.parse(localStorage.getItem('products') || '[]');
-        return products;
+    cartFromLocalStorage() {
+        let cart = JSON.parse(localStorage.getItem('Cart') || '[]');
+        return cart;
     }
-    addProduct(pro) {
-        products = JSON.parse(localStorage.getItem('products') || '[]')
-        products.push(pro)
-        localStorage.setItem("products", JSON.stringify(products))
+    addCart(pro) {
+        let cartPlus = JSON.parse(localStorage.getItem('Cart') || '[]')
+        cartPlus.push(pro)
+        localStorage.setItem("Cart", JSON.stringify(cartPlus))
     }
 }
 
-let products = new Product().productsFromLocalStorage();
 
 
 export class Order {
@@ -63,7 +76,7 @@ export class Order {
         let orders = JSON.parse(localStorage.getItem('orders') || '[]');
         return orders;
     }
-    addProduct(order) {
+    addOrder(order) {
         orders = JSON.parse(localStorage.getItem('orders') || '[]')
         orders.push(order)
         localStorage.setItem("orders", JSON.stringify(orders))
@@ -71,17 +84,100 @@ export class Order {
 }
 
 let orders = new Order().ordersFromLocalStorage();
-
 if (orders.length === 0) {
     orders = [
         {
-            name: 'John Cena',
-            number: '+1 25678945',
-            orderNumber:15,
-            id: 745972
+            name: 'sultanbek bazarbayev',
+            number: '+998907001677',
+            id: 745972,
+            orderNumber: [
+                {
+                    img: "../img/shirt4.png",
+                    name: "ave classic",
+                    price: "£125",
+                    count: "6",
+                    discount: "-£20",
+                    id: 352442
+                },
+                {
+                    img: "../img/shirt2.png",
+                    name: "ave classic sweatshirt",
+                    price: "£125",
+                    count: "9",
+                    discount: "-£20",
+                    id: 352442
+                }
+            ]
         }
     ];
     new Order().saveOrderToLocalStorage(orders);
 }
-
 export { orders };
+new Order().saveOrderToLocalStorage(orders);
+
+
+
+
+
+export class ProductList {
+    saveProductListToLocalStorage(product) {
+        localStorage.setItem('ProductList', JSON.stringify(product));
+    }
+
+    productListFromLocalStorage() {
+        let products = JSON.parse(localStorage.getItem('ProductList') || '[]');
+        return products;
+    }
+    addCart(pro) {
+        product = JSON.parse(localStorage.getItem('ProductList') || '[]')
+        product.push(pro)
+        localStorage.setItem("ProductList", JSON.stringify(product))
+    }
+}
+
+let allProduct = [
+    {
+        img: "../img/shirt1.png",
+        type: "ave classic sweatshirt",
+        price: 107,
+        id: 499570,
+        discount: 10,
+    },
+    {
+        img: "../img/shirt3.png",
+        type: "ave classic sweatshirt",
+        price: 115,
+        id: 499572,
+        discount: 10,
+    },
+    {
+        img: "../img/shirt4.png",
+        type: "ave classic sweatshirt",
+        price: 125,
+        id: 499573,
+        discount: 10,
+    },
+    {
+        img: "../img/shirt5.png",
+        type: "ave classic sweatshirt",
+        price: 107,
+        id: 499574,
+        discount: 10,
+    },
+    {
+        img: "../img/shirt6.png",
+        type: "ave classic sweatshirt",
+        price: 107,
+        id: 499575,
+        discount: 10,
+    },
+    {
+        img: "../img/shirt2.png",
+        type: "ave classic sweatshirt",
+        price: 1123,
+        id: 499576,
+        discount: 20,
+    }
+];
+new ProductList().saveProductListToLocalStorage(allProduct)
+

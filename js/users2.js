@@ -1,5 +1,5 @@
 import { Users } from "./users.js";
-import { Admins, admin } from "./Utils.js";
+import { Admins, admin, CurrentUser } from "./Utils.js";
 
 const navLocal = document.querySelector('.footer-nav-local')
 const modul = document.querySelector('.modul')
@@ -9,7 +9,14 @@ const regPass = document.querySelector("#password")
 const regConf = document.querySelector("#confirm")
 
 let admins = new Admins().adminsFromLocalStorage()
-new Users().render(admins)
+
+let currentUser = new CurrentUser().getCurrentUser()
+if (currentUser.login === 'admin' && currentUser.password === 'admin'){
+        new Users().render(admins)
+}else{
+    window.location.href = '../pages/index.html'
+}
+
 regist.addEventListener('click', () => {
     if (regLogin.value != 0  && regLogin.value.length == 13 && regPass.value != 0 && regConf.value != 0 && regPass.value === regConf.value) {
         new Users().addAdmin({

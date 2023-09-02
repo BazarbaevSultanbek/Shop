@@ -10,6 +10,11 @@
     box-sizing: border-box;
 }
 
+.container {
+    max-width: 1170px;
+    margin: 0px auto;
+}
+
 .booking {
     z-index: 3;
 }
@@ -28,51 +33,34 @@ i[id='booking'] {
 
     &-middle {
         background-color: white;
-        width: 80%;
-        border-radius: 18px;
+        width: 230px;
         display: flex;
         flex-direction: column;
-        padding-bottom: 15px;
+        padding: 15px;
 
-        p {
-            text-align: center;
-            padding: 10px 0;
-            border-top-left-radius: 18px;
-            border-top-right-radius: 18px;
-            background-color: #111111;
-            color: white;
-            width: 100%;
-            font-family: "Raleway", sans-serif;
+        label {
+            @include text('Open Sans', 18px, none, none, black, 300, 20px);
         }
 
         input:nth-child(2) {
-            width: 70%;
-            margin: 20px auto 10px auto;
-            height: 25px;
-            border-radius: 5px;
-            border: 1px solid #b0b0b0;
-            font-family: "Open Sans", sans-serif;
-            padding: 0 5px;
-        }
-
-        input:nth-child(3) {
-            width: 70%;
+            width: 100%;
             margin: 5px auto 10px auto;
             height: 25px;
+            border: 1px solid black;
             font-family: "Open Sans", sans-serif;
             padding: 0 5px;
-            border-radius: 5px;
-            border: 1px solid #b0b0b0;
+            outline: none;
         }
 
         input:nth-child(4) {
-            width: 70%;
+            width: 100%;
             margin: 5px auto 10px auto;
             height: 25px;
             font-family: "Open Sans", sans-serif;
             padding: 0 5px;
-            border-radius: 5px;
-            border: 1px solid #b0b0b0;
+            border: 1px solid black;
+            outline: none;
+
         }
     }
 
@@ -81,9 +69,9 @@ i[id='booking'] {
         justify-content: space-around;
 
         button {
-            background-color: #111111;
+            background-color: #00c8c8;
             color: white;
-            border: 1px solid #111111;
+            border: 1px solid #00c8c8;
             padding: 5px;
             cursor: pointer;
             border-radius: 5px;
@@ -97,31 +85,38 @@ i[id='booking'] {
     }
 }
 
-.korzinka-hover-ul{
-    padding:0 15px 15px 15px;
-    li{
-        @include flex(row,space-around,nowrap,center);
+.korzinka-hover-ul {
+    padding: 0 15px 15px 15px;
+
+    li {
+        @include flex(row, space-around, nowrap, center);
         margin-top: 7px;
-        img{
+
+        img {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             border: 1px solid black;
         }
 
-        #hoverDec{
+        #hoverDec {
             font-size: 15px;
             width: 45px;
             text-align: center;
         }
-        #hoverDel{
+
+        #hoverDel {
             background-color: rgb(244, 54, 54);
         }
     }
 }
 
-.header-top {
+.header-all {
     background-color: #333333;
+
+}
+
+.header-top {
     padding: 15px 0;
     display: flex;
     flex-direction: column;
@@ -184,16 +179,18 @@ i[id='booking'] {
     background-color: white;
     padding: 7px 0;
     width: 250px;
-    top: 50px;
+    top: 40px;
     left: 50%;
+    border-radius: 3px;
     transform: translateX(-50%);
-    box-shadow: 10px 14px 45px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: rgb(100, 99, 99) 0px 0px 5px 0px;
     transition: 0.5s all linear;
     z-index: 2;
 
     p {
-        @include text('Montserrat', 14px, capitalize, none, grey, 300, none);
+        @include text('Montserrat', 14px, capitalize, none, #222, 300, 20px);
         text-align: center;
+        padding: 10px 0;
     }
 
     .header-korzinka-hover-btn {
@@ -204,20 +201,10 @@ i[id='booking'] {
     }
 
     button {
-        @include text('Montserrat', 14px, capitalize, none, white, 300, none);
+        @include text('Montserrat', 14px, capitalize, none, white, 300, 15px);
         background-color: #00c8c8;
         border: none;
         padding: 5px 7px;
-    }
-
-    &::before {
-        content: '';
-        position: absolute;
-        border: 10px solid #fff;
-        border-color: transparent transparent white transparent;
-        left: 50%;
-        transform: translateX(-50%);
-        top: -18px;
     }
 }
 
@@ -227,6 +214,13 @@ i[id='booking'] {
 
 .header-main {
     height: 500px;
+    background: url(../img/collection1.png), rgb(248, 248, 248);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 0% 47%;
+    position: relative;
+    text-align: center;
+    z-index: 0;
 
     &-logo {
         text-align: center;
@@ -237,11 +231,11 @@ i[id='booking'] {
         }
 
         span:nth-child(1) {
-            @include text('Montserrat', 22px, capitalize, none, black, 500, inherit);
+            @include text('Montserrat', 22px, uppercase, none, #222, 500, inherit);
         }
 
         span:nth-child(2) {
-            @include text('Montserrat', 22px, capitalize, none, grey, 300, inherit);
+            @include text('Montserrat', 22px, uppercase, none, #222, 300, inherit);
         }
     }
 }
@@ -273,14 +267,13 @@ i[id='booking'] {
         height: 360px;
         text-align: center;
         color: white;
-        padding: 25px 0 50px 0;
+        padding: 25px 0 0px 0;
         background-color: #333333;
         transition: 0.5s all linear;
         z-index: 2;
 
         li {
             list-style: none;
-
             a {
                 @include text('Montserrat', 14px, uppercase, none, white, 400, 40px);
             }
@@ -293,20 +286,23 @@ i[id='booking'] {
 }
 
 .header-menu-list-search {
-    position: relative;
     padding-bottom: 20px;
-
+    position: relative;
+    width: 181px;
+    height: 28px;
+    margin: auto;
     input {
         border: 1px solid #e7e7e7;
         padding: 5px 10px;
         font-family: 'Montserrat';
+        outline: none;
     }
 
     label {
         position: absolute;
         font-size: 17px;
-        left: 71%;
-        top: 12%;
+        left: 88%;
+        top: 20%;
     }
 }
 
@@ -440,34 +436,41 @@ i[id='booking'] {
 }
 
 .header-menu-display {
-    height: 300px;
-    position: relative;
-    background: url(../img/collection1.png), no-repeat;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: 100% 100%;
-    top: -72%;
-    text-align: center;
-    padding: 100px 0 150px 0;
-    z-index: 0;
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
 
     p {
         z-index: 2;
         @include text('Montserrat', 75px, uppercase, none, #575153, 700, 40px);
     }
 
-    span {
-        font-weight: 700 !important;
-    }
+}
 
-    p:nth-child(2) {
-        margin: 40px 0;
+.header-menu-display-link {
+    position: absolute;
+    top: 300px;
+    left: 17%;
+
+    p {
 
         a {
             padding: 5px 7px;
             @include text('Montserrat', 15px, uppercase, none, #575153, 500, 40px);
             border: 2px solid #575153;
 
+        }
+    }
+
+    &:hover {
+        p {
+            a {
+                transition: 0.5s all linear;
+                background-color: #00c8c8;
+                border-color: #00c8c8;
+                color: white;
+            }
         }
     }
 }
@@ -479,7 +482,7 @@ i[id='booking'] {
 
         &-inner {
             position: relative;
-            padding: 0 0px 15px 0px;
+            margin: 0 0px 15px 0px;
 
             img {
                 max-width: 100%;
@@ -494,7 +497,7 @@ i[id='booking'] {
 
         .price {
             position: absolute;
-            @include text('Open Sans', 25px, none, none, #777777, 400, 35px);
+            @include text('Montserrat', 25px, none, none, #9a9a9a, 400, 35px);
             margin-left: 20px;
         }
 
@@ -503,32 +506,55 @@ i[id='booking'] {
             display: none;
             top: 0;
             background: rgba(51, 49, 49, 0.74);
-            height: 382px;
+            height: 100%;
             width: 100%;
             padding-top: 50%;
             transition: 1.0s all linear;
 
-            p:nth-child(1) {
+            .name-product {
                 text-align: center;
                 @include text('Open Sans', 20px, uppercase, none, white, 400, 20px);
             }
 
-            p:nth-child(2) {
+            .text-product {
                 text-align: center;
                 @include text('Open Sans', 18px, none, none, #ffffff, 400, 20px);
                 margin-bottom: 10px;
             }
         }
 
-        &-inner-focus {
+        .navigate-block-inner-focus {
             @include flex(row, center, wrap, space-around);
             gap: 5px;
+            p {
+                position: relative;
+            
+                &::before {
+                    display: none;
+                    content: '';
+                    position: absolute;
+                    background: inherit;
+                    z-index: 2;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    border-radius: 50%;
+                }
+            }
 
             i {
+                position: relative;
+                z-index: 1;
                 background-color: #777777;
                 color: white;
                 padding: 7px;
                 border-radius: 50%;
+
+
+
             }
         }
     }
@@ -582,15 +608,11 @@ i[id='booking'] {
 
 .footer {
     margin-top: 50px;
-
-    .container {
-        padding: 0 15px;
-    }
 }
 
 .footer-acc {
     background-color: #333333;
-    padding: 20px 0 50px 0;
+    padding: 20px 15px 50px 15px;
 
     input {
         display: none;
@@ -733,9 +755,7 @@ i[id='booking'] {
 
 @media only screen and (min-width:768px) {
     .header-main {
-        position: relative;
-        background: url(../img/collection1.png);
-        background-position: 100% 0%;
+        background-position: 0 47%;
     }
 
     .header-top {
@@ -743,6 +763,7 @@ i[id='booking'] {
         align-items: center;
         justify-content: space-around;
         padding: 0 15px;
+        height: 70px;
 
         &-inner:nth-child(2) {
             display: flex;
@@ -756,7 +777,16 @@ i[id='booking'] {
     }
 
     .header-main-logo {
+        position: absolute;
         margin: 0;
+        text-align: start;
+        left: 105px;
+        top: 50px;
+    }
+
+    .header-menu .menu-nav-label {
+        top: 50px;
+        left: 92%;
     }
 
     .header-top-korzinka-flex {
@@ -764,7 +794,7 @@ i[id='booking'] {
     }
 
     .header-top-korzinka-hover {
-        left: -33px;
+        left: -36px;
     }
 
     .header-menu input[type=checkbox]:checked~.header-menu-list {
@@ -773,35 +803,36 @@ i[id='booking'] {
 
     .header-menu-list {
         width: 40%;
+        top: 80px;
     }
 
     .header-menu-display {
+        position: absolute;
+        font-size: 150px;
+        top: 200px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 0;
+
+        p {
+            font-size: 265px;
+            letter-spacing: 20px;
+        }
+    }
+
+    .header-menu-display-link {
         all: unset;
+        position: absolute;
+        right: 60px;
+    }
 
-        p:nth-child(1) {
-            position: absolute;
-            font-size: 150px;
-            top: 170px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 0;
-        }
-
-        p:nth-child(2) {
-            a {
-                position: absolute;
-                text-align: center;
-                top: 330px;
-                left: 490px;
-                width: 250px;
-                font-size: 22px;
-                font-weight: 700;
-            }
-        }
+    .navigate {
+        margin-bottom: 0;
     }
 
     .navigate-block {
         @include flex(row, center, wrap, center);
+        height: 850px;
         gap: 10px;
 
         .price {
@@ -810,31 +841,70 @@ i[id='booking'] {
         }
 
         &-inner {
+            padding: 0;
             width: 230px;
+            height: 410px;
+
+            &:nth-child(1) {
+                z-index: 2;
+            }
+
+            &:nth-child(2) {
+                z-index: 2;
+            }
+
+            &:nth-child(3) {
+                z-index: 2;
+            }
+
+            &:nth-child(4) {
+                margin-top: -230px;
+                z-index: 1;
+            }
+
+            &:nth-child(5) {
+                margin-top: -230px;
+                z-index: 1;
+            }
+
+            &:nth-child(6) {
+                margin-top: -230px;
+                z-index: 1;
+            }
 
             &:hover {
+                transition: 0.8s all linear;
                 box-shadow: 10px 14px 45px 12px rgba(0, 0, 0, 0.2);
 
                 .navigate-block-hover {
-                    opacity: 1;
+                    max-height: 125px;
+                    box-shadow: 0 3px 7px 2px #d4d3d3;
                 }
             }
         }
 
+        &-inner-back {
+            img {
+                height: 280px;
+            }
+
+        }
+
         &-hover {
             display: block;
-            opacity: 0;
+            max-height: 0px;
             padding: 0 5px;
             position: static;
-            background: none;
-            height: auto;
+            background: white;
+            overflow: hidden;
+            transition: 0.3s all linear;
 
-            p:nth-child(1) {
+            .name-product {
                 font-size: 15px;
                 color: rgb(106, 106, 106);
             }
 
-            p:nth-child(2) {
+            .text-product {
                 font-size: 12px;
                 color: rgb(127, 127, 127);
             }
@@ -842,6 +912,8 @@ i[id='booking'] {
     }
 
     .look {
+
+        // margin-top: 100px;
         .container {
             padding: 0;
         }
@@ -865,7 +937,9 @@ i[id='booking'] {
             }
         }
     }
-
+    .footer .container{
+        padding: 0;
+    }
     .footer-acc-items label {
         left: 4%;
     }
@@ -904,20 +978,19 @@ i[id='booking'] {
 @media only screen and (min-width:1024px) {
     .modul {
         &-middle {
-            width: 20%;
-            height: 310px;
+            width: 300px;
+            height: 230px;
 
-            p {
-                font-size: 25px;
+            label {
+                font-size: 20px;
             }
 
             input:nth-child(2),
             input:nth-child(3),
             input:nth-child(4) {
-                width: 80%;
-                font-size: 20px;
-                padding: 8px 5px;
-                height: 45px;
+                font-size: 17px;
+                height: 35px;
+                padding: 5px 10px;
             }
 
             &-btn {
@@ -937,30 +1010,91 @@ i[id='booking'] {
     }
 
     .header-top-inner:nth-child(2) {
-        margin-right: 10%;
+        margin-right: 5%;
+        gap: 120px;
     }
 
     .header-top-korzinka-flex {
-        height: 50px;
-        top: -8px;
+        height: 60px;
+        top: -12px;
+        width: 150px;
+        gap: 15px;
+    }
+
+    .header-top-korzinka-hover {
+        width: 450px;
+        padding: 20px;
+        background-color: rgb(248, 248, 248);
+
+        p {
+            font-size: 19px;
+        }
+
+        #clear {
+            font-size: 18px;
+        }
+
+        #buyItems {
+            font-size: 18px;
+        }
+    }
+
+    .korzinka-hover-ul {
+        padding-top: 20px;
+
+        li {
+            img {
+                width: 70px;
+                height: 70px;
+            }
+
+            #hoverDec {
+                text-align: center;
+                font-size: 20px;
+            }
+
+            button {
+                padding: 12px;
+                font-size: 19px;
+            }
+        }
+    }
+
+    .header-korzinka-hover-btn {
+        gap: 70px;
+
+        button {
+            padding: 10px 30px;
+        }
     }
 
     .header-main {
-        padding-top: 25px;
-        background-position: -130% 3%;
         height: 920px;
-        background-repeat: no-repeat;
-        background-size: cover;
     }
 
     .header-main-flex {
-        @include flex(row, space-around, nowrap, inherit);
+        padding-top: 40px;
+        @include flex(row, space-between, nowrap, start);
     }
 
     .header-main-logo {
-        flex-basis: 40%;
-        text-align: start;
-        margin: 0;
+        position: static;
+        margin: 0 0 0 17px;
+        height: 30px;
+
+        span:nth-child(1) {
+            text-transform: uppercase;
+            font-weight: 700;
+            color: rgb(34, 34, 34);
+            font-size: 27px;
+        }
+
+        span:nth-child(2) {
+            text-transform: uppercase;
+            font-weight: 400;
+            color: black;
+            font-size: 27px;
+        }
     }
 
     .menu-nav-label {
@@ -969,28 +1103,36 @@ i[id='booking'] {
 
     .header-menu {
         overflow: visible;
-        flex-basis: 50%;
     }
 
     .header-menu-list {
         position: static;
-        left: 300px;
         background: inherit;
-        top: -31px;
-        width: 750px;
+        width: 880px;
         padding: 0;
         height: 50px;
         transition: none;
+        margin-left: 6%;
 
         li {
             display: inline-block;
-            margin-right: 15px;
+            margin-right: 35px;
+
+            &:nth-child(1) {
+                margin-right: 85px !important;
+            }
 
             p,
             a {
                 color: black;
                 line-height: 30px;
                 font-weight: 600;
+                cursor: pointer;
+
+                &:hover {
+                    color: #00c8c8;
+                    transition: 0.5s all linear;
+                }
             }
         }
     }
@@ -999,24 +1141,92 @@ i[id='booking'] {
         left: 87%;
     }
 
+    .men-hover {
+        padding-bottom: 15px;
+
+        label {
+            position: relative;
+
+            p::before {
+                content: "\f078";
+                font-family: "Font Awesome 6 Free";
+                position: absolute;
+                font-weight: 900;
+                font-size: 12px;
+                color: #000000;
+                top: 20px;
+                left: -16px;
+                z-index: 4;
+            }
+        }
+    }
+
+    .women-hover {
+        padding-bottom: 15px;
+
+        label {
+            position: relative;
+
+            p::before {
+                content: "\f078";
+                font-family: "Font Awesome 6 Free";
+                position: absolute;
+                font-weight: 900;
+                font-size: 12px;
+                color: #000000;
+                top: 20px;
+                left: -28px;
+                z-index: 4;
+            }
+        }
+    }
+
+    .book-hover {
+        padding-bottom: 15px;
+
+        label {
+            position: relative;
+
+            a::before {
+                content: "\f078";
+                font-family: "Font Awesome 6 Free";
+                position: absolute;
+                font-weight: 900;
+                font-size: 12px;
+                color: #000000;
+                top: 20px;
+                left: 0px;
+                z-index: 4;
+            }
+        }
+    }
+
     .men-input:checked+.header-menu-item {
-        left: -10%;
+        left: 10%;
     }
 
     .women-input:checked+.header-menu-item#women-list {
-        left: -7%;
+        left: 15%;
     }
 
     .book-input:checked+.header-menu-item#book-list {
-        left: 35%;
+        left: 50%;
     }
 
     .men-hover:hover .header-menu-item#men-list {
         display: block;
+
+        .header-menu-list-word {
+            color: #00c8c8;
+        }
     }
 
     .women-hover:hover .header-menu-item#women-list {
         display: block;
+
+        .header-menu-list-word {
+            color: #00c8c8;
+        }
     }
 
     .book-hover:hover .header-menu-item#book-list {
@@ -1025,18 +1235,18 @@ i[id='booking'] {
 
     .header-menu-item {
         display: none;
-        top: 30px;
-        left: -10%;
+        top: 40px;
+        left: 10%;
         width: 450px;
-        background-color: white;
-        height: 400px;
-        padding: 30px 50px 0 50px;
+        background-color: rgb(248, 248, 248);
+        box-shadow: rgba(0, 0, 0, 0.14) 0px 17px 24px;
+        height: 480px;
+        padding: 30px 15px 0 15px;
         z-index: 2;
         line-height: 0%;
 
         &-in {
             label {
-                padding-right: 8px;
                 color: black;
                 font-weight: 600;
             }
@@ -1045,30 +1255,32 @@ i[id='booking'] {
     }
 
     .header-menu-item#women-list {
-        left: -7%;
+        left: 15%;
     }
 
     .header-menu-item#book-list {
-        left: 35%;
-        padding: 30px 35px 0 35px;
-        height: 350px;
+        top: 47px;
+        left: 50%;
+        padding: 30px 35px 0 20px;
+        height: 420px;
 
         ul {
             left: 250px;
         }
 
-
-        .header-menu-item-in label {
-            padding-right: 25px;
+        .header-menu-item-flex {
+            margin-left: -1.7pc;
         }
 
         .header-menu-item-discount p {
-            width: 360px;
+            width: 385px;
+            font-size: 34px !important;
+            line-height: 55px !important;
         }
     }
 
     .header-menu-item-casuals {
-        left: 50px !important;
+        left: 35px !important;
         width: 48% !important;
 
         li {
@@ -1081,10 +1293,6 @@ i[id='booking'] {
                 ;
             }
         }
-    }
-
-    #casual-word {
-        padding-right: 206px !important;
     }
 
     .header-menu-item-formal {
@@ -1104,19 +1312,25 @@ i[id='booking'] {
         }
     }
 
+    #formal-word {
+        margin-left: -60px;
+    }
+
     .header-menu-item ul {
-        background: inherit
+        background: inherit;
+        top: 30px;
+        left: 260px;
     }
 
     .header-menu-item-discount p {
         background: #333333;
         color: white !important;
-        font-size: 30px !important;
-        line-height: 35px !important;
+        font-size: 35px !important;
+        line-height: 50px !important;
         font-weight: 600 !important;
-        width: 350px;
-        padding: 25px 35px;
-        margin: 20px 0 0 -22px;
+        width: 380px;
+        padding: 35px 35px;
+        margin: 30px 0 0 -22px;
     }
 
     #formal-discount {
@@ -1125,6 +1339,8 @@ i[id='booking'] {
 
     .header-menu-item-flex {
         @include flex(row, space-around, nowrap, center);
+        margin-left: -5.7pc;
+
     }
 
     .men-cancel,
@@ -1139,7 +1355,7 @@ i[id='booking'] {
 
     .header-menu-item-ourbooks {
         padding-top: 60px !important;
-        left: 50px !important;
+        left: 35px !important;
         width: 48% !important;
 
         li {
@@ -1172,58 +1388,78 @@ i[id='booking'] {
     }
 
     .header-menu-display {
-        p:nth-child(1) {
-            top: 380px;
-            font-size: 430px !important;
-            font-weight: 550;
+        top: 430px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        p {
+            font-size: 450px !important;
+            font-weight: 700;
+            letter-spacing: 100px;
         }
 
-        p:nth-child(2) {
-            text-align: end;
+    }
 
+    .header-menu-display-link {
+        top: 80%;
+
+        p {
             a {
-                top: 78%;
                 width: 350px;
-                padding: 10px 15px;
-                font-weight: 550;
-                font-size: 20px;
-                left: 61%;
+                padding: 18px 23px;
+                font-weight: 700;
+                font-size: 17px;
+                color: #777777;
+                border-color: #777777;
             }
         }
     }
 
+    .navigate {
+        margin-top: 170px;
+
+        .container {
+            all: unset;
+        }
+    }
+
     .navigate-block {
+        height: 1294px;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: 500px 173px 220px;
-        grid-column-gap: 5px;
-        grid-row-gap: 0px;
+        grid-column-gap: 30px;
+        grid-row-gap: 110px;
         align-items: start;
-        padding: 0 15px;
+        padding: 0 50px;
 
         .navigate-block-inner:nth-child(1) {
+            z-index: 3;
+
             .navigate-block-inner-back {
                 background-color: #f7f7f7;
             }
 
             img {
-                width: 257px;
-                height: 300px;
+                height: 540px;
             }
         }
 
         .navigate-block-inner:nth-child(2) {
+            z-index: 3;
+
             .navigate-block-inner-back {
                 background-color: #f7f7f7;
             }
 
             img {
-                width: 257px;
-                height: 300px;
+                height: 540px;
             }
         }
 
         .navigate-block-inner:nth-child(3) {
+            z-index: 3;
+
             .navigate-block-inner-back {
                 background-color: #f7f7f7;
             }
@@ -1234,11 +1470,19 @@ i[id='booking'] {
             grid-row-end: 3;
 
             img {
-                width: 300px;
+                width: 600px;
+            }
+
+            .navigate-block-hover {
+                .text-product {
+                    padding: 8px 0;
+                }
             }
         }
 
         .navigate-block-inner:nth-child(4) {
+            z-index: 2;
+
             .navigate-block-inner-back {
                 background-color: #f7f7f7;
             }
@@ -1247,14 +1491,22 @@ i[id='booking'] {
             grid-column-end: 3;
             grid-row-start: 2;
             grid-row-end: 4;
-            margin-top: -70px;
+            margin-top: -30px;
 
             img {
-                width: 300px;
+                width: 600px;
+            }
+
+            .navigate-block-hover {
+                .text-product {
+                    padding: 8px 0;
+                }
             }
         }
 
         .navigate-block-inner:nth-child(5) {
+            z-index: 2;
+
             .navigate-block-inner-back {
                 background-color: #f7f7f7;
             }
@@ -1264,12 +1516,13 @@ i[id='booking'] {
             margin-top: -186px;
 
             img {
-                width: 257px;
-                height: 300px;
+                height: 585px;
             }
         }
 
         .navigate-block-inner:nth-child(6) {
+            z-index: 2;
+
             .navigate-block-inner-back {
                 background-color: #f7f7f7;
             }
@@ -1278,13 +1531,13 @@ i[id='booking'] {
             margin-top: -186px;
 
             img {
-                width: 257px;
-                height: 300px;
+                height: 585px;
             }
         }
 
         .price {
             font-size: 25px;
+            font-weight: 300;
         }
 
         &-inner {
@@ -1297,14 +1550,14 @@ i[id='booking'] {
 
         &-hover {
             background-color: #fff;
-            padding-bottom: 10px;
+            padding: 0 10px 10px 10px;
 
-            p:nth-child(1) {
+            .name-product {
                 font-size: 16px;
                 line-height: 35px;
             }
 
-            p:nth-child(2) {
+            .text-product {
                 font-size: 15px;
             }
 
@@ -1325,32 +1578,60 @@ i[id='booking'] {
         }
     }
 
+    .look {
+        margin-top: 5%;
+
+        .container {
+            all: unset;
+        }
+    }
+
     .look-block {
         gap: 10px;
-        padding: 0 15px;
+        flex-wrap: nowrap;
+        justify-content: space-between;
 
         &-items {
-            width: 430px;
-            height: 350px;
+            width: 100%;
+            height: 100%;
+            // all: unset;
+            align-items: center;
 
             &-photo {
+                flex-basis: 40%;
+
                 img {
-                    width: 150px;
-                    height: 300px;
+                    display: block;
+                    height: auto;
+                    max-width: 100%;
+                    object-fit: cover;
+                    width: auto;
                 }
+            }
+
+            &-inner {
+                flex-basis: 55%;
+
             }
         }
     }
 
+    .look-items-inner-flex {
+        @include flex(row, end, nowrap, center);
+        gap: 10px;
+    }
+
     .look-items-inner {
+
+
         &-logo {
             text-align: right;
-            font-size: 25px;
+            font-size: 30px;
         }
 
         &-usual {
             text-align: right;
-            font-size: 25px;
+            font-size: 30px;
             margin: 15px 0 10px 0;
         }
 
@@ -1361,11 +1642,16 @@ i[id='booking'] {
         }
 
         &-view {
-            margin-left: 32%;
-            font-size: 20px;
+            margin-left: 57%;
+            font-size: 16px;
+            font-weight: 600;
             width: 150px;
             padding: 10px 0;
         }
+    }
+
+    .footer {
+        background: #f8f8f8;
     }
 
     .footer-acc {
@@ -1374,13 +1660,13 @@ i[id='booking'] {
 
         &-flex {
             display: flex;
-            justify-content: center;
-            // margin-left: 40px;
+            justify-content: space-between;
         }
     }
 
     .footer-acc-items {
-        margin-left: -35px;
+        margin-left: -20px;
+        border: none;
 
         label {
             color: #333333;
@@ -1415,15 +1701,19 @@ i[id='booking'] {
 
     .footer-main {
         justify-content: center;
-        gap: 0;
+        gap: 30px;
         margin-top: -80px;
+        background: #f8f8f8;
+        padding-bottom: 40px;
+
     }
 
     .footer-main-award {
         height: 200px;
         padding: 0;
-        width: 40%;
+        width: 100%;
         padding-top: 50px;
+        margin: 0;
 
         p {
             font-size: 30px;
@@ -1436,10 +1726,11 @@ i[id='booking'] {
     }
 
     .footer-main-icons {
-        width: 40%;
+        width: 100%;
         height: 200px;
         padding-top: 80px;
         gap: 70px;
+        margin: 0;
 
         a {
             i {
@@ -1449,6 +1740,7 @@ i[id='booking'] {
     }
 
     .footer-foot {
+        margin: 0;
         padding: 10px 65px 0 65px;
         justify-content: space-between;
 
@@ -1460,5 +1752,10 @@ i[id='booking'] {
             display: flex;
             gap: 20px;
         }
+    }
+
+    .footer-foot-block {
+        @include flex(row, space-between, nowrap, center);
+        gap: 420px;
     }
 }

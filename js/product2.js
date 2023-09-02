@@ -1,6 +1,9 @@
+// import of other classes
 import { Products } from "./product.js";
-import { Product } from "./Utils.js";
+import { CurrentUser, ProductList } from "./Utils.js";
 
+
+// connections with HTML classes and id
 const type = document.querySelector('#type')
 const price = document.querySelector('#price')
 const discount = document.querySelector('#discount')
@@ -8,16 +11,28 @@ const comment = document.querySelector('#desc')
 const addProduct = document.querySelector('#add')
 const footer = document.querySelector('.footer-inner-local')
 const modul = document.querySelector('.modul')
-const products = new Product().productsFromLocalStorage()
-new Products().render(products);
 
+
+
+const products = new ProductList().productListFromLocalStorage()
+const currentUser = new CurrentUser().getCurrentUser()
+
+
+// admin can open  this page
+if (currentUser.login === 'admin' && currentUser.password === 'admin') {
+    new Products().render(products);
+} else {
+    window.location.href = '../pages/index.html'
+}
+
+
+// add Product
 addProduct.addEventListener('click', () => {
-    if (type.value != "" && type.value.length == 7 && price != "" && discount != "" && comment.value != "") {
+    if (type.value != "" && price != "" && discount != "" && comment.value != "") {
         new Products().addProduct({
             type: type.value,
             price: price.value,
             discount: discount.value,
-            desc: comment.value,
             id: Math.floor(Math.random() * 1000000)
         })
         window.location.reload()
@@ -27,6 +42,8 @@ addProduct.addEventListener('click', () => {
     }
 })
 
+
+// change an exist product
 footer.addEventListener('click', (e) => {
     if (e.target.classList.contains("edit")) {
         let id = e.target.closest(".footer-inner-table-li").id;
@@ -56,17 +73,16 @@ footer.addEventListener('click', (e) => {
             modul.style.height = '0'
         })
         saveModul.addEventListener('click', () => {
-            if (type.value.length == 7) {
-                let edit = new Products().editProducts(id, typeModul.value, priceModul.value, discModul.value)
-                new Product().saveProductToLocalStorage(edit)
-                modul.style.display = 'none'
-                window.location.reload()
-            } else {
-                alert('type have to be only 7 word')
-            }
+            let edit = new Products().editProducts(id, typeModul.value, priceModul.value, discModul.value)
+            new ProductList().saveProductListToLocalStorage(edit)
+            modul.style.display = 'none'
+            window.location.reload()
         })
     }
 })
+
+
+// delete an exist prodcuct
 footer.addEventListener('click', (e) => {
     if (e.target.classList.contains("delete")) {
         let id = e.target.closest(".footer-inner-table-li").id

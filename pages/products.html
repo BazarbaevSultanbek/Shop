@@ -65,25 +65,27 @@
         </header>
         <main class="main">
             <div class="container">
-                <div class="main-nav">
-                    <div class="main-nav-each">
-                        <label for="type">Type</label>
-                        <input type="text" id="type" placeholder="Type..">
+                <div class="main-block">
+                    <div class="main-nav">
+                        <div class="main-nav-each">
+                            <label for="type">Type</label>
+                            <input type="text" id="type">
+                        </div>
+                        <div class="main-nav-each">
+                            <label for="price">Price</label>
+                            <input type="number" id="price">
+                        </div>
+                        <div class="main-nav-each">
+                            <label for="discount">Discount</label>
+                            <input type="number" id="discount">
+                        </div>                    
                     </div>
-                    <div class="main-nav-each">
-                        <label for="price">Price</label>
-                        <input type="number" id="price" placeholder="Price..">
+                    <div class="main-nav-items">
+                        <label for="desc">Description</label>
+                        <textarea  id="desc" cols="40" rows="10"></textarea>
                     </div>
-                    <div class="main-nav-each">
-                        <label for="discount">Discount</label>
-                        <input type="number" id="discount" placeholder="Discount..">
-                    </div>                    
+                    <button id="add">Add Product</button>
                 </div>
-                <div class="main-nav-items">
-                    <label for="desc">Description</label>
-                    <textarea  id="desc" cols="40" rows="10" placeholder="Add comment.."></textarea>
-                </div>
-                <button id="add">Add Products</button>
             </div>
         </main>
         <footer class="footer">

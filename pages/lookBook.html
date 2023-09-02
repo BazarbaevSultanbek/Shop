@@ -18,31 +18,34 @@
 <body>
     <div class="wrapper">
         <header class="header">
-            <div class="container">
-                <div class="header-top">
-                    <div class="header-top-inner">
-                        <p>currency:</p>
-                        <select name="select" class="header-top-select">
-                            <option value="#">EUR</option>
-                            <option value="#">USD</option>
-                            <option value="#">UZS</option>
-                        </select>
-                    </div>
-                    <div class="header-top-inner">
-                        <div class="header-top-inner-flex">
-                            <a href="signUp.html">Register</a>
-                            <a href="signUp.html">Sign In</a>
+            <div class="header-all">
+                <div class="container">
+                    <div class="header-top">
+                        <div class="header-top-inner">
+                            <p>currency:</p>
+                            <select name="select" class="header-top-select">
+                                <option value="#">EUR</option>
+                                <option value="#">USD</option>
+                                <option value="#">UZS</option>
+                            </select>
                         </div>
-                        <div class="header-top-inner-korzinka">
-                            <div class="header-top-korzinka-flex">
-                                <i class="fa-solid fa-dolly" style="color: #ffffff;"></i>
-                                <p>0 items</p>
+                        <div class="header-top-inner">
+                            <div class="header-top-inner-flex">
+                                <a href="signUp.html">Register</a>
+                                <a href="signUp.html">Sign In</a>
                             </div>
-                            <div class="header-top-korzinka-hover">
-                                <p>Total: 0</p>
-                                <div class="header-korzinka-hover-btn">
-                                    <button>Clear cart</button>
-                                    <button>Buy items</button>
+                            <div class="header-top-inner-korzinka">
+                                <div class="header-top-korzinka-flex">
+                                    <i class="fa-solid fa-dolly" style="color: #ffffff;"></i>
+                                    <p class="count-first">0 items</p>
+                                </div>
+                                <div class="header-top-korzinka-hover">
+                                    <ul class="korzinka-hover-ul"></ul>
+                                    <p class="count">Total:0</p>
+                                    <div class="header-korzinka-hover-btn">
+                                        <button id="clear">Clear cart</button>
+                                        <button id="buyItems">Buy items</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -50,169 +53,171 @@
                 </div>
             </div>
             <div class="header-main">
-                <div class="header-main-flex">
-                    <div class="header-main-logo">
-                        <a href="index.html">
-                            <span>Avenue</span>
-                            <span>fashion</span>
-                        </a>
+                <div class="container">
+                    <div class="header-main-flex">
+                        <div class="header-main-logo">
+                            <a href="index.html">
+                                <span>Avenue</span>
+                                <span>fashion</span>
+                            </a>
+                        </div>
+                        <nav class="header-menu">
+                            <label for="checked" class="menu-nav-label">
+                                <i class="fa-solid fa-bars-staggered"></i>
+                            </label>
+                            <input type="checkbox" id="checked">
+                            <ul class="header-menu-list">
+                                <li>
+                                    <div class="header-menu-list-search">
+                                        <input type="text" class="menu-list-search-in" id="input-search"
+                                            placeholder="Search">
+                                        <label for="input-search">
+                                            <i class="fa-solid fa-magnifying-glass" style="color: #7c7d7e;"></i>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="men-hover">
+                                    <label for="men">
+                                        <p class="header-menu-list-word">men</p>
+                                    </label>
+                                    <input type="checkbox" id="men" class="men-input">
+                                    <div class="header-menu-item" id="men-list">
+                                        <div class="header-menu-item-flex">
+                                            <div class="header-menu-item-in">
+                                                <label for="men" class="men-cancel">
+                                                    <i class="fa-solid fa-xmark"></i>
+                                                </label>
+                                                <label for="casual" id="casual-word">casuals</label>
+                                                <input type="checkbox" id="casual">
+                                                <ul class="header-menu-item-casuals">
+                                                    <label for="casual" class="casual-cancel">
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </label>
+                                                    <li><a href="#">jackets</a></li>
+                                                    <li><a href="#">Hoodies & Sweatshirts</a></li>
+                                                    <li><a href="#">Polo shirts</a></li>
+                                                    <li><a href="#">Sportswear</a></li>
+                                                    <li><a href="#">Trousers & Chinos</a></li>
+                                                    <li><a href="#">T-Shirts</a></li>
+                                                    <div class="header-menu-item-discount">
+                                                        <p>AUTUMN SALE! UP TO 50% OFF</p>
+                                                    </div>
+                                                </ul>
+                                            </div>
+                                            <div class="header-menu-item-in">
+                                                <label for="formal" id="formal-word">formal</label>
+                                                <input type="checkbox" id="formal">
+                                                <ul class="header-menu-item-formal">
+                                                    <label for="formal" class="formal-cancel">
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </label>
+                                                    <li><a href="#">Jackets</a></li>
+                                                    <li><a href="#">Shirts</a></li>
+                                                    <li><a href="#">Suits</a></li>
+                                                    <li><a href="#">Trousers</a></li>
+                                                    <div class="header-menu-item-discount" id="formal-discount">
+                                                        <p>AUTUMN SALE! UP TO 50% OFF</p>
+                                                    </div>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="women-hover">
+                                    <label for="women">
+                                        <p class="header-menu-list-word">women</p>
+                                    </label>
+                                    <input type="checkbox" id="women" class="women-input">
+                                    <div class="header-menu-item" id="women-list">
+                                        <div class="header-menu-item-flex">
+                                            <div class="header-menu-item-in">
+                                                <label for="women" class="women-cancel">
+                                                    <i class="fa-solid fa-xmark"></i>
+                                                </label>
+                                                <label for="casuals" id="casual-word">casuals</label>
+                                                <input type="checkbox" id="casuals">
+                                                <ul class="header-menu-item-casuals">
+                                                    <label for="casuals" class="casual-cancel">
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </label>
+                                                    <li><a href="#">jackets</a></li>
+                                                    <li><a href="#">Hoodies & Sweatshirts</a></li>
+                                                    <li><a href="#">Polo shirts</a></li>
+                                                    <li><a href="#">Sportswear</a></li>
+                                                    <li><a href="#">Trousers & Chinos</a></li>
+                                                    <li><a href="#">T-Shirts</a></li>
+                                                    <div class="header-menu-item-discount">
+                                                        <p>AUTUMN SALE! UP TO 50% OFF</p>
+                                                    </div>
+                                                </ul>
+                                            </div>
+                                            <div class="header-menu-item-in">
+                                                <label for="formals" id="formal-wordx`">formal</label>
+                                                <input type="checkbox" id="formals">
+                                                <ul class="header-menu-item-formal">
+                                                    <label for="formals" class="formal-cancel">
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </label>
+                                                    <li><a href="#">Jackets</a></li>
+                                                    <li><a href="#">Shirts</a></li>
+                                                    <li><a href="#">Suits</a></li>
+                                                    <li><a href="#">Trousers</a></li>
+                                                    <div class="header-menu-item-discount" id="formal-discount">
+                                                        <p>AUTUMN SALE! UP TO 50% OFF</p>
+                                                    </div>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><a href="./brand.html" class="header-menu-list-word">the brand</a></li>
+                                <li><a href="./localStore.html" class="header-menu-list-word">local stores</a></li>
+                                <li class="book-hover">
+                                    <label for="book">
+                                        <a href="./lookBook.html" class="header-menu-list-word">look book</a>
+                                    </label>
+                                    <input type="checkbox" id="book" class="book-input">
+                                    <div class="header-menu-item" id="book-list">
+                                        <label for="book" class="book-cancel">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </label>
+                                        <div class="header-menu-item-flex">
+                                            <div class="header-menu-item-in">
+                                                <label for="ourbook">our lookbooks</label>
+                                                <input type="checkbox" id="ourbook">
+                                                <ul class="header-menu-item-ourbooks">
+                                                    <label for="ourbook" class="ourbook-cancel">
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </label>
+                                                    <li><a href="#">Latest Posts (mixed)</a></li>
+                                                    <li><a href="#">Men’s Lookbook</a></li>
+                                                    <li><a href="#">Women’s Lookbook</a></li>
+                                                    <div class="header-menu-item-discount">
+                                                        <p>AUTUMN SALE! UP TO 50% OFF</p>
+                                                    </div>
+                                                </ul>
+                                            </div>
+                                            <div class="header-menu-item-in">
+                                                <label for="mybook">your lookbook</label>
+                                                <input type="checkbox" id="mybook">
+                                                <ul class="header-menu-item-mybooks">
+                                                    <label for="mybook" class="mybook-cancel">
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </label>
+                                                    <li><a href="#">View and Edit</a></li>
+                                                    <li><a href="#">Share</a></li>
+                                                    <li><a href="#">Delete</a></li>
+                                                    <div class="header-menu-item-discount" id="formal-discount">
+                                                        <p>AUTUMN SALE!UP TO 50% OFF</p>
+                                                    </div>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
-                    <nav class="header-menu">
-                        <label for="checked" class="menu-nav-label">
-                            <i class="fa-solid fa-bars-staggered"></i>
-                        </label>
-                        <input type="checkbox" id="checked">
-                        <ul class="header-menu-list">
-                            <li>
-                                <div class="header-menu-list-search">
-                                    <input type="text" class="menu-list-search-in" id="input-search"
-                                        placeholder="Search">
-                                    <label for="input-search">
-                                        <i class="fa-solid fa-magnifying-glass" style="color: #7c7d7e;"></i>
-                                    </label>
-                                </div>
-                            </li>
-                            <li class="men-hover">
-                                <label for="men">
-                                    <p class="header-menu-list-word">men</p>
-                                </label>
-                                <input type="checkbox" id="men" class="men-input">
-                                <div class="header-menu-item" id="men-list">
-                                    <div class="header-menu-item-flex">
-                                        <div class="header-menu-item-in">
-                                            <label for="men" class="men-cancel">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </label>
-                                            <label for="casual" id="casual-word">casuals</label>
-                                            <input type="checkbox" id="casual">
-                                            <ul class="header-menu-item-casuals">
-                                                <label for="casual" class="casual-cancel">
-                                                    <i class="fa-solid fa-xmark"></i>
-                                                </label>
-                                                <li><a href="#">jackets</a></li>
-                                                <li><a href="#">Hoodies & Sweatshirts</a></li>
-                                                <li><a href="#">Polo shirts</a></li>
-                                                <li><a href="#">Sportswear</a></li>
-                                                <li><a href="#">Trousers & Chinos</a></li>
-                                                <li><a href="#">T-Shirts</a></li>
-                                                <div class="header-menu-item-discount">
-                                                    <p>AUTUMN SALE! UP TO 50% OFF</p>
-                                                </div>
-                                            </ul>
-                                        </div>
-                                        <div class="header-menu-item-in">
-                                            <label for="formal">formal</label>
-                                            <input type="checkbox" id="formal">
-                                            <ul class="header-menu-item-formal">
-                                                <label for="formal" class="formal-cancel">
-                                                    <i class="fa-solid fa-xmark"></i>
-                                                </label>
-                                                <li><a href="#">Jackets</a></li>
-                                                <li><a href="#">Shirts</a></li>
-                                                <li><a href="#">Suits</a></li>
-                                                <li><a href="#">Trousers</a></li>
-                                                <div class="header-menu-item-discount" id="formal-discount">
-                                                    <p>AUTUMN SALE! UP TO 50% OFF</p>
-                                                </div>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="women-hover">
-                                <label for="women" >
-                                    <p class="header-menu-list-word">women</p>
-                                </label>
-                                <input type="checkbox" id="women" class="women-input">
-                                <div class="header-menu-item" id="women-list">
-                                    <div class="header-menu-item-flex">
-                                        <div class="header-menu-item-in">
-                                            <label for="women" class="women-cancel">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </label>
-                                            <label for="casuals" id="casual-word">casuals</label>
-                                            <input type="checkbox" id="casuals">
-                                            <ul class="header-menu-item-casuals">
-                                                <label for="casuals" class="casual-cancel">
-                                                    <i class="fa-solid fa-xmark"></i>
-                                                </label>
-                                                <li><a href="#">jackets</a></li>
-                                                <li><a href="#">Hoodies & Sweatshirts</a></li>
-                                                <li><a href="#">Polo shirts</a></li>
-                                                <li><a href="#">Sportswear</a></li>
-                                                <li><a href="#">Trousers & Chinos</a></li>
-                                                <li><a href="#">T-Shirts</a></li>
-                                                <div class="header-menu-item-discount">
-                                                    <p>AUTUMN SALE! UP TO 50% OFF</p>
-                                                </div>
-                                            </ul>
-                                        </div>
-                                        <div class="header-menu-item-in">
-                                            <label for="formals">formal</label>
-                                            <input type="checkbox" id="formals">
-                                            <ul class="header-menu-item-formal">
-                                                <label for="formals" class="formal-cancel">
-                                                    <i class="fa-solid fa-xmark"></i>
-                                                </label>
-                                                <li><a href="#">Jackets</a></li>
-                                                <li><a href="#">Shirts</a></li>
-                                                <li><a href="#">Suits</a></li>
-                                                <li><a href="#">Trousers</a></li>
-                                                <div class="header-menu-item-discount" id="formal-discount">
-                                                    <p>AUTUMN SALE! UP TO 50% OFF</p>
-                                                </div>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li><a href="./brand.html" class="header-menu-list-word">the brand</a></li>
-                            <li><a href="./localStore.html" class="header-menu-list-word">local stores</a></li>
-                            <li class="book-hover">
-                                <label for="book" >
-                                    <a href="./lookBook.html" class="header-menu-list-word">look book</a>
-                                </label>
-                                <input type="checkbox" id="book" class="book-input">
-                                <div class="header-menu-item" id="book-list">
-                                    <label for="book" class="book-cancel">
-                                        <i class="fa-solid fa-xmark"></i>
-                                    </label>
-                                    <div class="header-menu-item-flex">
-                                        <div class="header-menu-item-in">
-                                            <label for="ourbook">our lookbooks</label>
-                                            <input type="checkbox" id="ourbook">
-                                            <ul class="header-menu-item-ourbooks">
-                                                <label for="ourbook" class="ourbook-cancel">
-                                                    <i class="fa-solid fa-xmark"></i>
-                                                </label>
-                                                <li><a href="#">Latest Posts (mixed)</a></li>
-                                                <li><a href="#">Men’s Lookbook</a></li>
-                                                <li><a href="#">Women’s Lookbook</a></li>
-                                                <div class="header-menu-item-discount">
-                                                    <p>AUTUMN SALE!UP TO 50% OFF</p>
-                                                </div>
-                                            </ul>
-                                        </div>
-                                        <div class="header-menu-item-in">
-                                            <label for="mybook">your lookbook</label>
-                                            <input type="checkbox" id="mybook">
-                                            <ul class="header-menu-item-mybooks">
-                                                <label for="mybook" class="mybook-cancel">
-                                                    <i class="fa-solid fa-xmark"></i>
-                                                </label>
-                                                <li><a href="#">View and Edit</a></li>
-                                                <li><a href="#">Share</a></li>
-                                                <li><a href="#">Delete</a></li>
-                                                <div class="header-menu-item-discount" id="formal-discount">
-                                                    <p>AUTUMN SALE!UP TO 50% OFF</p>
-                                                </div>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </nav>
                 </div>
                 <div class="header-menu-display">
                     <p>
@@ -225,92 +230,90 @@
 
         </header>
         <main class="main">
-            <div class="container">
-                <div class="main-block">
-                    <div class="main-block-item">
-                        <div class="main-block-item-photo">
-                            <img src="../img/clothes1.png" alt="clothes1">
-                        </div>
-                        <div class="main-block-item-text">
-                            <p class="main-item-text-sup"><sup>REF</sup>M1</p>
-                        </div>
+            <div class="main-block">
+                <div class="main-block-item">
+                    <div class="main-block-item-photo">
+                        <img src="../img/clothes1.png" alt="clothes1">
                     </div>
-                    <div class="main-block-item">
-                        <div class="main-block-item-photo">
-                            <img src="../img/clothes2.png" alt="clothes2">
-                        </div>
-                        <div class="main-block-item-text">
-                            <p class="main-item-text-sup"><sup>REF</sup>M1</p>
-                        </div>
+                    <div class="main-block-item-text">
+                        <sup>REF</sup>M1
                     </div>
-                    <div class="main-block-item">
-                        <div class="main-block-item-photo">
-                            <img src="../img/clothes3.png" alt="clothes3">
-                        </div>
-                        <div class="main-block-item-inner">
-                            <p class="main-item-inner-logo">Jane's <span>Lookbook</span></p>
-                            <p>GET THE LOOK FOR UNDER £200!</p>
-                            <p>We invited actress Jane Marshall to join us for the day and choose her perfect outfit
-                                from our vast range of womens fashion.</p>
-                            <p>This is of course not true as this is just a design for a website and this is simply
-                                filler text.</p>
-                            <a href="#" class="main-item-inner-view">view now</a>
-                        </div>
+                </div>
+                <div class="main-block-item">
+                    <div class="main-block-item-photo">
+                        <img src="../img/clothes2.png" alt="clothes2">
                     </div>
-                    <div class="main-block-item">
-                        <div class="main-block-item-photo">
-                            <img src="../img/clothes4.png" alt="clothes4">
-                        </div>
-                        <div class="main-block-item-text">
-                            <p class="main-item-text-sup"><sup>REF</sup>M1</p>
-                        </div>
+                    <div class="main-block-item-text">
+                        <sup>REF</sup>M1
                     </div>
-                    <div class="main-block-item">
-                        <div class="main-block-item-photo">
-                            <img src="../img/clothes5.png" alt="clothes5">
-                        </div>
-                        <div class="main-block-item-text">
-                            <p class="main-item-text-sup"><sup>REF</sup>M1</p>
-                        </div>
+                </div>
+                <div class="main-block-item">
+                    <div class="main-block-item-photo">
+                        <img src="../img/clothes3.png" alt="clothes3">
                     </div>
-                    <div class="main-block-item">
-                        <div class="main-block-item-photo">
-                            <img src="../img/clothes6.png" alt="clothes6">
-                        </div>
-                        <div class="main-block-item-text">
-                            <p class="main-item-text-sup"><sup>REF</sup>M1</p>
-                        </div>
+                    <div class="main-block-item-inner">
+                        <p class="main-item-inner-logo">Jane's <span>Lookbook</span></p>
+                        <p>GET THE LOOK FOR UNDER £200!</p>
+                        <p>We invited actress Jane Marshall to join us for the day and choose her perfect outfit
+                            from our vast range of womens fashion.</p>
+                        <p>This is of course not true as this is just a design for a website and this is simply
+                            filler text.</p>
+                        <a href="#" class="main-item-inner-view">view now</a>
                     </div>
-                    <div class="main-block-item">
-                        <div class="main-block-item-photo">
-                            <img src="../img/clothes7.png" alt="clothes7">
-                        </div>
-                        <div class="main-block-item-text">
-                            <p class="main-item-text-sup"><sup>REF</sup>M1</p>
-                        </div>
+                </div>
+                <div class="main-block-item">
+                    <div class="main-block-item-photo">
+                        <img src="../img/clothes4.png" alt="clothes4">
                     </div>
-                    <div class="main-block-item">
-                        <div class="main-block-item-photo">
-                            <img src="../img/clothes8.png" alt="clothes8">
-                        </div>
-                        <div class="main-block-item-inner">
-                            <p class="main-item-inner-logo">WIN <span> A NEW LOOK!</span></p>
-                            <p>ADD LOOKS OR ITEMS TO YOUR LOOKBOOK FOR A CHANCE OF WINNING</p>
-                            <p>See an item or a complete look you like, click the  button to add it to your lookbook
-                                and you’ll be automatically entered to our monthly draw where one winner gets a £300
-                                gift voucher to spend on our website!</p>
-                            <p>Terms: No purchase necessary. Vouchers are non-transferable and no cash alternative is
-                                ofered. Competition is for members only.</p>
-                            <a href="#" class="main-item-inner-view">view now</a>
-                        </div>
+                    <div class="main-block-item-text">
+                       <sup>REF</sup>M1
                     </div>
-                    <div class="main-block-item">
-                        <div class="main-block-item-photo">
-                            <img src="../img/clothes9.png" alt="clothes9">
-                        </div>
-                        <div class="main-block-item-text">
-                            <p class="main-item-text-sup"><sup>REF</sup>M1</p>
-                        </div>
+                </div>
+                <div class="main-block-item">
+                    <div class="main-block-item-photo">
+                        <img src="../img/clothes5.png" alt="clothes5">
+                    </div>
+                    <div class="main-block-item-text">
+                       <sup>REF</sup>M1
+                    </div>
+                </div>
+                <div class="main-block-item">
+                    <div class="main-block-item-photo">
+                        <img src="../img/clothes6.png" alt="clothes6">
+                    </div>
+                    <div class="main-block-item-text">
+                        <sup>REF</sup>M1
+                    </div>
+                </div>
+                <div class="main-block-item">
+                    <div class="main-block-item-photo">
+                        <img src="../img/clothes7.png" alt="clothes7">
+                    </div>
+                    <div class="main-block-item-text">
+                        <sup>REF</sup>M1
+                    </div>
+                </div>
+                <div class="main-block-item">
+                    <div class="main-block-item-photo">
+                        <img src="../img/clothes8.png" alt="clothes8">
+                    </div>
+                    <div class="main-block-item-inner">
+                        <p class="main-item-inner-logo">WIN <span> A NEW LOOK!</span></p>
+                        <p>ADD LOOKS OR ITEMS TO YOUR LOOKBOOK FOR A CHANCE OF WINNING</p>
+                        <p>See an item or a complete look you like, click the  button to add it to your lookbook
+                            and you’ll be automatically entered to our monthly draw where one winner gets a £300
+                            gift voucher to spend on our website!</p>
+                        <p>Terms: No purchase necessary. Vouchers are non-transferable and no cash alternative is
+                            ofered. Competition is for members only.</p>
+                        <a href="#" class="main-item-inner-view">view now</a>
+                    </div>
+                </div>
+                <div class="main-block-item">
+                    <div class="main-block-item-photo">
+                        <img src="../img/clothes9.png" alt="clothes9">
+                    </div>
+                    <div class="main-block-item-text">
+                        <sup>REF</sup>M1
                     </div>
                 </div>
             </div>
@@ -363,8 +366,8 @@
             </div>
         </section>
         <footer class="footer">
-            <div class="footer-acc">
-                <div class="container">
+            <div class="container">
+                <div class="footer-acc">
                     <div class="footer-acc-flex">
                         <div class="footer-acc-items">
                             <input type="radio" name="accordion" id="acc1" checked>
@@ -400,10 +403,10 @@
                             <ul class="footer-acc-items-things">
                                 <li><a href="signUp.html">Sign in</a></li>
                                 <li><a href="signUp.html">Register</a></li>
-                                <li><a href="products.html">View cart</a></li>
+                                <li><a href="#">View cart</a></li>
                                 <li><a href="lookBook.html">View your lookbook</a></li>
-                                <li><a href="orders.html">Track an order</a></li>
-                                <li><a href="users.html">Update information</a></li>
+                                <li><a href="#">Track an order</a></li>
+                                <li><a href="#">Update information</a></li>
                             </ul>
                         </div>
                         <div class="footer-acc-items">
@@ -434,32 +437,36 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="footer-main">
-                <div class="footer-main-award">
-                    <p>AWARD WINNER</p>
-                    <p>FASHION AWARDS 2016</p>
-                </div>
-                <div class="footer-main-icons">
-                    <a href="#">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-twitter"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-brands fa-pinterest"></i>
-                    </a>
+                <div class="footer-main">
+                    <div class="footer-main-award">
+                        <p>AWARD WINNER</p>
+                        <p>FASHION AWARDS 2016</p>
+                    </div>
+                    <div class="footer-main-icons">
+                        <a href="#">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa-brands fa-pinterest"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="footer-foot">
-                <p class="footer-foot-avenue">© 2016 Avenue Fashion™</p>
-                <div class="footer-foot-flex">
-                    <p>Design by RobbyDesigns.com</p>
-                    <p>Dev by Loremipsum.com</p>
+                <div class="container">
+                    <div class="footer-foot-block">
+                        <p class="footer-foot-avenue">© 2016 Avenue Fashion™</p>
+                        <div class="footer-foot-flex">
+                            <p>Design by RobbyDesigns.com</p>
+                            <p>Dev by Loremipsum.com</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>

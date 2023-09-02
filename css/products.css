@@ -692,11 +692,11 @@
     font-size: 22px;
     padding: 5px 7px 3px 7px;
   }
-  .header-logo {
-    width: 11em;
+  .header {
+    height: 0;
   }
-  .header-logo span {
-    font-size: 25px;
+  .header-logo {
+    display: none;
   }
   .header-block-menu label {
     display: none;
@@ -726,29 +726,69 @@
     width: 90%;
     padding-top: 5%;
   }
+  .main-nav {
+    all: unset;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 20px;
+  }
   .main-nav-each {
-    width: 270px;
+    all: unset;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 10px;
+    margin: 15px 0;
   }
   .main-nav-each:nth-child(3) label {
-    margin-left: -168px;
+    margin-left: -95px;
   }
   .main-nav-each label {
-    font-size: 20px;
-    margin-left: -210px;
+    font-size: 17px;
+    margin-left: -127px;
   }
   .main-nav-each input {
-    width: 270px;
+    width: 175px;
     font-size: 17px;
   }
   .main-nav-items {
     width: 80%;
   }
   .main-nav-items label {
-    font-size: 20px;
+    font-size: 17px;
   }
   .main button[id=add] {
     margin-left: 10%;
-    font-size: 20px;
+    font-size: 17px;
+  }
+  .main-block {
+    width: 700px;
+    margin: auto;
   }
   .footer {
     background: #f5f5fa;
