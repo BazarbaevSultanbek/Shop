@@ -37,7 +37,12 @@ if(currentUser.length !== 0){
     logout.style.display = 'block'
     logout.addEventListener('click',()=>{
         localStorage.removeItem("currentUser")
-        window.location.href = '../pages.signUp.html'
+        localStorage.removeItem("Cart")
+        count = 0
+        firstCount.innerHTML = `${count} items`
+        totalCount.innerHTML = `Total:${count}`
+        window.location.href = '../pages/signUp.html'
+
         if (window.innerWidth >= 1024) {
             permLinkOut.style.width = '450px !important';
         }

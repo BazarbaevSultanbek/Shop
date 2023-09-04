@@ -893,6 +893,7 @@ i[id=booking] {
 }
 .footer-main-icons a {
   color: white;
+  text-decoration: none;
 }
 .footer-main-icons i {
   margin-right: 10px;
