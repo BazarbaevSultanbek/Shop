@@ -193,10 +193,7 @@ i[id=booking] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   gap: 40px;
-  width: 320px !important;
 }
 .header-top-inner-flex a {
   font-family: "Montserrat";
@@ -665,8 +662,8 @@ i[id=booking] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   -webkit-box-align: space-around;
       -ms-flex-align: space-around;
           align-items: space-around;
@@ -940,13 +937,13 @@ i[id=booking] {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    gap: 80px;
+    gap: 110px;
     -ms-flex-pack: distribute;
         justify-content: space-around;
   }
   .header-top-inner-flex {
     margin-left: -50px;
-    width: 350px !important;
+    width: 120px;
   }
   .header-top-inner-flex a, .header-top-inner-flex p {
     font-size: 14px;
@@ -1183,7 +1180,7 @@ i[id=booking] {
             align-items: center;
   }
 }
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1440px) {
   .modul-middle {
     width: 300px;
     height: 230px;
@@ -1214,6 +1211,9 @@ i[id=booking] {
   .header-top-inner:nth-child(2) {
     margin-right: 5%;
     gap: 120px;
+  }
+  .header-top-inner-flex {
+    width: 170px;
   }
   .header-top-korzinka-flex {
     height: 60px;
@@ -1580,6 +1580,9 @@ i[id=booking] {
         -ms-flex-align: start;
             align-items: start;
     padding: 0 50px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .navigate-block .navigate-block-inner:nth-child(1) {
     z-index: 3;

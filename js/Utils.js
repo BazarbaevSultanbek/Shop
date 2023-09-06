@@ -102,16 +102,16 @@ if (orders.length === 0) {
                 {
                     img: "../img/shirt4.png",
                     name: "ave classic",
-                    price: "£125",
-                    count: "6",
+                    price: 125,
+                    count: 6,
                     discount: "-£20",
                     id: 352442
                 },
                 {
                     img: "../img/shirt2.png",
                     name: "ave classic sweatshirt",
-                    price: "£125",
-                    count: "9",
+                    price: 125,
+                    count: 9,
                     discount: "-£20",
                     id: 352442
                 }

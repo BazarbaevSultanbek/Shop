@@ -28,8 +28,6 @@ export class Orders {
     }
     showButtonFunction(id) {
         const foundItem = this.order.filter(item => item.id == id);
-        console.log(foundItem);
-
         const ordersList = document.querySelector('#ordersList');
         ordersList.innerHTML = ''
         foundItem.map(item => {
@@ -72,7 +70,7 @@ if (currentUser.login === 'admin' && currentUser.password === 'admin') {
         new Orders().render(new Orders().order);
     });
 } else {
-    window.location.href = '../pages/index.html';
+    window.location.href = '../index.html';
 }
 
 

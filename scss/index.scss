@@ -148,9 +148,7 @@ i[id='booking'] {
 .header-top-inner-flex {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 40px;
-    width: 320px !important;
     a {
         @include text('Montserrat', 12px, capitalize, none, grey, 500, inherit);
     }
@@ -489,7 +487,6 @@ i[id='booking'] {
     margin: 50px 0;
 
     &-block {
-
         &-inner {
             position: relative;
             margin: 0 0px 15px 0px;
@@ -534,7 +531,7 @@ i[id='booking'] {
         }
 
         .navigate-block-inner-focus {
-            @include flex(row, center, wrap, space-around);
+            @include flex(row, center, nowrap, space-around);
             gap: 5px;
             p {
                 position: relative;
@@ -778,13 +775,13 @@ i[id='booking'] {
 
         &-inner:nth-child(2) {
             display: flex;
-            gap: 80px;
+            gap:110px;
             justify-content: space-around;
         }
 
         &-inner-flex {
             margin-left: -50px;
-            width: 350px !important;
+            width: 120px;
             a,p{
                 font-size: 14px;
             }
@@ -849,6 +846,7 @@ i[id='booking'] {
         @include flex(row, center, wrap, center);
         height: 850px;
         gap: 10px;
+        
 
         .price {
             font-size: 18px;
@@ -991,7 +989,7 @@ i[id='booking'] {
     }
 }
 
-@media only screen and (min-width:1024px) {
+@media only screen and (min-width:1440px) {
     .modul {
         &-middle {
             width: 300px;
@@ -1029,7 +1027,9 @@ i[id='booking'] {
         margin-right: 5%;
         gap: 120px;
     }
-
+    .header-top-inner-flex{
+        width: 170px;
+    }
     .header-top-korzinka-flex {
         height: 60px;
         top: -12px;
@@ -1448,7 +1448,7 @@ i[id='booking'] {
         grid-row-gap: 110px;
         align-items: start;
         padding: 0 50px;
-
+        justify-content: center;
         .navigate-block-inner:nth-child(1) {
             z-index: 3;
 

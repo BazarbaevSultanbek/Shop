@@ -16,13 +16,14 @@ export class ProductInIndex {
             this.listItems.insertAdjacentHTML('beforeend', `
             <li id="${item.id}" class="korzinka-hover-ul-li">
             <img src="${item.img}"> 
-           <input type="number" id="hoverDec" value="${item.count}" min="0">
+           <input type="number" id="hoverDec" value="${item.count}" min="1">
             <button id="hoverDel">delete</button>   
             </li>
             `)
         })
+
         firstCount.textContent = `${this.totalCount(product)} items`
-        totalCount.textContent = `Total:£${this.totalPrice(product)}`
+        totalCount.textContent = `Total:£${this.totalPrice()}`
     }
 
     // add Item from under the photo
@@ -56,35 +57,35 @@ export class ProductInIndex {
 
     // total Count
     totalCount(product) {
-        let totalCount = 0; 
-    
+        let totalCount = 0;
+
         for (const total of product) {
             totalCount += parseInt(total.count);
         }
-    
+
         return totalCount;
     }
 
     // total Price
-    totalPrice(products){
-
+    totalPrice() {
         let totalPrice = 0;
-
-        for(const product of products){
-            let price = JSON.parse(product.price.replace('£', '')); 
-            totalPrice += price;
-            totalPrice += price * product.count;
-        }
-
+        this.cart.forEach((item) => {
+            totalPrice += item.count * item.price;
+        });
         return totalPrice;
     }
+    
+
 
     // change item count
     getAndChangeItem(id, count) {
-        let getItem = this.cart.filter((item) => item.id == id)
-        getItem[0].count = count
+        let getItem = this.cart.find((item) => item.id == id);
+        getItem.count = count;
         localStorage.setItem("Cart", JSON.stringify(this.cart));
+        firstCount.textContent = `${this.totalCount(this.cart)} items`
+        totalCount.textContent = `Total:£${this.totalPrice()}`
     }
+
 
     // function removing
     deleteItem(id) {

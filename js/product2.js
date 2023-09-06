@@ -22,7 +22,7 @@ const currentUser = new CurrentUser().getCurrentUser()
 if (currentUser.login === 'admin' && currentUser.password === 'admin') {
     new Products().render(products);
 } else {
-    window.location.href = '../pages/index.html'
+    window.location.href = '../index.html'
 }
 
 

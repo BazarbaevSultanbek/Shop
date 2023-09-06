@@ -14,7 +14,6 @@ let price;
 let name;
 let count = 0
 
-
 // connections with HTML classes
 let firstCount = document.querySelector('.count-first')
 let totalCount = document.querySelector('.count')
@@ -23,19 +22,20 @@ let clearCart = document.querySelector('#clear')
 let modul = document.querySelector('.modul')
 let listItems = document.querySelector('.korzinka-hover-ul')
 let naviBlock = document.querySelector('.navigate-block')
-let permLink = document.querySelector('#permLink')
-let permLinkOut = document.querySelector('.header-top-inner-flex')
-let logout = document.querySelector('#logOut')
+let permLink = document.querySelector('#regist')
+let logout = document.querySelector('#SignIn')
 // Link for permission to only admin
-if (currentUser.login === 'admin' && currentUser.password == 'admin') {
-    permLink.style.display = 'block'
-    if (window.innerWidth >= 1024) {
-        permLinkOut.style.width = '450px';
-    }
+
+if (currentUser.login == 'admin') {
+    permLink.innerHTML = 'Permission'
+    permLink.href = '../pages/users.html'
 }
-if(currentUser.length !== 0){
-    logout.style.display = 'block'
-    logout.addEventListener('click',()=>{
+
+
+if (currentUser.length !== 0) {
+
+    logout.innerHTML = 'logOut'
+    logout.addEventListener('click', () => {
         localStorage.removeItem("currentUser")
         localStorage.removeItem("Cart")
         count = 0
@@ -43,20 +43,14 @@ if(currentUser.length !== 0){
         totalCount.innerHTML = `Total:${count}`
         window.location.href = '../pages/signUp.html'
 
-        if (window.innerWidth >= 1024) {
-            permLinkOut.style.width = '450px !important';
-        }
     })
-    if(currentUser.login == 'admin' && currentUser.password == 'admin'){
-        permLinkOut.style.gap = '30px';
-    }
 }
 
 // navigators under photos
 naviBlock.addEventListener('click', (event) => {
     if (currentUser.length != 0) {
         if (event.target.id == 'order') {
-            price = event.target.closest('.navigate-block-inner').querySelector('.price').textContent
+            price = event.target.closest('.navigate-block-inner').querySelector('.price').id
             imgId = event.target.closest('.navigate-block-inner').querySelector('.img').getAttribute('src');
             name = event.target.closest('.navigate-block-inner').querySelector('.name-product').id
             if (products.find((item) => item.img === imgId)) {
@@ -85,26 +79,26 @@ naviBlock.addEventListener('click', (event) => {
 
 
 // total counts of all items and prices
-firstCount.innerHTML = `${new ProductInIndex().totalCount(products)} items`
-totalCount.innerHTML = `Total:£${new ProductInIndex().totalPrice(products)}`;
+// firstCount.innerHTML = `${new ProductInIndex().totalCount(products)} items`
+// totalCount.innerHTML = `Total:£${new ProductInIndex().totalPrice(products)}`;
 
 
 // delete and add item in hover
-listItems.addEventListener('click', (e) => {
+listItems.addEventListener('change', (e) => {
     if (e.target.id == 'hoverDec') {
         let id = e.target.closest('.korzinka-hover-ul-li').id
-        let closeCount = e.target.closest('.korzinka-hover-ul-li').querySelector('#hoverDec').value
-        new ProductInIndex().getAndChangeItem(id, closeCount);
-        firstCount.innerHTML = `${new ProductInIndex().totalCount(products)} items`
-        totalCount.innerHTML = `Total:£${new ProductInIndex().totalPrice(products)}`;
+        let closeCount = e.target.closest('.korzinka-hover-ul-li').querySelector('#hoverDec')
+        new ProductInIndex().getAndChangeItem(id, closeCount.value);
     }
+})
+
+listItems.addEventListener('click', (e) => {
     if (e.target.id == 'hoverDel') {
+        console.log('adsa');
         let id = e.target.closest('.korzinka-hover-ul-li').id
         new ProductInIndex().deleteItem(id)
     }
-
 })
-
 
 // delete all items that customer wanted to buy
 clearCart.addEventListener('click', () => {

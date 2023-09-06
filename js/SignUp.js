@@ -18,7 +18,7 @@ regist.addEventListener('click', () => {
             password: regPass.value,
         }))
         alert('Welcome new Customer!')
-        window.location.href = '../pages/index.html'
+        window.location.href = '../index.html'
     } else if (admin.find(admin => admin.login === regEmail.value)) {
         alert('You have already registered!');
     } else if (regEmail.value.length === 0 || regPass.value.length === 0 || regConf.value.length === 0 || regAccept.checked === false) {
@@ -42,7 +42,7 @@ signIn.addEventListener('click', () => {
             password: signPass.value,
         }))
         alert(`Welcome ${signEmail.value}`)
-        window.location.href = "../pages/index.html"
+        window.location.href = "../index.html"
     }else{
         alert('You are not exist in this website!')
     }

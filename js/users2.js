@@ -14,7 +14,7 @@ let currentUser = new CurrentUser().getCurrentUser()
 if (currentUser.login === 'admin' && currentUser.password === 'admin'){
         new Users().render(admins)
 }else{
-    window.location.href = '../pages/index.html'
+    window.location.href = '../index.html'
 }
 
 regist.addEventListener('click', () => {
