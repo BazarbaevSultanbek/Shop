@@ -6,8 +6,36 @@ const imgSrc = JSON.parse(localStorage.getItem('selectedImgSrc'));
 const productDiv = document.querySelector('#product');
 
 if (imgSrc && imgSrc.length !== 0) {
-  productDiv.innerHTML = `<img src="${imgSrc.img}" alt="cloth">`;
+  productDiv.innerHTML = `<img src="${imgSrc.img}" alt="cloth" id="zoomed-img">`;
+  ZoomProduct();
 }
+
+
+function ZoomProduct() {
+  
+  const zoomContainer = document.querySelector('#product');
+  const zoomedImg = document.querySelector('#zoomed-img');
+
+  zoomContainer.addEventListener('mousemove', (event) => {
+    let clientX = event.pageX - zoomContainer.offsetLeft;
+    let clientY = event.pageY - zoomContainer.offsetTop;
+
+    let bWidth = zoomContainer.offsetWidth;
+    let bHeight = zoomContainer.offsetHeight;
+
+    let clientXPercent = (clientX / bWidth) * 100;
+    let clientYPercent = (clientY / bHeight) * 100;
+    zoomedImg.style.transform = `translate(-${clientXPercent}%, -${clientYPercent}%) scale(2)`;
+  });
+
+  zoomContainer.addEventListener('mouseleave', (e) => {
+    zoomedImg.style.transform = 'translate(0%, 0%) scale(1)';
+  });
+
+}
+
+
+
 
 const addProduct = document.querySelector('#addCart')
 
@@ -117,3 +145,7 @@ buyItems.addEventListener('click', () => {
       })
   }
 })
+
+
+
+       

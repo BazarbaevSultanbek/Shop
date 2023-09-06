@@ -997,6 +997,19 @@ button {
 }
 
 @media only screen and (min-width:1024px) {
+    #product {
+        position: relative;
+        overflow: hidden; 
+      }
+      
+      #zoomed-img {
+        position: absolute; 
+        top: 0;
+        left: 0;
+        transform-origin: top left; 
+      }
+      
+    
     .modul {
         &-middle {
             width: 300px;
